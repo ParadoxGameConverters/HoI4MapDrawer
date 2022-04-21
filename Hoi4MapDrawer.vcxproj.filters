@@ -11,6 +11,9 @@
     <Filter Include="external\commonItems">
       <UniqueIdentifier>{e68236b4-fd36-410b-984d-3f658a4daf61}</UniqueIdentifier>
     </Filter>
+    <Filter Include="external\rakaly">
+      <UniqueIdentifier>{f6242d71-624f-492d-8333-5fe36a1b1d33}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -24,5 +27,16 @@
     <ClInclude Include="external\commonItems\Log.h">
       <Filter>external\commonItems</Filter>
     </ClInclude>
+    <ClInclude Include="external\rakaly\rakaly.h">
+      <Filter>external\rakaly</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rakaly_wrapper.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="external\rakaly\rakaly.dll">
+      <Filter>external\rakaly</Filter>
+    </CopyFileToFolders>
   </ItemGroup>
 </Project>
