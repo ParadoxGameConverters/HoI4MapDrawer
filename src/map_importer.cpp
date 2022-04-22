@@ -19,7 +19,7 @@ namespace map_importer
 namespace
 {
 
-#pragma optimize("", off)
+
 unsigned int pixelPack(const unsigned char r, const unsigned char g, const unsigned char b)
 {
    return r << 16 | g << 8 | b;
@@ -161,7 +161,7 @@ std::map<int, std::set<Pixel>> GetProvinceDefinitions()
 
    return province_to_pixel_map;
 }
-#pragma optimize("", on)
+
 
 }  // namespace map_importer
 }  // namespace hoi4_map_drawer
