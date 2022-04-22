@@ -7,3 +7,6 @@
 [submodule "external/Fronter"]
 	path = external/Fronter
 	url = git@github.com:ParadoxGameConverters/Fronter.git
+[submodule "external/CImg"]
+	path = external/CImg
+	url = git@github.com:dtschump/CImg.git
