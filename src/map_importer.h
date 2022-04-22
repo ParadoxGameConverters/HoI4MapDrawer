@@ -18,7 +18,7 @@ struct Pixel
 {
    int x;
    int y;
-   bool operator<(const Pixel& rhs) const { return x < rhs.x && y < rhs.y; }
+   bool operator<(const Pixel& rhs) const { return y < rhs.y || x < rhs.x; }
 };
 
 std::map<int, std::set<Pixel>> GetProvinceDefinitions();

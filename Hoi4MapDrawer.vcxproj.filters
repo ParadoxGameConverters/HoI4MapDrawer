@@ -25,6 +25,15 @@
     <ClCompile Include="src\map_importer.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="external\commonItems\OSCommonLayer.cpp">
+      <Filter>external\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\WinUtils.cpp">
+      <Filter>external\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\iconvlite.cpp">
+      <Filter>external\commonItems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\commonItems\Log.h">
@@ -38,6 +47,9 @@
     </ClInclude>
     <ClInclude Include="src\map_importer.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\iconvlite.h">
+      <Filter>external\commonItems</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

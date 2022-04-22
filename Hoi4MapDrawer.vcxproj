@@ -40,7 +40,7 @@
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
@@ -55,11 +55,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="external\commonItems\iconvlite.cpp" />
     <ClCompile Include="external\commonItems\Log.cpp" />
+    <ClCompile Include="external\commonItems\OSCommonLayer.cpp" />
+    <ClCompile Include="external\commonItems\WinUtils.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\map_importer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="external\commonItems\iconvlite.h" />
     <ClInclude Include="external\commonItems\Log.h" />
     <ClInclude Include="external\rakaly\rakaly.h" />
     <ClInclude Include="src\map_importer.h" />
