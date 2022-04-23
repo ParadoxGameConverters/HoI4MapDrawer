@@ -68,6 +68,7 @@
     <ClInclude Include="external\commonItems\Log.h" />
     <ClInclude Include="external\rakaly\rakaly.h" />
     <ClInclude Include="src\map_importer\map_importer.h" />
+    <ClInclude Include="src\map_importer\pixel.h" />
     <ClInclude Include="src\rakaly_wrapper.h" />
   </ItemGroup>
   <ItemGroup>

@@ -78,6 +78,9 @@
     <ClCompile Include="src\map_importer\map_importer_test.cpp">
       <Filter>src\map_importer</Filter>
     </ClCompile>
+    <ClCompile Include="src\map_importer\pixel_test.cpp">
+      <Filter>src\map_importer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\commonItems\iconvlite.h">

@@ -63,6 +63,7 @@
     <ClCompile Include="external\googletest\googletest\src\gtest_main.cc" />
     <ClCompile Include="src\map_importer\map_importer.cpp" />
     <ClCompile Include="src\map_importer\map_importer_test.cpp" />
+    <ClCompile Include="src\map_importer\pixel_test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\commonItems\iconvlite.h" />

@@ -60,6 +60,9 @@
     <ClInclude Include="src\map_importer\map_importer.h">
       <Filter>src\map_importer</Filter>
     </ClInclude>
+    <ClInclude Include="src\map_importer\pixel.h">
+      <Filter>src\map_importer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="external\rakaly\rakaly.dll">
