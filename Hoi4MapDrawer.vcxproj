@@ -63,6 +63,7 @@
     <ClCompile Include="src\map_importer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="external\CImg\CImg.h" />
     <ClInclude Include="external\commonItems\iconvlite.h" />
     <ClInclude Include="external\commonItems\Log.h" />
     <ClInclude Include="external\rakaly\rakaly.h" />

@@ -20,6 +20,7 @@ struct Pixel
    int x;
    int y;
    bool operator<(const Pixel& rhs) const { return y < rhs.y || x < rhs.x; }
+   bool operator==(const Pixel& rhs) const { return y == rhs.y && x == rhs.x; }
 };
 
 std::map<int, std::set<Pixel>> GetProvinceDefinitions(const std::string& hoi4_folder);

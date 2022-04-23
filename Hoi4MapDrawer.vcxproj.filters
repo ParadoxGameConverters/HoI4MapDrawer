@@ -14,6 +14,9 @@
     <Filter Include="external\rakaly">
       <UniqueIdentifier>{f6242d71-624f-492d-8333-5fe36a1b1d33}</UniqueIdentifier>
     </Filter>
+    <Filter Include="external\CImg">
+      <UniqueIdentifier>{7bca4a1a-53c0-4035-9786-235e80049696}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -50,6 +53,9 @@
     </ClInclude>
     <ClInclude Include="external\commonItems\iconvlite.h">
       <Filter>external\commonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="external\CImg\CImg.h">
+      <Filter>external\CImg</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

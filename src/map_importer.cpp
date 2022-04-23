@@ -4,6 +4,7 @@
 #include <optional>
 #include <string>
 
+#define cimg_verbosity 0
 #include "external/CImg/CImg.h"
 #include "external/commonItems/Log.h"
 #include "external/commonItems/OSCompatibilityLayer.h"
@@ -74,10 +75,6 @@ std::optional<std::tuple<int, unsigned char, unsigned char, unsigned char>> Pars
       if (sepLoc == std::string::npos)
          return std::nullopt;
       auto b = static_cast<unsigned char>(std::stoi(line.substr(sepLocSave + 1, sepLoc - sepLocSave - 1)));
-      sepLocSave = sepLoc;
-      sepLoc = line.find(';', sepLocSave + 1);
-      if (sepLoc == std::string::npos)
-         return std::nullopt;
       return std::make_tuple(ID, r, g, b);
    }
    catch (std::exception& e)

@@ -69,6 +69,22 @@
     <ClInclude Include="external\commonItems\Log.h" />
     <ClInclude Include="src\map_importer.h" />
   </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="data\test_data\map_importer_test\missing_definition.csv\map\provinces.bmp">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/map_importer_test/missing_definition.csv/map</DestinationFolders>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="data\test_data\map_importer_test\valid_map_data\map\provinces.bmp">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/map_importer_test/valid_map_data/map/</DestinationFolders>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="data\test_data\map_importer_test\valid_map_data\map\definition.csv">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/map_importer_test/valid_map_data/map</DestinationFolders>
+    </CopyFileToFolders>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
