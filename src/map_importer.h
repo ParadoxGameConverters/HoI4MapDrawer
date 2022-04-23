@@ -5,6 +5,7 @@
 
 #include <map>
 #include <set>
+#include <string>
 
 
 
@@ -21,7 +22,7 @@ struct Pixel
    bool operator<(const Pixel& rhs) const { return y < rhs.y || x < rhs.x; }
 };
 
-std::map<int, std::set<Pixel>> GetProvinceDefinitions();
+std::map<int, std::set<Pixel>> GetProvinceDefinitions(const std::string& hoi4_folder);
 
 
 }  // namespace map_importer

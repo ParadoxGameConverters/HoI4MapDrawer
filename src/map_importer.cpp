@@ -134,12 +134,10 @@ std::map<int, int> LoadDefinitions(const std::string& fileName)
 }  // namespace
 
 
-std::map<int, std::set<Pixel>> GetProvinceDefinitions()
+std::map<int, std::set<Pixel>> GetProvinceDefinitions(const std::string& hoi4_folder)
 {
-   const auto color_to_pixel_definitions =
-       GetColorToPixelDefinitions("C:/Program Files (x86)/Steam/steamapps/common/Hearts of Iron IV/map");
-   const auto color_to_province_definitions =
-       LoadDefinitions("C:/Program Files (x86)/Steam/steamapps/common/Hearts of Iron IV/map/definition.csv");
+   const auto color_to_pixel_definitions = GetColorToPixelDefinitions(hoi4_folder + "/map");
+   const auto color_to_province_definitions = LoadDefinitions(hoi4_folder + "/map/definition.csv");
 
    int pixel_count = 0;
    std::map<int, std::set<Pixel>> province_to_pixel_map;
