@@ -17,6 +17,9 @@
     <Filter Include="external\CImg">
       <UniqueIdentifier>{7bca4a1a-53c0-4035-9786-235e80049696}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\map_importer">
+      <UniqueIdentifier>{c9c0fdbe-8101-4571-84ef-e4baf7872706}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -24,9 +27,6 @@
     </ClCompile>
     <ClCompile Include="external\commonItems\Log.cpp">
       <Filter>external\commonItems</Filter>
-    </ClCompile>
-    <ClCompile Include="src\map_importer.cpp">
-      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="external\commonItems\OSCommonLayer.cpp">
       <Filter>external\commonItems</Filter>
@@ -36,6 +36,9 @@
     </ClCompile>
     <ClCompile Include="external\commonItems\iconvlite.cpp">
       <Filter>external\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\map_importer\map_importer.cpp">
+      <Filter>src\map_importer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -48,14 +51,14 @@
     <ClInclude Include="src\rakaly_wrapper.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\map_importer.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="external\commonItems\iconvlite.h">
       <Filter>external\commonItems</Filter>
     </ClInclude>
     <ClInclude Include="external\CImg\CImg.h">
       <Filter>external\CImg</Filter>
+    </ClInclude>
+    <ClInclude Include="src\map_importer\map_importer.h">
+      <Filter>src\map_importer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

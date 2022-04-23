@@ -46,11 +46,11 @@
     <Filter Include="data\test_data\map_importer_test\valid_map_data\map">
       <UniqueIdentifier>{0ac2f59a-b47d-45bb-8ea8-a8355e8fe622}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\map_importer">
+      <UniqueIdentifier>{a0d89228-dc2f-44e9-80e0-88bb8b4a731b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\map_importer.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="external\commonItems\iconvlite.cpp">
       <Filter>external\commonItems</Filter>
     </ClCompile>
@@ -72,19 +72,22 @@
     <ClCompile Include="external\googletest\googlemock\src\gmock-all.cc">
       <Filter>external\googletest\googlemock\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\map_importer_test.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="src\map_importer\map_importer.cpp">
+      <Filter>src\map_importer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\map_importer\map_importer_test.cpp">
+      <Filter>src\map_importer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\map_importer.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="external\commonItems\iconvlite.h">
       <Filter>external\commonItems</Filter>
     </ClInclude>
     <ClInclude Include="external\commonItems\Log.h">
       <Filter>external\commonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="src\map_importer\map_importer.h">
+      <Filter>src\map_importer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -60,14 +60,14 @@
     <ClCompile Include="external\commonItems\OSCommonLayer.cpp" />
     <ClCompile Include="external\commonItems\WinUtils.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\map_importer.cpp" />
+    <ClCompile Include="src\map_importer\map_importer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\CImg\CImg.h" />
     <ClInclude Include="external\commonItems\iconvlite.h" />
     <ClInclude Include="external\commonItems\Log.h" />
     <ClInclude Include="external\rakaly\rakaly.h" />
-    <ClInclude Include="src\map_importer.h" />
+    <ClInclude Include="src\map_importer\map_importer.h" />
     <ClInclude Include="src\rakaly_wrapper.h" />
   </ItemGroup>
   <ItemGroup>

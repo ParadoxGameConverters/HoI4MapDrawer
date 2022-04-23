@@ -61,13 +61,13 @@
     <ClCompile Include="external\googletest\googlemock\src\gmock-all.cc" />
     <ClCompile Include="external\googletest\googletest\src\gtest-all.cc" />
     <ClCompile Include="external\googletest\googletest\src\gtest_main.cc" />
-    <ClCompile Include="src\map_importer.cpp" />
-    <ClCompile Include="src\map_importer_test.cpp" />
+    <ClCompile Include="src\map_importer\map_importer.cpp" />
+    <ClCompile Include="src\map_importer\map_importer_test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\commonItems\iconvlite.h" />
     <ClInclude Include="external\commonItems\Log.h" />
-    <ClInclude Include="src\map_importer.h" />
+    <ClInclude Include="src\map_importer\map_importer.h" />
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="data\test_data\map_importer_test\missing_definition.csv\map\provinces.bmp">

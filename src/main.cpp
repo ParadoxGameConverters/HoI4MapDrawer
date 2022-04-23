@@ -3,7 +3,7 @@
 #include <ranges>
 
 #include "external/commonItems/Log.h"
-#include "src/map_importer.h"
+#include "src/map_importer/map_importer.h"
 #include "src/rakaly_wrapper.h"
 
 
