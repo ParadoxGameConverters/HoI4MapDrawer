@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{ec6507ec-717f-46cf-bbd3-a1037a6ce072}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external">
+      <UniqueIdentifier>{682afe1f-2d19-4eba-a6d3-ee94037fa980}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\commonItems">
+      <UniqueIdentifier>{b7566997-3f99-4100-9aef-834ff080be2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\googletest">
+      <UniqueIdentifier>{bca95ec6-1a23-4714-8dfe-6220f5f2fad3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\googletest\googletest">
+      <UniqueIdentifier>{3f574f5f-7b98-4921-a5ad-bea2efb91e8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\googletest\googletest\src">
+      <UniqueIdentifier>{ac2be401-51c3-44a5-8db1-0f8041c6f7a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\googletest\googlemock">
+      <UniqueIdentifier>{c6d9480f-c217-4e83-8865-ca2e4d534d52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\googletest\googlemock\src">
+      <UniqueIdentifier>{20f83632-6141-4731-8140-6bae67689513}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\map_importer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\map_importer_test.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\iconvlite.cpp">
+      <Filter>external\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\Log.cpp">
+      <Filter>external\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\OSCommonLayer.cpp">
+      <Filter>external\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\WinUtils.cpp">
+      <Filter>external\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="external\googletest\googletest\src\gtest_main.cc">
+      <Filter>external\googletest\googletest\src</Filter>
+    </ClCompile>
+    <ClCompile Include="external\googletest\googletest\src\gtest-all.cc">
+      <Filter>external\googletest\googletest\src</Filter>
+    </ClCompile>
+    <ClCompile Include="external\googletest\googlemock\src\gmock-all.cc">
+      <Filter>external\googletest\googlemock\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\map_importer.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\iconvlite.h">
+      <Filter>external\commonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\Log.h">
+      <Filter>external\commonItems</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
