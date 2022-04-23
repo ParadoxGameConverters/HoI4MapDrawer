@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hoi4MapDrawer", "Hoi4MapDrawer.vcxproj", "{B3BAF06A-A387-454E-A2E5-BE27E7536291}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hoi4MapDrawerTests", "Hoi4MapDrawerTests.vcxproj", "{E048DB6A-3573-4387-B83C-37C5DD662518}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Release|x64 = Release|x64
@@ -12,6 +14,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{B3BAF06A-A387-454E-A2E5-BE27E7536291}.Release|x64.ActiveCfg = Release|x64
 		{B3BAF06A-A387-454E-A2E5-BE27E7536291}.Release|x64.Build.0 = Release|x64
+		{E048DB6A-3573-4387-B83C-37C5DD662518}.Release|x64.ActiveCfg = Release|x64
+		{E048DB6A-3573-4387-B83C-37C5DD662518}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

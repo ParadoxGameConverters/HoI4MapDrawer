@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{ec6507ec-717f-46cf-bbd3-a1037a6ce072}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external">
+      <UniqueIdentifier>{682afe1f-2d19-4eba-a6d3-ee94037fa980}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\commonItems">
+      <UniqueIdentifier>{b7566997-3f99-4100-9aef-834ff080be2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\googletest">
+      <UniqueIdentifier>{bca95ec6-1a23-4714-8dfe-6220f5f2fad3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\googletest\googletest">
+      <UniqueIdentifier>{3f574f5f-7b98-4921-a5ad-bea2efb91e8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\googletest\googletest\src">
+      <UniqueIdentifier>{ac2be401-51c3-44a5-8db1-0f8041c6f7a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\googletest\googlemock">
+      <UniqueIdentifier>{c6d9480f-c217-4e83-8865-ca2e4d534d52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\googletest\googlemock\src">
+      <UniqueIdentifier>{20f83632-6141-4731-8140-6bae67689513}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data">
+      <UniqueIdentifier>{3d012628-6e8e-4afa-afdc-4e78c05dafd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\test_data">
+      <UniqueIdentifier>{845e6ae2-ae7b-4e77-ac44-efaeb18afe56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\test_data\map_importer_test">
+      <UniqueIdentifier>{2d465c8b-d076-4d9a-9742-e72f3504b104}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\test_data\map_importer_test\missing_definition.csv">
+      <UniqueIdentifier>{958b7b3b-36a7-4382-a0a3-a9135c9bcd95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\test_data\map_importer_test\valid_map_data">
+      <UniqueIdentifier>{053ff9a9-5874-410b-bf28-c71883d26ea2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\test_data\map_importer_test\missing_definition.csv\map">
+      <UniqueIdentifier>{b1c5aba7-e061-432f-ab06-2f16b9818a81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\test_data\map_importer_test\valid_map_data\map">
+      <UniqueIdentifier>{0ac2f59a-b47d-45bb-8ea8-a8355e8fe622}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\map_importer">
+      <UniqueIdentifier>{a0d89228-dc2f-44e9-80e0-88bb8b4a731b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="external\commonItems\iconvlite.cpp">
+      <Filter>external\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\Log.cpp">
+      <Filter>external\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\OSCommonLayer.cpp">
+      <Filter>external\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\WinUtils.cpp">
+      <Filter>external\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="external\googletest\googletest\src\gtest_main.cc">
+      <Filter>external\googletest\googletest\src</Filter>
+    </ClCompile>
+    <ClCompile Include="external\googletest\googletest\src\gtest-all.cc">
+      <Filter>external\googletest\googletest\src</Filter>
+    </ClCompile>
+    <ClCompile Include="external\googletest\googlemock\src\gmock-all.cc">
+      <Filter>external\googletest\googlemock\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\map_importer\map_importer.cpp">
+      <Filter>src\map_importer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\map_importer\map_importer_test.cpp">
+      <Filter>src\map_importer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\map_importer\pixel_test.cpp">
+      <Filter>src\map_importer</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="external\commonItems\iconvlite.h">
+      <Filter>external\commonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\Log.h">
+      <Filter>external\commonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="src\map_importer\map_importer.h">
+      <Filter>src\map_importer</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="data\test_data\map_importer_test\missing_definition.csv\map\provinces.bmp">
+      <Filter>data\test_data\map_importer_test\missing_definition.csv\map</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\map_importer_test\valid_map_data\map\provinces.bmp">
+      <Filter>data\test_data\map_importer_test\valid_map_data\map</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\map_importer_test\valid_map_data\map\definition.csv">
+      <Filter>data\test_data\map_importer_test\valid_map_data\map</Filter>
+    </CopyFileToFolders>
+  </ItemGroup>
+</Project>
