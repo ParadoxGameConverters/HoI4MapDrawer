@@ -2,7 +2,6 @@
 
 #include <fstream>
 #include <optional>
-#include <ranges>
 #include <string>
 
 #define cimg_verbosity 0
@@ -57,39 +56,39 @@ std::optional<std::tuple<int, uint8_t, uint8_t, uint8_t>> ParseLine(const std::s
 {
    try
    {
-      auto sections = std::views::split(line, ';');
+      auto separator_location = line.find(';');
+      if (separator_location == std::string::npos)
+      {
+          return std::nullopt;
+      }
+      auto id = std::stoi(line.substr(0, separator_location));
 
-      auto section = sections.begin();
-      if (section == sections.end())
+      auto separator_location_save = separator_location;
+      separator_location = line.find(';', separator_location_save + 1);
+      if (separator_location == std::string::npos)
       {
          return std::nullopt;
       }
-      const std::string id_string(*section);
-      auto id = std::stoi(id_string);
+      auto red = static_cast<unsigned char>(
+          std::stoi(line.substr(separator_location_save + 1, separator_location - separator_location_save - 1)));
 
-      ++section;
-      if (section == sections.end())
+      separator_location_save = separator_location;
+      separator_location = line.find(';', separator_location_save + 1);
+      if (separator_location == std::string::npos)
       {
          return std::nullopt;
       }
-      const std::string red_string(*section);
-      auto red = std::stoi(red_string);
+      auto green = static_cast<unsigned char>(
+          std::stoi(line.substr(separator_location_save + 1, separator_location - separator_location_save - 1)));
 
-      ++section;
-      if (section == sections.end())
+      separator_location_save = separator_location;
+      separator_location = line.find(';', separator_location_save + 1);
+      if (separator_location == std::string::npos)
       {
          return std::nullopt;
       }
-      const std::string green_string(*section);
-      auto green = std::stoi(green_string);
-
-      ++section;
-      if (section == sections.end())
-      {
-         return std::nullopt;
-      }
-      const std::string blue_string(*section);
-      auto blue = std::stoi(blue_string);
+      auto blue = static_cast<unsigned char>(
+          std::stoi(line.substr(separator_location_save + 1, separator_location - separator_location_save - 1)));
 
       return std::make_tuple(id, red, green, blue);
    }
