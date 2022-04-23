@@ -52,7 +52,8 @@ int main()
 
       Log(LogLevel::Info) << "-> Importing HoI4 map.";
       Log(LogLevel::Progress) << "20 %";
-      const auto map_definitions = hoi4_map_drawer::map_importer::GetProvinceDefinitions("C:/Program Files (x86)/Steam/steamapps/common/Hearts of Iron IV");
+      const auto map_definitions = hoi4_map_drawer::map_importer::GetProvinceDefinitions(
+          "C:/Program Files (x86)/Steam/steamapps/common/Hearts of Iron IV");
 
       std::stringstream pixel_log;
       pixel_log << "Pixels of province ";
