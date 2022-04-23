@@ -1,13 +1,8 @@
 #include "src/map_importer/map_importer.h"
 
-#include <algorithm>
-#include <filesystem>
-#include <fstream>
-#include <iterator>
 #include <sstream>
 
 #include "external/CImg/CImg.h"
-#include "external/commonItems/OSCompatibilityLayer.h"
 #include "external/googletest/googlemock/include/gmock/gmock.h"
 #include "external/googletest/googletest/include/gtest/gtest.h"
 

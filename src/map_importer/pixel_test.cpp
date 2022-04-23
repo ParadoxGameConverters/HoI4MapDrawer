@@ -1,18 +1,10 @@
 #include "src/map_importer/pixel.h"
 
-#include <algorithm>
-#include <filesystem>
-#include <fstream>
-#include <iterator>
-#include <sstream>
-
-#include "external/googletest/googlemock/include/gmock/gmock.h"
 #include "external/googletest/googletest/include/gtest/gtest.h"
 
 
 
 using hoi4_map_drawer::map_importer::Pixel;
-using testing::UnorderedElementsAre;
 
 
 
