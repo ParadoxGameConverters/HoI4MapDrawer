@@ -12,6 +12,7 @@
 #include "external/googletest/googletest/include/gtest/gtest.h"
 
 
+
 using hoi4_map_drawer::map_importer::GetProvinceDefinitions;
 using hoi4_map_drawer::map_importer::Pixel;
 using testing::UnorderedElementsAre;
@@ -110,18 +111,17 @@ TEST(MapImporterTest, ProvinceDefinitionsAreImported)
 
 TEST(MapImporterTest, BadDefinitionLinesAreLogged)
 {
-    std::stringstream log;
-    std::streambuf* cout_buffer = std::cout.rdbuf();
-    std::cout.rdbuf(log.rdbuf());
+   std::stringstream log;
+   std::streambuf* cout_buffer = std::cout.rdbuf();
+   std::cout.rdbuf(log.rdbuf());
 
-    auto province_definitions = GetProvinceDefinitions("map_importer_test/valid_map_data");
-    province_definitions.clear(); // make the annoying warning go away
+   auto province_definitions = GetProvinceDefinitions("map_importer_test/valid_map_data");
+   province_definitions.clear();  // make the annoying warning go away
 
-    std::stringstream expected_log;
-    expected_log << "    [INFO] provinces.bmp is 8 x 8.\n";
-    expected_log << " [WARNING] Broken Definition Line: 10;broken_line; - invalid stoi argument\n";
-    expected_log << "    [INFO] Assigned 64 pixels to provinces.\n";
-    EXPECT_EQ(log.str(), expected_log.str());
+   std::stringstream expected_log;
+   expected_log << "    [INFO] provinces.bmp is 8 x 8.\n";
+   expected_log << " [WARNING] Broken Definition Line: 10;broken_line; - invalid stoi argument\n";
+   EXPECT_EQ(log.str(), expected_log.str());
 
-    std::cout.rdbuf(cout_buffer);    
+   std::cout.rdbuf(cout_buffer);
 }
