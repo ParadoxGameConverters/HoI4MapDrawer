@@ -6,11 +6,11 @@
 
 hoi4_map_drawer::state_definitions::StateDefinitionImporter::StateDefinitionImporter()
 {
-   parser.registerKeyword("id", [this](std::istream& the_stream) {
-      id = commonItems::getInt(the_stream);
+   parser_.registerKeyword("id", [this](std::istream& the_stream) {
+      id_ = commonItems::getInt(the_stream);
    });
-   parser.registerKeyword("provinces", [this](std::istream& the_stream) {
-      provinces = commonItems::getInts(the_stream);
+   parser_.registerKeyword("provinces", [this](std::istream& the_stream) {
+      provinces_ = commonItems::getInts(the_stream);
    });
 }
 
@@ -18,12 +18,12 @@ hoi4_map_drawer::state_definitions::StateDefinitionImporter::StateDefinitionImpo
 std::optional<std::pair<int, std::vector<int>>>
 hoi4_map_drawer::state_definitions::StateDefinitionImporter::ImportState(std::istream& the_stream)
 {
-   id.reset();
-   provinces.clear();
-   parser.parseStream(the_stream);
-   if (id.has_value())
+   id_.reset();
+   provinces_.clear();
+   parser_.parseStream(the_stream);
+   if (id_.has_value())
    {
-      return make_pair(*id, provinces);
+      return make_pair(*id_, provinces_);
    }
    else
    {

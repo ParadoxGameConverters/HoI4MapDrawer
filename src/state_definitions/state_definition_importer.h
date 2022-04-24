@@ -24,10 +24,10 @@ class StateDefinitionImporter
    std::optional<std::pair<int, std::vector<int>>> ImportState(std::istream& the_stream);
 
   private:
-   std::optional<int> id;
-   std::vector<int> provinces;
+   std::optional<int> id_;
+   std::vector<int> provinces_;
 
-   commonItems::parser parser;
+   commonItems::parser parser_;
 };
 
 
