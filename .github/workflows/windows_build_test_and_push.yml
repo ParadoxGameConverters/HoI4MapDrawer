@@ -11,7 +11,7 @@ jobs:
   build_test_and_publish:
     name: Build, test and publish local
     if: github.repository_owner == 'HoI4MapDrawer'
-    runs-on: [self-hosted, windows]
+    runs-on: [windows]
 
     steps:
     - name: work around permission issue
