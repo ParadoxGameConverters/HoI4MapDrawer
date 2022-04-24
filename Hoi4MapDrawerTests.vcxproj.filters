@@ -58,6 +58,12 @@
     <Filter Include="data\test_data\state_definitions\state_definitions">
       <UniqueIdentifier>{6fa02be0-32bb-48c7-9345-cd1bec89b521}</UniqueIdentifier>
     </Filter>
+    <Filter Include="data\test_data\state_definitions\state_definitions\history">
+      <UniqueIdentifier>{50874e0d-fca4-44fe-9200-81d80793afd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\test_data\state_definitions\state_definitions\history\states">
+      <UniqueIdentifier>{b5ccedf5-77b3-4ecf-9a52-c9d8ee8d881d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="external\commonItems\iconvlite.cpp">
@@ -148,14 +154,14 @@
     <CopyFileToFolders Include="data\test_data\map_importer_test\valid_map_data\map\definition.csv">
       <Filter>data\test_data\map_importer_test\valid_map_data\map</Filter>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="data\test_data\state_definitions\state_definitions\1-Empty.txt">
-      <Filter>data\test_data\state_definitions\state_definitions</Filter>
+    <CopyFileToFolders Include="data\test_data\state_definitions\state_definitions\history\states\1-Empty.txt">
+      <Filter>data\test_data\state_definitions\state_definitions\history\states</Filter>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="data\test_data\state_definitions\state_definitions\2-Simple.txt">
-      <Filter>data\test_data\state_definitions\state_definitions</Filter>
+    <CopyFileToFolders Include="data\test_data\state_definitions\state_definitions\history\states\2-Simple.txt">
+      <Filter>data\test_data\state_definitions\state_definitions\history\states</Filter>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="data\test_data\state_definitions\state_definitions\42-Mismatch.txt">
-      <Filter>data\test_data\state_definitions\state_definitions</Filter>
+    <CopyFileToFolders Include="data\test_data\state_definitions\state_definitions\history\states\42-Mismatch.txt">
+      <Filter>data\test_data\state_definitions\state_definitions\history\states</Filter>
     </CopyFileToFolders>
   </ItemGroup>
 </Project>

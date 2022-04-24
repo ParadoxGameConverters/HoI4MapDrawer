@@ -21,9 +21,9 @@ std::map<int, std::vector<int>> hoi4_map_drawer::state_definitions::StateDefinit
 {
    state_data_.clear();
 
-   for (const auto& file: commonItems::GetAllFilesInFolder(std::string(states_history_folder)))
+   for (const auto& file: commonItems::GetAllFilesInFolder(std::string(states_history_folder + "/history/states/")))
    {
-      parser_.parseFile(states_history_folder + '/' + file);
+      parser_.parseFile(states_history_folder + "/history/states/" + file);
    }
 
    return state_data_;

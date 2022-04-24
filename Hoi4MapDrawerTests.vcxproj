@@ -99,14 +99,14 @@
     </CopyFileToFolders>
   </ItemGroup>
   <ItemGroup>
-    <CopyFileToFolders Include="data\test_data\state_definitions\state_definitions\1-Empty.txt">
-      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/test_data/state_definitions/state_definitions/</DestinationFolders>
+    <CopyFileToFolders Include="data\test_data\state_definitions\state_definitions\history\states\1-Empty.txt">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/test_data/state_definitions/state_definitions/history/states/</DestinationFolders>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="data\test_data\state_definitions\state_definitions\2-Simple.txt">
-      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/test_data/state_definitions/state_definitions/</DestinationFolders>
+    <CopyFileToFolders Include="data\test_data\state_definitions\state_definitions\history\states\2-Simple.txt">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/test_data/state_definitions/state_definitions/history/states/</DestinationFolders>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="data\test_data\state_definitions\state_definitions\42-Mismatch.txt">
-      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/test_data/state_definitions/state_definitions/</DestinationFolders>
+    <CopyFileToFolders Include="data\test_data\state_definitions\state_definitions\history\states\42-Mismatch.txt">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/test_data/state_definitions/state_definitions/history/states/</DestinationFolders>
     </CopyFileToFolders>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
