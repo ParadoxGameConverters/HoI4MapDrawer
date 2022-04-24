@@ -57,6 +57,9 @@
     <ClCompile Include="external\commonItems\iconvlite.cpp" />
     <ClCompile Include="external\commonItems\Log.cpp" />
     <ClCompile Include="external\commonItems\OSCommonLayer.cpp" />
+    <ClCompile Include="external\commonItems\Parser.cpp" />
+    <ClCompile Include="external\commonItems\ParserHelpers.cpp" />
+    <ClCompile Include="external\commonItems\StringUtils.cpp" />
     <ClCompile Include="external\commonItems\WinUtils.cpp" />
     <ClCompile Include="external\googletest\googlemock\src\gmock-all.cc" />
     <ClCompile Include="external\googletest\googletest\src\gtest-all.cc" />
@@ -64,11 +67,20 @@
     <ClCompile Include="src\map_importer\map_importer.cpp" />
     <ClCompile Include="src\map_importer\map_importer_test.cpp" />
     <ClCompile Include="src\map_importer\pixel_test.cpp" />
+    <ClCompile Include="src\state_definitions\state_definitions_importer.cpp" />
+    <ClCompile Include="src\state_definitions\state_definitions_importer_test.cpp" />
+    <ClCompile Include="src\state_definitions\state_definition_importer.cpp" />
+    <ClCompile Include="src\state_definitions\state_definition_importer_test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\commonItems\iconvlite.h" />
     <ClInclude Include="external\commonItems\Log.h" />
+    <ClInclude Include="external\commonItems\Parser.h" />
+    <ClInclude Include="external\commonItems\ParserHelpers.h" />
+    <ClInclude Include="external\commonItems\StringUtils.h" />
     <ClInclude Include="src\map_importer\map_importer.h" />
+    <ClInclude Include="src\state_definitions\state_definitions_importer.h" />
+    <ClInclude Include="src\state_definitions\state_definition_importer.h" />
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="data\test_data\map_importer_test\missing_definition.csv\map\provinces.bmp">
@@ -84,6 +96,22 @@
     <CopyFileToFolders Include="data\test_data\map_importer_test\valid_map_data\map\definition.csv">
       <FileType>Document</FileType>
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/test_data/map_importer_test/valid_map_data/map</DestinationFolders>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="data\test_data\state_definitions\state_definitions\history\states\1-Empty.txt">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/test_data/state_definitions/state_definitions/history/states/</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\state_definitions\state_definitions\history\states\2-Simple.txt">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/test_data/state_definitions/state_definitions/history/states/</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\state_definitions\state_definitions\history\states\42-Mismatch.txt">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/test_data/state_definitions/state_definitions/history/states/</DestinationFolders>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="data\test_data\state_definitions\state_definitions\history\states\3-ExtraData.txt">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/test_data/state_definitions/state_definitions/history/states/</DestinationFolders>
     </CopyFileToFolders>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

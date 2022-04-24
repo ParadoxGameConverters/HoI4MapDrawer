@@ -1,0 +1,2 @@
+# The parser should not choke on extra data
+extra = {}

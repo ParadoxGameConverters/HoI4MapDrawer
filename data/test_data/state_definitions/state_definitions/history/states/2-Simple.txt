@@ -1,0 +1,8 @@
+# A straightforward state definition
+state={
+	id=2
+	provinces=
+	{
+		2 4 8 16
+	}
+}

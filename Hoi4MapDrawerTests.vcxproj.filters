@@ -49,6 +49,21 @@
     <Filter Include="src\map_importer">
       <UniqueIdentifier>{a0d89228-dc2f-44e9-80e0-88bb8b4a731b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\state_definitions">
+      <UniqueIdentifier>{440499e2-4b45-42cf-a076-c4b878b7ea2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\test_data\state_definitions">
+      <UniqueIdentifier>{6155f71e-4c30-45d4-8ac2-573be7871cbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\test_data\state_definitions\state_definitions">
+      <UniqueIdentifier>{6fa02be0-32bb-48c7-9345-cd1bec89b521}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\test_data\state_definitions\state_definitions\history">
+      <UniqueIdentifier>{50874e0d-fca4-44fe-9200-81d80793afd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\test_data\state_definitions\state_definitions\history\states">
+      <UniqueIdentifier>{b5ccedf5-77b3-4ecf-9a52-c9d8ee8d881d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="external\commonItems\iconvlite.cpp">
@@ -81,6 +96,27 @@
     <ClCompile Include="src\map_importer\pixel_test.cpp">
       <Filter>src\map_importer</Filter>
     </ClCompile>
+    <ClCompile Include="src\state_definitions\state_definition_importer.cpp">
+      <Filter>src\state_definitions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\state_definitions\state_definition_importer_test.cpp">
+      <Filter>src\state_definitions</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\Parser.cpp">
+      <Filter>external\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ParserHelpers.cpp">
+      <Filter>external\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\StringUtils.cpp">
+      <Filter>external\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\state_definitions\state_definitions_importer.cpp">
+      <Filter>src\state_definitions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\state_definitions\state_definitions_importer_test.cpp">
+      <Filter>src\state_definitions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\commonItems\iconvlite.h">
@@ -92,6 +128,21 @@
     <ClInclude Include="src\map_importer\map_importer.h">
       <Filter>src\map_importer</Filter>
     </ClInclude>
+    <ClInclude Include="src\state_definitions\state_definition_importer.h">
+      <Filter>src\state_definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\Parser.h">
+      <Filter>external\commonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ParserHelpers.h">
+      <Filter>external\commonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\StringUtils.h">
+      <Filter>external\commonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="src\state_definitions\state_definitions_importer.h">
+      <Filter>src\state_definitions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="data\test_data\map_importer_test\missing_definition.csv\map\provinces.bmp">
@@ -102,6 +153,18 @@
     </CopyFileToFolders>
     <CopyFileToFolders Include="data\test_data\map_importer_test\valid_map_data\map\definition.csv">
       <Filter>data\test_data\map_importer_test\valid_map_data\map</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\state_definitions\state_definitions\history\states\1-Empty.txt">
+      <Filter>data\test_data\state_definitions\state_definitions\history\states</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\state_definitions\state_definitions\history\states\2-Simple.txt">
+      <Filter>data\test_data\state_definitions\state_definitions\history\states</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\state_definitions\state_definitions\history\states\42-Mismatch.txt">
+      <Filter>data\test_data\state_definitions\state_definitions\history\states</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\state_definitions\state_definitions\history\states\3-ExtraData.txt">
+      <Filter>data\test_data\state_definitions\state_definitions\history\states</Filter>
     </CopyFileToFolders>
   </ItemGroup>
 </Project>

@@ -1,0 +1,7 @@
+# The filename isn't the source of the id, the data is
+state={
+	id=3
+	provinces={
+		3 9 27 81
+	}
+}

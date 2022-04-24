@@ -5,6 +5,7 @@
 #include "external/commonItems/Log.h"
 #include "src/map_importer/map_importer.h"
 #include "src/rakaly_wrapper.h"
+#include "src/state_definitions/state_definitions_importer.h"
 
 
 
@@ -70,6 +71,25 @@ int main()
          }
       }
       Log(LogLevel::Info) << pixel_log.str();
+
+      const auto state_definitions =
+          hoi4_map_drawer::state_definitions::StateDefinitionsImporter{}.ImportStateDefinitions(
+              "C:/Program Files (x86)/Steam/steamapps/common/Hearts of Iron IV");
+      std::stringstream state_log;
+      state_log << "Provinces of state ";
+      for (const auto& state: state_definitions | std::views::keys | std::views::take(1))
+      {
+         state_log << state;
+      }
+      state_log << ": ";
+      for (const auto& provinces: state_definitions | std::views::values | std::views::take(1))
+      {
+         for (const auto& province: provinces)
+         {
+            state_log << province << " ";
+         }
+      }
+      Log(LogLevel::Info) << state_log.str();
    }
    catch (const std::exception& e)
    {
