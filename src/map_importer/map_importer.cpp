@@ -60,7 +60,7 @@ std::optional<std::tuple<int, uint8_t, uint8_t, uint8_t>> ParseLine(const std::s
       auto separator_location = line.find(';');
       if (separator_location == std::string::npos)
       {
-          return std::nullopt;
+         return std::nullopt;
       }
       auto id = std::stoi(line.substr(0, separator_location));
 

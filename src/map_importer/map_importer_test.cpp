@@ -20,7 +20,8 @@ using testing::UnorderedElementsAre;
 
 TEST(MapImporterTest, MissingProvincesDotBmpThrowsException)
 {
-   EXPECT_THROW(GetProvinceDefinitions("./test_data/map_importer_test/missing_provinces.bmp"), cimg_library::CImgIOException);
+   EXPECT_THROW(GetProvinceDefinitions("./test_data/map_importer_test/missing_provinces.bmp"),
+       cimg_library::CImgIOException);
 }
 
 
