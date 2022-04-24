@@ -1,6 +1,8 @@
 #include "src/state_definitions/state_definitions_importer.h"
 
+#include "external/commonItems/CommonRegexes.h"
 #include "external/commonItems/OSCompatibilityLayer.h"
+#include "external/commonItems/ParserHelpers.h"
 
 
 
@@ -13,6 +15,7 @@ hoi4_map_drawer::state_definitions::StateDefinitionsImporter::StateDefinitionsIm
          state_data_.insert(*state_data);
       }
    });
+   parser_.registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
 
 

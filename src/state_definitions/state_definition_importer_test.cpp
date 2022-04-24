@@ -64,3 +64,24 @@ TEST(StateDefinitionImporterTest, ProvincesCanBeImported)
    ASSERT_TRUE(state_data.has_value());
    EXPECT_THAT(state_data->second, testing::ElementsAre(1, 4, 9, 16));
 }
+
+
+TEST(StateDefinitionImporterTest, ExtraInputIsIgnored)
+{
+   std::stringstream log;
+   std::streambuf* cout_buffer = std::cout.rdbuf();
+   std::cout.rdbuf(log.rdbuf());
+
+   std::stringstream input;
+   input << "= {\n";
+   input << "\tunhandled_input = 42\n";
+   input << "}";
+
+   hoi4_map_drawer::state_definitions::StateDefinitionImporter importer;
+   auto state_data = importer.ImportState(input);
+   state_data.reset();  // make the annoying warning go away
+
+   EXPECT_TRUE(log.str().empty());
+
+   std::cout.rdbuf(cout_buffer);
+}

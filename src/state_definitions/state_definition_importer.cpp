@@ -1,5 +1,6 @@
 #include "src/state_definitions/state_definition_importer.h"
 
+#include "external/commonItems/CommonRegexes.h"
 #include "external/commonItems/ParserHelpers.h"
 
 
@@ -12,6 +13,7 @@ hoi4_map_drawer::state_definitions::StateDefinitionImporter::StateDefinitionImpo
    parser_.registerKeyword("provinces", [this](std::istream& the_stream) {
       provinces_ = commonItems::getInts(the_stream);
    });
+   parser_.registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
 
 

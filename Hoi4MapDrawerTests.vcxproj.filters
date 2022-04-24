@@ -163,5 +163,8 @@
     <CopyFileToFolders Include="data\test_data\state_definitions\state_definitions\history\states\42-Mismatch.txt">
       <Filter>data\test_data\state_definitions\state_definitions\history\states</Filter>
     </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\state_definitions\state_definitions\history\states\3-ExtraData.txt">
+      <Filter>data\test_data\state_definitions\state_definitions\history\states</Filter>
+    </CopyFileToFolders>
   </ItemGroup>
 </Project>
