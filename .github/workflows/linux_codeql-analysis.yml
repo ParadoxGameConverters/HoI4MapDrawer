@@ -53,6 +53,8 @@ jobs:
     # 📚 https://git.io/JvXDl
 
     - name: Build solution
+      env:
+        CXX: g++-10
       run: |
        cmake -H. -Bbuild && cmake --build ./build -- -j40
     - name: Perform CodeQL Analysis
