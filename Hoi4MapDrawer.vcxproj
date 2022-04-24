@@ -64,12 +64,15 @@
     <ClCompile Include="external\commonItems\WinUtils.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\map_importer\map_importer.cpp" />
+    <ClCompile Include="src\state_definitions\state_definitions_importer.cpp" />
+    <ClCompile Include="src\state_definitions\state_definitions_importer.h" />
     <ClCompile Include="src\state_definitions\state_definition_importer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\CImg\CImg.h" />
     <ClInclude Include="external\commonItems\iconvlite.h" />
     <ClInclude Include="external\commonItems\Log.h" />
+    <ClInclude Include="external\commonItems\OSCompatibilityLayer.h" />
     <ClInclude Include="external\commonItems\Parser.h" />
     <ClInclude Include="external\commonItems\ParserHelpers.h" />
     <ClInclude Include="external\commonItems\StringUtils.h" />

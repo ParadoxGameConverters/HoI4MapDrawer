@@ -1,0 +1,37 @@
+#ifndef SRC_STATE_DEFINITIONS_STATE_DEFINITIONS_IMPORTER_H_
+#define SRC_STATE_DEFINITIONS_STATE_DEFINITIONS_IMPORTER_H_
+
+
+
+#include <map>
+#include <string_view>
+#include <vector>
+
+#include "external/commonItems/Parser.h"
+#include "src/state_definitions/state_definition_importer.h"
+
+
+
+namespace hoi4_map_drawer
+{
+namespace state_definitions
+{
+
+class StateDefinitionsImporter
+{
+  public:
+   StateDefinitionsImporter();
+   std::map<int, std::vector<int>> ImportStateDefinitions(const std::string& states_history_folder);
+
+  private:
+   commonItems::parser parser_;
+   StateDefinitionImporter state_definition_importer_;
+   std::map<int, std::vector<int>> state_data_;
+};
+
+}  // namespace state_definitions
+}  // namespace hoi4_map_drawer
+
+
+
+#endif  // SRC_STATE_DEFINITIONS_STATE_DEFINITIONS_IMPORTER_H_

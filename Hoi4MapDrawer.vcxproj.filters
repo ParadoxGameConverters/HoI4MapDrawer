@@ -55,6 +55,12 @@
     <ClCompile Include="external\commonItems\StringUtils.cpp">
       <Filter>external\commonItems</Filter>
     </ClCompile>
+    <ClCompile Include="src\state_definitions\state_definitions_importer.h">
+      <Filter>src\state_definitions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\state_definitions\state_definitions_importer.cpp">
+      <Filter>src\state_definitions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\commonItems\Log.h">
@@ -88,6 +94,9 @@
       <Filter>src\state_definitions</Filter>
     </ClInclude>
     <ClInclude Include="external\commonItems\StringUtils.h">
+      <Filter>external\commonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\OSCompatibilityLayer.h">
       <Filter>external\commonItems</Filter>
     </ClInclude>
   </ItemGroup>

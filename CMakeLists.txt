@@ -27,6 +27,7 @@ add_library(
 )
 
 set(STATE_DEFINITIONS_SOURCES ${STATE_DEFINITIONS_SOURCES} "src/state_definitions/state_definition_importer.cpp")
+set(STATE_DEFINITIONS_SOURCES ${STATE_DEFINITIONS_SOURCES} "src/state_definitions/state_definitions_importer.cpp")
 add_library(
 	StateDefintitions
 	${STATE_DEFINITIONS_SOURCES}
@@ -69,6 +70,7 @@ set(MAP_IMPORTER_TEST_SOURCES ${MAP_IMPORTER_TEST_SOURCES} "src/map_importer/map
 set(MAP_IMPORTER_TEST_SOURCES ${MAP_IMPORTER_TEST_SOURCES} "src/map_importer/pixel_test.cpp")
 
 set(STATE_DEFINITIONS_TEST_SOURCES ${STATE_DEFINITIONS_TEST_SOURCES} "src/state_definitions/state_definition_importer_test.cpp")
+set(STATE_DEFINITIONS_TEST_SOURCES ${STATE_DEFINITIONS_TEST_SOURCES} "src/state_definitions/state_definitions_importer_test.cpp")
 
 set(GTEST_SOURCES ${GTEST_SOURCES} "external/googletest/googletest/src/gtest_main.cc")
 set(GTEST_SOURCES ${GTEST_SOURCES} "external/googletest/googletest/src/gtest-all.cc")
