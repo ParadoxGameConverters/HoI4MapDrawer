@@ -49,6 +49,9 @@
     <Filter Include="src\map_importer">
       <UniqueIdentifier>{a0d89228-dc2f-44e9-80e0-88bb8b4a731b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\state_definitions">
+      <UniqueIdentifier>{440499e2-4b45-42cf-a076-c4b878b7ea2a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="external\commonItems\iconvlite.cpp">
@@ -81,6 +84,21 @@
     <ClCompile Include="src\map_importer\pixel_test.cpp">
       <Filter>src\map_importer</Filter>
     </ClCompile>
+    <ClCompile Include="src\state_definitions\state_definition_importer.cpp">
+      <Filter>src\state_definitions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\state_definitions\state_definition_importer_test.cpp">
+      <Filter>src\state_definitions</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\Parser.cpp">
+      <Filter>external\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ParserHelpers.cpp">
+      <Filter>external\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\StringUtils.cpp">
+      <Filter>external\commonItems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\commonItems\iconvlite.h">
@@ -91,6 +109,18 @@
     </ClInclude>
     <ClInclude Include="src\map_importer\map_importer.h">
       <Filter>src\map_importer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\state_definitions\state_definition_importer.h">
+      <Filter>src\state_definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\Parser.h">
+      <Filter>external\commonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ParserHelpers.h">
+      <Filter>external\commonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\StringUtils.h">
+      <Filter>external\commonItems</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

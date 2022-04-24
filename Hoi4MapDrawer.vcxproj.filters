@@ -20,6 +20,9 @@
     <Filter Include="src\map_importer">
       <UniqueIdentifier>{c9c0fdbe-8101-4571-84ef-e4baf7872706}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\state_definitions">
+      <UniqueIdentifier>{96681ae9-d803-4825-b74e-8996f2ee0efa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -39,6 +42,18 @@
     </ClCompile>
     <ClCompile Include="src\map_importer\map_importer.cpp">
       <Filter>src\map_importer</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\Parser.cpp">
+      <Filter>external\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ParserHelpers.cpp">
+      <Filter>external\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\state_definitions\state_definition_importer.cpp">
+      <Filter>src\state_definitions</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\StringUtils.cpp">
+      <Filter>external\commonItems</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +77,18 @@
     </ClInclude>
     <ClInclude Include="src\map_importer\pixel.h">
       <Filter>src\map_importer</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\Parser.h">
+      <Filter>external\commonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ParserHelpers.h">
+      <Filter>external\commonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="src\state_definitions\state_definition_importer.h">
+      <Filter>src\state_definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\StringUtils.h">
+      <Filter>external\commonItems</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
