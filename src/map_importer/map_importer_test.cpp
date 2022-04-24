@@ -2,9 +2,13 @@
 
 #include <sstream>
 
-#include "external/CImg/CImg.h"
-#include "external/googletest/googlemock/include/gmock/gmock.h"
+// clang-format off
+// gtest must be before CImg, else we get compile errors
+#define cimg_display 0
 #include "external/googletest/googletest/include/gtest/gtest.h"
+#include "external/googletest/googlemock/include/gmock/gmock.h"
+#include "external/CImg/CImg.h"
+// clang-format on
 
 
 
@@ -16,19 +20,19 @@ using testing::UnorderedElementsAre;
 
 TEST(MapImporterTest, MissingProvincesDotBmpThrowsException)
 {
-   EXPECT_THROW(GetProvinceDefinitions("map_importer_test/missing_provinces.bmp"), cimg_library::CImgIOException);
+   EXPECT_THROW(GetProvinceDefinitions("./test_data/map_importer_test/missing_provinces.bmp"), cimg_library::CImgIOException);
 }
 
 
 TEST(MapImporterTest, MissingDefinitionDotCsvThrowsException)
 {
-   EXPECT_THROW(GetProvinceDefinitions("map_importer_test/missing_definition.csv"), std::runtime_error);
+   EXPECT_THROW(GetProvinceDefinitions("./test_data/map_importer_test/missing_definition.csv"), std::runtime_error);
 }
 
 
 TEST(MapImporterTest, ProvinceDefinitionsAreImported)
 {
-   const auto province_definitions = GetProvinceDefinitions("map_importer_test/valid_map_data");
+   const auto province_definitions = GetProvinceDefinitions("./test_data/map_importer_test/valid_map_data");
 
    EXPECT_EQ(province_definitions.size(), 3);
    ASSERT_TRUE(province_definitions.contains(1));
@@ -110,13 +114,10 @@ TEST(MapImporterTest, BadDefinitionLinesAreLogged)
    std::streambuf* cout_buffer = std::cout.rdbuf();
    std::cout.rdbuf(log.rdbuf());
 
-   auto province_definitions = GetProvinceDefinitions("map_importer_test/valid_map_data");
+   auto province_definitions = GetProvinceDefinitions("./test_data/map_importer_test/valid_map_data");
    province_definitions.clear();  // make the annoying warning go away
 
-   std::stringstream expected_log;
-   expected_log << "    [INFO] provinces.bmp is 8 x 8.\n";
-   expected_log << " [WARNING] Broken Definition Line: 10;broken_line; - invalid stoi argument\n";
-   EXPECT_EQ(log.str(), expected_log.str());
+   EXPECT_THAT(log.str(), testing::HasSubstr("[WARNING] Broken Definition Line: 10;broken_line; - "));
 
    std::cout.rdbuf(cout_buffer);
 }

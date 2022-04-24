@@ -5,6 +5,7 @@
 #include <string>
 
 #define cimg_verbosity 0
+#define cimg_display 0
 #include "external/CImg/CImg.h"
 #include "external/commonItems/Log.h"
 #include "external/commonItems/OSCompatibilityLayer.h"
