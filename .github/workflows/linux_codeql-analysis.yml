@@ -18,7 +18,7 @@ jobs:
   analyze_main:
     name: Analyze Local
     if: github.repository_owner == 'HoI4MapDrawer'
-    runs-on: [linux]
+    runs-on: ubuntu-latest
 
 
     strategy:
