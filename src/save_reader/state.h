@@ -16,13 +16,18 @@ namespace save_reader
 class State
 {
   public:
-   explicit State(std::optional<std::string> owner): owner_(std::move(owner)) {}
+   explicit State(int id, std::optional<std::string> owner): id_(id), owner_(std::move(owner)) {}
 
+   [[nodiscard]] const auto& GetId() const { return id_; }
    [[nodiscard]] const auto& GetOwner() const { return owner_; }
 
+   auto operator<=>(const State&) const = default;
+
   private:
+   int id_;
    std::optional<std::string> owner_;
 };
+
 
 }  // namespace save_reader
 }  // namespace hoi4_map_drawer

@@ -67,7 +67,9 @@
     <ClCompile Include="src\map_importer\map_importer.cpp" />
     <ClCompile Include="src\map_importer\map_importer_test.cpp" />
     <ClCompile Include="src\map_importer\pixel_test.cpp" />
-    <ClCompile Include="src\save_reader\state_reader_test.cpp" />
+    <ClCompile Include="src\save_reader\states_importer.cpp" />
+    <ClCompile Include="src\save_reader\states_importer_test.cpp" />
+    <ClCompile Include="src\save_reader\state_importer_test.cpp" />
     <ClCompile Include="src\save_reader\state_importer.cpp" />
     <ClCompile Include="src\state_definitions\state_definitions_importer.cpp" />
     <ClCompile Include="src\state_definitions\state_definitions_importer_test.cpp" />
@@ -82,6 +84,7 @@
     <ClInclude Include="external\commonItems\StringUtils.h" />
     <ClInclude Include="src\map_importer\map_importer.h" />
     <ClInclude Include="src\save_reader\state.h" />
+    <ClInclude Include="src\save_reader\states_importer.h" />
     <ClInclude Include="src\save_reader\state_importer.h" />
     <ClInclude Include="src\state_definitions\state_definitions_importer.h" />
     <ClInclude Include="src\state_definitions\state_definition_importer.h" />

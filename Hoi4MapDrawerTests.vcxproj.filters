@@ -120,10 +120,16 @@
     <ClCompile Include="src\state_definitions\state_definitions_importer_test.cpp">
       <Filter>src\state_definitions</Filter>
     </ClCompile>
-    <ClCompile Include="src\save_reader\state_reader_test.cpp">
+    <ClCompile Include="src\save_reader\state_importer_test.cpp">
       <Filter>src\save_reader</Filter>
     </ClCompile>
     <ClCompile Include="src\save_reader\state_importer.cpp">
+      <Filter>src\save_reader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\save_reader\states_importer_test.cpp">
+      <Filter>src\save_reader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\save_reader\states_importer.cpp">
       <Filter>src\save_reader</Filter>
     </ClCompile>
   </ItemGroup>
@@ -156,6 +162,9 @@
       <Filter>src\save_reader</Filter>
     </ClInclude>
     <ClInclude Include="src\save_reader\state_importer.h">
+      <Filter>src\save_reader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\save_reader\states_importer.h">
       <Filter>src\save_reader</Filter>
     </ClInclude>
   </ItemGroup>

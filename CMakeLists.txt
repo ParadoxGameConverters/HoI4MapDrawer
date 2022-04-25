@@ -27,6 +27,7 @@ add_library(
 )
 
 set(SAVE_READER_SOURCES ${SAVE_READER_SOURCES} "src/save_reader/state_importer.cpp")
+set(SAVE_READER_SOURCES ${SAVE_READER_SOURCES} "src/save_reader/states_importer.cpp")
 add_library(
 	SaveReader
 	${SAVE_READER_SOURCES}
@@ -75,7 +76,8 @@ add_custom_command(TARGET Hoi4MapDrawer POST_BUILD WORKING_DIRECTORY ${CMAKE_SOU
 set(MAP_IMPORTER_TEST_SOURCES ${MAP_IMPORTER_TEST_SOURCES} "src/map_importer/map_importer_test.cpp")
 set(MAP_IMPORTER_TEST_SOURCES ${MAP_IMPORTER_TEST_SOURCES} "src/map_importer/pixel_test.cpp")
 
-set(SAVE_READER_TEST_SOURCES ${SAVE_READER_TEST_SOURCES} "src/save_reader/state_reader_test.cpp")
+set(SAVE_READER_TEST_SOURCES ${SAVE_READER_TEST_SOURCES} "src/save_reader/state_importer_test.cpp")
+set(SAVE_READER_TEST_SOURCES ${SAVE_READER_TEST_SOURCES} "src/save_reader/states_importer_test.cpp")
 
 set(STATE_DEFINITIONS_TEST_SOURCES ${STATE_DEFINITIONS_TEST_SOURCES} "src/state_definitions/state_definition_importer_test.cpp")
 set(STATE_DEFINITIONS_TEST_SOURCES ${STATE_DEFINITIONS_TEST_SOURCES} "src/state_definitions/state_definitions_importer_test.cpp")

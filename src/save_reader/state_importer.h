@@ -23,9 +23,10 @@ class StateImporter
   public:
    StateImporter();
 
-   State ImportState(std::istream& the_stream);
+   State ImportState(int id, std::istream& the_stream);
 
   private:
+   int id_ = 0;
    std::optional<std::string> owner_;
    commonItems::parser parser_;
 };

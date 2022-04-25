@@ -67,6 +67,9 @@
     <ClCompile Include="src\save_reader\state_importer.cpp">
       <Filter>src\save_reader</Filter>
     </ClCompile>
+    <ClCompile Include="src\save_reader\states_importer.cpp">
+      <Filter>src\save_reader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\commonItems\Log.h">
@@ -109,6 +112,9 @@
       <Filter>src\save_reader</Filter>
     </ClInclude>
     <ClInclude Include="src\save_reader\state_importer.h">
+      <Filter>src\save_reader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\save_reader\states_importer.h">
       <Filter>src\save_reader</Filter>
     </ClInclude>
   </ItemGroup>

@@ -14,11 +14,12 @@ hoi4_map_drawer::save_reader::StateImporter::StateImporter()
 }
 
 
-hoi4_map_drawer::save_reader::State hoi4_map_drawer::save_reader::StateImporter::ImportState(std::istream& the_stream)
+hoi4_map_drawer::save_reader::State hoi4_map_drawer::save_reader::StateImporter::ImportState(int id,
+    std::istream& the_stream)
 {
    owner_.reset();
 
    parser_.parseStream(the_stream);
 
-   return State(owner_);
+   return State(id, owner_);
 }
