@@ -102,4 +102,4 @@ set_target_properties( Hoi4MapDrawerTests
 
 file(COPY "data/test_data" DESTINATION "${TEST_OUTPUT_DIRECTORY}")
 
-target_link_libraries(Hoi4MapDrawerTests MapImporter SaveReader StateDefintitions CommonItems pthread)
+target_link_libraries(Hoi4MapDrawerTests MapImporter SaveReader StateDefintitions CommonItems ${RAKALY_LIB} pthread)
