@@ -67,6 +67,8 @@
     <ClCompile Include="src\map_importer\map_importer.cpp" />
     <ClCompile Include="src\map_importer\map_importer_test.cpp" />
     <ClCompile Include="src\map_importer\pixel_test.cpp" />
+    <ClCompile Include="src\save_reader\save_importer.cpp" />
+    <ClCompile Include="src\save_reader\save_importer_test.cpp" />
     <ClCompile Include="src\save_reader\states_importer.cpp" />
     <ClCompile Include="src\save_reader\states_importer_test.cpp" />
     <ClCompile Include="src\save_reader\state_importer_test.cpp" />
@@ -83,6 +85,8 @@
     <ClInclude Include="external\commonItems\ParserHelpers.h" />
     <ClInclude Include="external\commonItems\StringUtils.h" />
     <ClInclude Include="src\map_importer\map_importer.h" />
+    <ClInclude Include="src\save_reader\save.h" />
+    <ClInclude Include="src\save_reader\save_importer.h" />
     <ClInclude Include="src\save_reader\state.h" />
     <ClInclude Include="src\save_reader\states_importer.h" />
     <ClInclude Include="src\save_reader\state_importer.h" />
@@ -119,6 +123,24 @@
   <ItemGroup>
     <CopyFileToFolders Include="data\test_data\state_definitions\state_definitions\history\states\3-ExtraData.txt">
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/test_data/state_definitions/state_definitions/history/states/</DestinationFolders>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="data\test_data\save_reader\empty_save.hoi4">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/test_data/save_reader/</DestinationFolders>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="data\test_data\save_reader\good_save.hoi4">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/test_data/save_reader/</DestinationFolders>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="data\test_data\save_reader\extra_data_save.hoi4">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/test_data/save_reader/</DestinationFolders>
     </CopyFileToFolders>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
