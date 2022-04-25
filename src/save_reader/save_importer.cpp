@@ -10,6 +10,8 @@ hoi4_map_drawer::save_reader::SaveImporter::SaveImporter()
    parser_.registerKeyword("states", [this](std::istream& the_stream) {
       states_ = states_importer_.ImportStates(the_stream);
    });
+   parser_.registerKeyword("HOI4txt", [](std::istream& the_stream) {
+   });
    parser_.registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
 

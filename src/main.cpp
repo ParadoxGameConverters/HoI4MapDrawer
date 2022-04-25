@@ -5,6 +5,7 @@
 #include "external/commonItems/Log.h"
 #include "src/map_importer/map_importer.h"
 #include "src/rakaly_wrapper.h"
+#include "src/save_reader/save_importer.h"
 #include "src/state_definitions/state_definitions_importer.h"
 
 
@@ -90,6 +91,29 @@ int main()
          }
       }
       Log(LogLevel::Info) << state_log.str();
+
+      hoi4_map_drawer::save_reader::SaveImporter save_importer;
+      const auto save = save_importer.ImportSave("../../data/saves/USA_1936_01_01_12.hoi4");
+      const auto& save_states = save.GetStates();
+      std::stringstream save_log;
+      save_log << "Owner of state ";
+      for (const auto& state: save_states | std::views::keys | std::views::take(1))
+      {
+         save_log << state;
+      }
+      save_log << ": ";
+      for (const auto& state: save_states | std::views::values | std::views::take(1))
+      {
+         if (const auto& owner = state.GetOwner(); owner)
+         {
+            save_log << *owner << " ";
+         }
+         else
+         {
+            save_log << "none ";
+         }
+      }
+      Log(LogLevel::Info) << save_log.str();
    }
    catch (const std::exception& e)
    {
