@@ -7,26 +7,10 @@
 
 
 
-TEST(SaveImporterTest, MissingFileIsLogged)
+TEST(SaveImporterTest, MissingFileThrowsException)
 {
-   std::stringstream log;
-   std::streambuf* cout_buffer = std::cout.rdbuf();
-   std::cout.rdbuf(log.rdbuf());
-
-   std::stringstream input;
-   input << "= {\n";
-   input << "\tunhandled_input = 42\n";
-   input << "}";
-
    hoi4_map_drawer::save_reader::SaveImporter importer;
-   auto save = importer.ImportSave("./test_data/save_reader/missing_save.hoi4");
-   auto states = save.GetStates();  // make the annoying warning go away
-   states.clear();                  // make the annoying warning go away
-
-   EXPECT_THAT(log.str(),
-       testing::HasSubstr("[ERROR] Could not open ./test_data/save_reader/missing_save.hoi4 for parsing."));
-
-   std::cout.rdbuf(cout_buffer);
+   EXPECT_THROW(importer.ImportSave("./test_data/save_reader/missing_save.hoi4"), std::runtime_error);
 }
 
 
