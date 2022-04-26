@@ -1,0 +1,10 @@
+# This save has states data plus some extra (real) lines
+player="USA"
+states={
+	1={
+		owner="TAG"
+	}
+	2={
+		owner="TWO"
+	}
+}

@@ -64,6 +64,15 @@
     <Filter Include="data\test_data\state_definitions\state_definitions\history\states">
       <UniqueIdentifier>{b5ccedf5-77b3-4ecf-9a52-c9d8ee8d881d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\save_reader">
+      <UniqueIdentifier>{02f6d4d7-45bb-4ecf-a3c0-5aea2b01072e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\test_data\save_reader">
+      <UniqueIdentifier>{a14ce5a9-01a9-4bf3-b8d4-8182f0d5c148}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\rakaly">
+      <UniqueIdentifier>{2d81d4c5-12eb-4d11-978c-8fe23d861224}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="external\commonItems\iconvlite.cpp">
@@ -117,6 +126,24 @@
     <ClCompile Include="src\state_definitions\state_definitions_importer_test.cpp">
       <Filter>src\state_definitions</Filter>
     </ClCompile>
+    <ClCompile Include="src\save_reader\state_importer_test.cpp">
+      <Filter>src\save_reader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\save_reader\state_importer.cpp">
+      <Filter>src\save_reader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\save_reader\states_importer_test.cpp">
+      <Filter>src\save_reader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\save_reader\states_importer.cpp">
+      <Filter>src\save_reader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\save_reader\save_importer.cpp">
+      <Filter>src\save_reader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\save_reader\save_importer_test.cpp">
+      <Filter>src\save_reader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\commonItems\iconvlite.h">
@@ -143,6 +170,24 @@
     <ClInclude Include="src\state_definitions\state_definitions_importer.h">
       <Filter>src\state_definitions</Filter>
     </ClInclude>
+    <ClInclude Include="src\save_reader\state.h">
+      <Filter>src\save_reader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\save_reader\state_importer.h">
+      <Filter>src\save_reader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\save_reader\states_importer.h">
+      <Filter>src\save_reader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\save_reader\save.h">
+      <Filter>src\save_reader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\save_reader\save_importer.h">
+      <Filter>src\save_reader</Filter>
+    </ClInclude>
+    <ClInclude Include="external\rakaly\rakaly.h">
+      <Filter>external\rakaly</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="data\test_data\map_importer_test\missing_definition.csv\map\provinces.bmp">
@@ -165,6 +210,18 @@
     </CopyFileToFolders>
     <CopyFileToFolders Include="data\test_data\state_definitions\state_definitions\history\states\3-ExtraData.txt">
       <Filter>data\test_data\state_definitions\state_definitions\history\states</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\save_reader\empty_save.hoi4">
+      <Filter>data\test_data\save_reader</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\save_reader\good_save.hoi4">
+      <Filter>data\test_data\save_reader</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\save_reader\extra_data_save.hoi4">
+      <Filter>data\test_data\save_reader</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="external\rakaly\rakaly.dll">
+      <Filter>external\rakaly</Filter>
     </CopyFileToFolders>
   </ItemGroup>
 </Project>

@@ -23,6 +23,9 @@
     <Filter Include="src\state_definitions">
       <UniqueIdentifier>{96681ae9-d803-4825-b74e-8996f2ee0efa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\save_reader">
+      <UniqueIdentifier>{068b1e0b-602c-447b-8d27-4c4d50012bb5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -61,6 +64,15 @@
     <ClCompile Include="src\state_definitions\state_definitions_importer.cpp">
       <Filter>src\state_definitions</Filter>
     </ClCompile>
+    <ClCompile Include="src\save_reader\state_importer.cpp">
+      <Filter>src\save_reader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\save_reader\states_importer.cpp">
+      <Filter>src\save_reader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\save_reader\save_importer.cpp">
+      <Filter>src\save_reader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\commonItems\Log.h">
@@ -98,6 +110,21 @@
     </ClInclude>
     <ClInclude Include="external\commonItems\OSCompatibilityLayer.h">
       <Filter>external\commonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="src\save_reader\state.h">
+      <Filter>src\save_reader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\save_reader\state_importer.h">
+      <Filter>src\save_reader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\save_reader\states_importer.h">
+      <Filter>src\save_reader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\save_reader\save.h">
+      <Filter>src\save_reader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\save_reader\save_importer.h">
+      <Filter>src\save_reader</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

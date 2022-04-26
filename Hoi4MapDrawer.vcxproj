@@ -64,6 +64,9 @@
     <ClCompile Include="external\commonItems\WinUtils.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\map_importer\map_importer.cpp" />
+    <ClCompile Include="src\save_reader\save_importer.cpp" />
+    <ClCompile Include="src\save_reader\states_importer.cpp" />
+    <ClCompile Include="src\save_reader\state_importer.cpp" />
     <ClCompile Include="src\state_definitions\state_definitions_importer.cpp" />
     <ClCompile Include="src\state_definitions\state_definitions_importer.h" />
     <ClCompile Include="src\state_definitions\state_definition_importer.cpp" />
@@ -80,6 +83,11 @@
     <ClInclude Include="src\map_importer\map_importer.h" />
     <ClInclude Include="src\map_importer\pixel.h" />
     <ClInclude Include="src\rakaly_wrapper.h" />
+    <ClInclude Include="src\save_reader\save.h" />
+    <ClInclude Include="src\save_reader\save_importer.h" />
+    <ClInclude Include="src\save_reader\state.h" />
+    <ClInclude Include="src\save_reader\states_importer.h" />
+    <ClInclude Include="src\save_reader\state_importer.h" />
     <ClInclude Include="src\state_definitions\state_definition_importer.h" />
   </ItemGroup>
   <ItemGroup>
