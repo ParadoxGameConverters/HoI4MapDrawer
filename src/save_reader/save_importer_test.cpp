@@ -7,13 +7,13 @@
 
 
 
-//TEST(SaveImporterTest, MissingFileThrowsException)
-//{
-//   hoi4_map_drawer::save_reader::SaveImporter importer;
-//   EXPECT_THROW(importer.ImportSave("./test_data/save_reader/missing_save.hoi4"), std::runtime_error);
-//}
-//
-//
+TEST(SaveImporterTest, MissingFileThrowsException)
+{
+   hoi4_map_drawer::save_reader::SaveImporter importer;
+   EXPECT_THROW(importer.ImportSave("./test_data/save_reader/missing_save.hoi4"), std::runtime_error);
+}
+
+
 //TEST(SaveImporterTest, NoStatesFromEmptySave)
 //{
 //   hoi4_map_drawer::save_reader::SaveImporter importer;
@@ -22,7 +22,7 @@
 //   EXPECT_TRUE(save.GetStates().empty());
 //}
 //
-//
+
 //TEST(SaveImporterTest, StatesAreImported)
 //{
 //   hoi4_map_drawer::save_reader::SaveImporter importer;
