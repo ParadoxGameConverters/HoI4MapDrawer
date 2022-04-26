@@ -73,6 +73,9 @@
     <Filter Include="external\rakaly">
       <UniqueIdentifier>{2d81d4c5-12eb-4d11-978c-8fe23d861224}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\country_colors">
+      <UniqueIdentifier>{fdf84302-f797-4059-9338-882669283d38}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="external\commonItems\iconvlite.cpp">
@@ -144,6 +147,15 @@
     <ClCompile Include="src\save_reader\save_importer_test.cpp">
       <Filter>src\save_reader</Filter>
     </ClCompile>
+    <ClCompile Include="src\country_colors\country_definition_reader_test.cpp">
+      <Filter>src\country_colors</Filter>
+    </ClCompile>
+    <ClCompile Include="src\country_colors\country_definition_reader.cpp">
+      <Filter>src\country_colors</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\Color.cpp">
+      <Filter>external\commonItems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\commonItems\iconvlite.h">
@@ -187,6 +199,12 @@
     </ClInclude>
     <ClInclude Include="external\rakaly\rakaly.h">
       <Filter>external\rakaly</Filter>
+    </ClInclude>
+    <ClInclude Include="src\country_colors\country_definition_reader.h">
+      <Filter>src\country_colors</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\Color.h">
+      <Filter>external\commonItems</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

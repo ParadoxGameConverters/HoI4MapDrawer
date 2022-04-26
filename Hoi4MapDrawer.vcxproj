@@ -55,6 +55,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="external\commonItems\Color.cpp" />
     <ClCompile Include="external\commonItems\iconvlite.cpp" />
     <ClCompile Include="external\commonItems\Log.cpp" />
     <ClCompile Include="external\commonItems\OSCommonLayer.cpp" />
@@ -62,6 +63,7 @@
     <ClCompile Include="external\commonItems\ParserHelpers.cpp" />
     <ClCompile Include="external\commonItems\StringUtils.cpp" />
     <ClCompile Include="external\commonItems\WinUtils.cpp" />
+    <ClCompile Include="src\country_colors\country_definition_reader.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\map_importer\map_importer.cpp" />
     <ClCompile Include="src\save_reader\save_importer.cpp" />
@@ -73,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\CImg\CImg.h" />
+    <ClInclude Include="external\commonItems\Color.h" />
     <ClInclude Include="external\commonItems\iconvlite.h" />
     <ClInclude Include="external\commonItems\Log.h" />
     <ClInclude Include="external\commonItems\OSCompatibilityLayer.h" />
@@ -80,6 +83,7 @@
     <ClInclude Include="external\commonItems\ParserHelpers.h" />
     <ClInclude Include="external\commonItems\StringUtils.h" />
     <ClInclude Include="external\rakaly\rakaly.h" />
+    <ClInclude Include="src\country_colors\country_definition_reader.h" />
     <ClInclude Include="src\map_importer\map_importer.h" />
     <ClInclude Include="src\map_importer\pixel.h" />
     <ClInclude Include="src\rakaly_wrapper.h" />

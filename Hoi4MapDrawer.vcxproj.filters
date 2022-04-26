@@ -26,6 +26,9 @@
     <Filter Include="src\save_reader">
       <UniqueIdentifier>{068b1e0b-602c-447b-8d27-4c4d50012bb5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\country_colors">
+      <UniqueIdentifier>{121898c9-c74f-4e4e-b0a4-cedb4e207979}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -72,6 +75,12 @@
     </ClCompile>
     <ClCompile Include="src\save_reader\save_importer.cpp">
       <Filter>src\save_reader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\country_colors\country_definition_reader.cpp">
+      <Filter>src\country_colors</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\Color.cpp">
+      <Filter>external\commonItems</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -125,6 +134,12 @@
     </ClInclude>
     <ClInclude Include="src\save_reader\save_importer.h">
       <Filter>src\save_reader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\country_colors\country_definition_reader.h">
+      <Filter>src\country_colors</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\Color.h">
+      <Filter>external\commonItems</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
