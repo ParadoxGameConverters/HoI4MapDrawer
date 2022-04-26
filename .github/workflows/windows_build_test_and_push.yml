@@ -30,7 +30,8 @@ jobs:
     - name: "Run tests"
       run: |
        cd $Env:GITHUB_WORKSPACE\build\tests\Release
-       .\Hoi4MapDrawerTests.exe
+       dir /s
+       #.\Hoi4MapDrawerTests.exe
        
     # - name: "Build updater executable"
       # run: |
