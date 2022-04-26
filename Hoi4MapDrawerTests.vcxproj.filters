@@ -70,6 +70,9 @@
     <Filter Include="data\test_data\save_reader">
       <UniqueIdentifier>{a14ce5a9-01a9-4bf3-b8d4-8182f0d5c148}</UniqueIdentifier>
     </Filter>
+    <Filter Include="external\rakaly">
+      <UniqueIdentifier>{2d81d4c5-12eb-4d11-978c-8fe23d861224}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="external\commonItems\iconvlite.cpp">
@@ -182,6 +185,9 @@
     <ClInclude Include="src\save_reader\save_importer.h">
       <Filter>src\save_reader</Filter>
     </ClInclude>
+    <ClInclude Include="external\rakaly\rakaly.h">
+      <Filter>external\rakaly</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="data\test_data\map_importer_test\missing_definition.csv\map\provinces.bmp">
@@ -213,6 +219,9 @@
     </CopyFileToFolders>
     <CopyFileToFolders Include="data\test_data\save_reader\extra_data_save.hoi4">
       <Filter>data\test_data\save_reader</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="external\rakaly\rakaly.dll">
+      <Filter>external\rakaly</Filter>
     </CopyFileToFolders>
   </ItemGroup>
 </Project>
