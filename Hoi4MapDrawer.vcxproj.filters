@@ -88,6 +88,9 @@
     <ClCompile Include="src\country_colors\country_tags_reader.cpp">
       <Filter>src\country_colors</Filter>
     </ClCompile>
+    <ClCompile Include="src\country_colors\country_color_importer.cpp">
+      <Filter>src\country_colors</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\commonItems\Log.h">
@@ -151,6 +154,9 @@
       <Filter>src\country_colors</Filter>
     </ClInclude>
     <ClInclude Include="src\country_colors\country_tags_reader.h">
+      <Filter>src\country_colors</Filter>
+    </ClInclude>
+    <ClInclude Include="src\country_colors\country_color_importer.h">
       <Filter>src\country_colors</Filter>
     </ClInclude>
   </ItemGroup>

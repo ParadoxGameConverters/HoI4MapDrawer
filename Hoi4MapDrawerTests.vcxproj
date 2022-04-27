@@ -66,6 +66,8 @@
     <ClCompile Include="external\googletest\googlemock\src\gmock-all.cc" />
     <ClCompile Include="external\googletest\googletest\src\gtest-all.cc" />
     <ClCompile Include="external\googletest\googletest\src\gtest_main.cc" />
+    <ClCompile Include="src\country_colors\country_color_importer.cpp" />
+    <ClCompile Include="src\country_colors\country_color_importer_test.cpp" />
     <ClCompile Include="src\country_colors\country_definition_reader.cpp" />
     <ClCompile Include="src\country_colors\country_definition_reader_test.cpp" />
     <ClCompile Include="src\country_colors\country_tags_reader.cpp" />
@@ -94,6 +96,7 @@
     <ClInclude Include="external\commonItems\ParserHelpers.h" />
     <ClInclude Include="external\commonItems\StringUtils.h" />
     <ClInclude Include="external\rakaly\rakaly.h" />
+    <ClInclude Include="src\country_colors\country_color_importer.h" />
     <ClInclude Include="src\country_colors\country_definition_reader.h" />
     <ClInclude Include="src\country_colors\country_tags_reader.h" />
     <ClInclude Include="src\country_colors\country_tag_file_reader.h" />
@@ -197,6 +200,24 @@
   <ItemGroup>
     <CopyFileToFolders Include="data\test_data\country_colors\tags_directory\common\country_tags\replacement_tag.txt">
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/test_data/country_colors/tags_directory/common/country_tags/</DestinationFolders>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="data\test_data\country_colors\tag_file_with_extra_data.txt">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/test_data/country_colors/</DestinationFolders>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="data\test_data\country_colors\country_color_importer\common\countries\country_one.txt">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/test_data/country_colors/country_color_importer/common/countries/</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\country_colors\country_color_importer\common\country_tags\00_countries.txt">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/test_data/country_colors/country_color_importer/common/country_tags/</DestinationFolders>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="data\test_data\country_colors\country_color_importer\common\countries\country_two.txt">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/test_data/country_colors/country_color_importer/common/countries/</DestinationFolders>
     </CopyFileToFolders>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
