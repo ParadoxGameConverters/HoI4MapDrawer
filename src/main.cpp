@@ -4,6 +4,7 @@
 
 #include "external/commonItems/Log.h"
 #include "rakaly_wrapper.h"
+#include "src/country_colors/country_color_importer.h"
 #include "src/map_importer/map_importer.h"
 #include "src/save_reader/save_importer.h"
 #include "src/state_definitions/state_definitions_importer.h"
@@ -76,6 +77,21 @@ int main()
          }
       }
       Log(LogLevel::Info) << save_log.str();
+
+      const auto tags_to_colors_map = hoi4_map_drawer::country_colors::ImportCountryColors(
+          "C:/Program Files (x86)/Steam/steamapps/common/Hearts of Iron IV");
+      std::stringstream colors_log;
+      colors_log << "Tag ";
+      for (const auto& tag: tags_to_colors_map | std::views::keys | std::views::take(1))
+      {
+         colors_log << tag;
+      }
+      colors_log << " is color ";
+      for (const auto& color: tags_to_colors_map | std::views::values | std::views::take(1))
+      {
+         colors_log << color;
+      }
+      Log(LogLevel::Info) << colors_log.str();
    }
    catch (const std::exception& e)
    {
