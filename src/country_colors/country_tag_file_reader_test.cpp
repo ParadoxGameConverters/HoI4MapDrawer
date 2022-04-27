@@ -22,3 +22,23 @@ TEST(CountryTagFileReaderTest, ColorCanBeSpecified)
        testing::UnorderedElementsAre(testing::Pair("TAG", "country/country_tag.txt"),
            testing::Pair("TWO", "country/tag_two.txt")));
 }
+
+
+TEST(CountryTagFileReaderTest, ExtraDataIsIgnored)
+{
+   std::stringstream log;
+   std::streambuf* cout_buffer = std::cout.rdbuf();
+   std::cout.rdbuf(log.rdbuf());
+
+   std::stringstream input;
+   input << "color = { 51 204 51 }\n";
+   input << "unhandled_input = 42";
+
+   hoi4_map_drawer::country_colors::CountryTagFileReader reader;
+   auto tags_to_definitions_map = reader.ImportTags("test_data/country_colors/tag_file_with_extra_data.txt");
+   tags_to_definitions_map.clear();  // make the annoying warning go away
+
+   EXPECT_TRUE(log.str().empty());
+
+   std::cout.rdbuf(cout_buffer);
+}
