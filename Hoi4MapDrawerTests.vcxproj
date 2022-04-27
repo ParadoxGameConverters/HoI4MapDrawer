@@ -68,6 +68,8 @@
     <ClCompile Include="external\googletest\googletest\src\gtest_main.cc" />
     <ClCompile Include="src\country_colors\country_definition_reader.cpp" />
     <ClCompile Include="src\country_colors\country_definition_reader_test.cpp" />
+    <ClCompile Include="src\country_colors\country_tag_file_reader.cpp" />
+    <ClCompile Include="src\country_colors\country_tag_file_reader_test.cpp" />
     <ClCompile Include="src\map_importer\map_importer.cpp" />
     <ClCompile Include="src\map_importer\map_importer_test.cpp" />
     <ClCompile Include="src\map_importer\pixel_test.cpp" />
@@ -91,6 +93,7 @@
     <ClInclude Include="external\commonItems\StringUtils.h" />
     <ClInclude Include="external\rakaly\rakaly.h" />
     <ClInclude Include="src\country_colors\country_definition_reader.h" />
+    <ClInclude Include="src\country_colors\country_tag_file_reader.h" />
     <ClInclude Include="src\map_importer\map_importer.h" />
     <ClInclude Include="src\save_reader\save.h" />
     <ClInclude Include="src\save_reader\save_importer.h" />
@@ -165,6 +168,16 @@
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="data\test_data\country_colors\definition_with_extra_data.txt">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/test_data/country_colors/</DestinationFolders>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="data\test_data\country_colors\empty_tag_file.txt">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/test_data/country_colors/</DestinationFolders>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="data\test_data\country_colors\definition_with_tags.txt">
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/test_data/country_colors/</DestinationFolders>
     </CopyFileToFolders>
   </ItemGroup>

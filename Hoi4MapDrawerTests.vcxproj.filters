@@ -159,6 +159,12 @@
     <ClCompile Include="external\commonItems\Color.cpp">
       <Filter>external\commonItems</Filter>
     </ClCompile>
+    <ClCompile Include="src\country_colors\country_tag_file_reader.cpp">
+      <Filter>src\country_colors</Filter>
+    </ClCompile>
+    <ClCompile Include="src\country_colors\country_tag_file_reader_test.cpp">
+      <Filter>src\country_colors</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\commonItems\iconvlite.h">
@@ -209,6 +215,9 @@
     <ClInclude Include="external\commonItems\Color.h">
       <Filter>external\commonItems</Filter>
     </ClInclude>
+    <ClInclude Include="src\country_colors\country_tag_file_reader.h">
+      <Filter>src\country_colors</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="data\test_data\map_importer_test\missing_definition.csv\map\provinces.bmp">
@@ -251,6 +260,12 @@
       <Filter>data\test_data\country_colors</Filter>
     </CopyFileToFolders>
     <CopyFileToFolders Include="data\test_data\country_colors\definition_with_extra_data.txt">
+      <Filter>data\test_data\country_colors</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\country_colors\empty_tag_file.txt">
+      <Filter>data\test_data\country_colors</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\country_colors\definition_with_tags.txt">
       <Filter>data\test_data\country_colors</Filter>
     </CopyFileToFolders>
   </ItemGroup>
