@@ -76,6 +76,9 @@
     <Filter Include="src\country_colors">
       <UniqueIdentifier>{fdf84302-f797-4059-9338-882669283d38}</UniqueIdentifier>
     </Filter>
+    <Filter Include="data\test_data\country_colors">
+      <UniqueIdentifier>{40443b90-7ad4-4a78-b393-8ff1cf40a338}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="external\commonItems\iconvlite.cpp">
@@ -240,6 +243,15 @@
     </CopyFileToFolders>
     <CopyFileToFolders Include="external\rakaly\rakaly.dll">
       <Filter>external\rakaly</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\country_colors\definition_with_color.txt">
+      <Filter>data\test_data\country_colors</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\country_colors\empty_country_definition.txt">
+      <Filter>data\test_data\country_colors</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\country_colors\definition_with_extra_data.txt">
+      <Filter>data\test_data\country_colors</Filter>
     </CopyFileToFolders>
   </ItemGroup>
 </Project>

@@ -10,20 +10,17 @@
 
 TEST(CountryDefinitionReaderTest, DefaultColorWhenNoColorSpecified)
 {
-   std::stringstream input;
-
    hoi4_map_drawer::country_colors::CountryDefinitionReader reader;
-   EXPECT_EQ(reader.ImportCountryDefinition(input), commonItems::Color());
+   EXPECT_EQ(reader.ImportCountryDefinition("test_data/country_colors/empty_country_definition.txt"),
+       commonItems::Color());
 }
 
 
 TEST(CountryDefinitionReaderTest, ColorCanBeSpecified)
 {
-   std::stringstream input;
-   input << "color = { 51 204 51 }";
-
    hoi4_map_drawer::country_colors::CountryDefinitionReader reader;
-   EXPECT_EQ(reader.ImportCountryDefinition(input), commonItems::Color(std::array{51, 204, 51}));
+   EXPECT_EQ(reader.ImportCountryDefinition("test_data/country_colors/definition_with_color.txt"),
+       commonItems::Color(std::array{51, 204, 51}));
 }
 
 
@@ -38,7 +35,7 @@ TEST(CountryDefinitionReaderTest, ExtraInputIsIgnored)
    input << "unhandled_input = 42";
 
    hoi4_map_drawer::country_colors::CountryDefinitionReader reader;
-   auto color = reader.ImportCountryDefinition(input);
+   auto color = reader.ImportCountryDefinition("test_data/country_colors/definition_with_extra_data.txt");
    color.RandomlyFluctuate(42);  // make the annoying warning go away
 
    EXPECT_TRUE(log.str().empty());

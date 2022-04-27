@@ -3,7 +3,7 @@
 
 
 
-#include <istream>
+#include <string_view>
 
 #include "external/commonItems/Color.h"
 #include "external/commonItems/Parser.h"
@@ -19,7 +19,7 @@ class CountryDefinitionReader
 {
   public:
    CountryDefinitionReader();
-   commonItems::Color ImportCountryDefinition(std::istream& the_stream);
+   commonItems::Color ImportCountryDefinition(std::string_view filename);
 
   private:
    commonItems::parser parser_;
