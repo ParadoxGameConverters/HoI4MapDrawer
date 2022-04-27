@@ -1,0 +1,2 @@
+ONE = "country/country_tag_bad.txt"
+TWO = "country/tag_two.txt"

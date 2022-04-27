@@ -79,6 +79,15 @@
     <Filter Include="data\test_data\country_colors">
       <UniqueIdentifier>{40443b90-7ad4-4a78-b393-8ff1cf40a338}</UniqueIdentifier>
     </Filter>
+    <Filter Include="data\test_data\country_colors\tags_directory">
+      <UniqueIdentifier>{06ccc570-81ac-4ccb-850c-b377fca59890}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\test_data\country_colors\tags_directory\common">
+      <UniqueIdentifier>{1de9bb2f-424a-453c-9dfe-12c70c709869}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\test_data\country_colors\tags_directory\common\country_tags">
+      <UniqueIdentifier>{4dbbde7d-cfac-4d81-a011-71239ed50ee0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="external\commonItems\iconvlite.cpp">
@@ -165,6 +174,12 @@
     <ClCompile Include="src\country_colors\country_tag_file_reader_test.cpp">
       <Filter>src\country_colors</Filter>
     </ClCompile>
+    <ClCompile Include="src\country_colors\country_tags_reader.cpp">
+      <Filter>src\country_colors</Filter>
+    </ClCompile>
+    <ClCompile Include="src\country_colors\country_tags_reader_test.cpp">
+      <Filter>src\country_colors</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\commonItems\iconvlite.h">
@@ -218,6 +233,9 @@
     <ClInclude Include="src\country_colors\country_tag_file_reader.h">
       <Filter>src\country_colors</Filter>
     </ClInclude>
+    <ClInclude Include="src\country_colors\country_tags_reader.h">
+      <Filter>src\country_colors</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="data\test_data\map_importer_test\missing_definition.csv\map\provinces.bmp">
@@ -267,6 +285,15 @@
     </CopyFileToFolders>
     <CopyFileToFolders Include="data\test_data\country_colors\definition_with_tags.txt">
       <Filter>data\test_data\country_colors</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\country_colors\tags_directory\common\country_tags\extra_tag.txt">
+      <Filter>data\test_data\country_colors\tags_directory\common\country_tags</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\country_colors\tags_directory\common\country_tags\main_tags.txt">
+      <Filter>data\test_data\country_colors\tags_directory\common\country_tags</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\country_colors\tags_directory\common\country_tags\replacement_tag.txt">
+      <Filter>data\test_data\country_colors\tags_directory\common\country_tags</Filter>
     </CopyFileToFolders>
   </ItemGroup>
 </Project>
