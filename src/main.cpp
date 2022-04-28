@@ -2,6 +2,9 @@
 #include <fstream>
 #include <ranges>
 
+#define cimg_verbosity 0
+#define cimg_display 0
+#include "external/CImg/CImg.h"
 #include "external/commonItems/Log.h"
 #include "rakaly_wrapper.h"
 #include "src/country_colors/country_color_importer.h"
@@ -92,6 +95,43 @@ int main()
          colors_log << color;
       }
       Log(LogLevel::Info) << colors_log.str();
+
+      cimg_library::CImg<uint8_t> ownership_map(5632, 2048, 1, 3);
+      ownership_map.fill(255);
+      for (const auto& [state_number, state_provinces]: state_definitions)
+      {
+         commonItems::Color state_color(std::array{0, 0, 0});
+         const auto save_state = save_states.find(state_number);
+         if (save_state != save_states.end())
+         {
+            const auto& owner = save_state->second.GetOwner();
+            if (owner)
+            {
+               const auto color_mapping = tags_to_colors_map.find(*owner);
+               if (color_mapping != tags_to_colors_map.end())
+               {
+                  state_color = color_mapping->second;
+               }
+            }
+         }
+         for (const auto& province: state_provinces)
+         {
+            const auto& definition = map_definitions.find(province);
+            if (definition == map_definitions.end())
+            {
+               continue;
+            }
+
+            for (const auto& pixel: definition->second)
+            {
+               ownership_map(pixel.x, pixel.y, 0, 0) = state_color.r();
+               ownership_map(pixel.x, pixel.y, 0, 1) = state_color.g();
+               ownership_map(pixel.x, pixel.y, 0, 2) = state_color.b();
+            }
+         }
+      }
+
+      ownership_map.save_bmp("ownership_map.bmp");
    }
    catch (const std::exception& e)
    {
