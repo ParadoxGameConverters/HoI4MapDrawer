@@ -4,9 +4,6 @@
 #include <optional>
 #include <string>
 
-#define cimg_verbosity 0
-#define cimg_display 0
-#include "external/CImg/CImg.h"
 #include "external/commonItems/Log.h"
 #include "external/commonItems/OSCompatibilityLayer.h"
 
@@ -28,12 +25,10 @@ uint32_t PixelPack(const uint8_t r, const uint8_t g, const uint8_t b)
 }
 
 
-std::map<int32_t, std::set<Pixel>> GetColorToPixelDefinitions(const std::string& filename)
+std::map<int32_t, std::set<Pixel>> GetColorToPixelDefinitions(const cimg_library::CImg<uint8_t>& provinces_image)
 {
    std::map<int32_t, std::set<Pixel>> definitions;
-   cimg_library::CImg<uint8_t> provinces_image(filename.c_str());
 
-   Log(LogLevel::Info) << "provinces.bmp is " << provinces_image.width() << " x " << provinces_image.height() << ".";
    for (int x = 0; x < provinces_image.width(); ++x)
    {
       for (int y = 0; y < provinces_image.height(); ++y)
@@ -151,9 +146,10 @@ std::map<int, int> LoadDefinitions(const std::string& filename)
 }  // namespace
 
 
-std::map<int, std::set<Pixel>> GetProvinceDefinitions(const std::string& hoi4_folder)
+std::map<int, std::set<Pixel>> GetProvinceDefinitions(const std::string& hoi4_folder,
+    const cimg_library::CImg<uint8_t>& provinces_image)
 {
-   const auto color_to_pixel_definitions = GetColorToPixelDefinitions(hoi4_folder + "/map/provinces.bmp");
+   const auto color_to_pixel_definitions = GetColorToPixelDefinitions(provinces_image);
    const auto color_to_province_definitions = LoadDefinitions(hoi4_folder + "/map/definition.csv");
 
    std::map<int, std::set<Pixel>> province_to_pixel_map;

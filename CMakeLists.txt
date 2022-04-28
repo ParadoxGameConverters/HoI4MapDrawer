@@ -29,6 +29,12 @@ add_library(
 	${COUNTRY_COLORS_SOURCES}
 )
 
+set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/map_drawer/ownership_drawer.cpp")
+add_library(
+	MapDrawer
+	${MAP_DRAWER_SOURCES}
+)
+
 set(MAP_IMPORTER_SOURCES ${MAP_IMPORTER_SOURCES} "src/map_importer/map_importer.cpp")
 add_library(
 	MapImporter
@@ -76,7 +82,7 @@ set_target_properties( Hoi4MapDrawer
 target_compile_definitions(Hoi4MapDrawer PRIVATE cimg_display=0)
 
 find_library(RAKALY_LIB librakaly.so PATHS "external/rakaly/" REQUIRED)
-target_link_libraries(Hoi4MapDrawer CountryColors MapImporter SaveReader StateDefintitions CommonItems ${RAKALY_LIB} pthread)
+target_link_libraries(Hoi4MapDrawer CountryColors MapDrawer MapImporter SaveReader StateDefintitions CommonItems ${RAKALY_LIB} pthread)
 
 add_custom_command(TARGET Hoi4MapDrawer POST_BUILD WORKING_DIRECTORY ${CMAKE_SOURCE_DIR} COMMAND git rev-parse HEAD > ${MAP_DRAWER_OUTPUT_DIRECTORY}/../commit_id.txt)
 
@@ -117,4 +123,4 @@ set_target_properties( Hoi4MapDrawerTests
 
 file(COPY "data/test_data" DESTINATION "${TEST_OUTPUT_DIRECTORY}")
 
-target_link_libraries(Hoi4MapDrawerTests CountryColors MapImporter SaveReader StateDefintitions CommonItems ${RAKALY_LIB} pthread)
+target_link_libraries(Hoi4MapDrawerTests CountryColors MapDrawer MapImporter SaveReader StateDefintitions CommonItems ${RAKALY_LIB} pthread)
