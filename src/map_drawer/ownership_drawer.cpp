@@ -6,12 +6,14 @@
 #include "external/commonItems/Color.h"
 
 
-void hoi4_map_drawer::map_importer::DrawOwnershipMap(const std::map<int, std::vector<int>>& state_definitions,
+void hoi4_map_drawer::map_importer::DrawOwnershipMap(int width,
+    int height,
+    const std::map<int, std::vector<int>>& state_definitions,
     const std::map<int, save_reader::State>& save_states,
     const std::map<std::string, commonItems::Color>& tags_to_colors_map,
     const std::map<int, std::set<Pixel>>& map_definitions)
 {
-   cimg_library::CImg<uint8_t> ownership_map(5632, 2048, 1, 3);
+   cimg_library::CImg<uint8_t> ownership_map(width, height, 1, 3);
    ownership_map.fill(255);
    for (const auto& [state_number, state_provinces]: state_definitions)
    {

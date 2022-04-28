@@ -18,22 +18,20 @@ using testing::UnorderedElementsAre;
 
 
 
-TEST(MapImporterTest, MissingProvincesDotBmpThrowsException)
-{
-   EXPECT_THROW(GetProvinceDefinitions("./test_data/map_importer_test/missing_provinces.bmp"),
-       cimg_library::CImgIOException);
-}
-
-
 TEST(MapImporterTest, MissingDefinitionDotCsvThrowsException)
 {
-   EXPECT_THROW(GetProvinceDefinitions("./test_data/map_importer_test/missing_definition.csv"), std::runtime_error);
+   const cimg_library::CImg<uint8_t> provinces_image(
+       "./test_data/map_importer_test/missing_definition.csv/map/provinces.bmp");
+   EXPECT_THROW(GetProvinceDefinitions("./test_data/map_importer_test/missing_definition.csv", provinces_image),
+       std::runtime_error);
 }
 
 
 TEST(MapImporterTest, ProvinceDefinitionsAreImported)
 {
-   const auto province_definitions = GetProvinceDefinitions("./test_data/map_importer_test/valid_map_data");
+   const cimg_library::CImg<uint8_t> provinces_image("./test_data/map_importer_test/valid_map_data/map/provinces.bmp");
+   const auto province_definitions =
+       GetProvinceDefinitions("./test_data/map_importer_test/valid_map_data", provinces_image);
 
    EXPECT_EQ(province_definitions.size(), 3);
    ASSERT_TRUE(province_definitions.contains(1));
@@ -115,7 +113,8 @@ TEST(MapImporterTest, BadDefinitionLinesAreLogged)
    std::streambuf* cout_buffer = std::cout.rdbuf();
    std::cout.rdbuf(log.rdbuf());
 
-   auto province_definitions = GetProvinceDefinitions("./test_data/map_importer_test/valid_map_data");
+   const cimg_library::CImg<uint8_t> provinces_image("./test_data/map_importer_test/valid_map_data/map/provinces.bmp");
+   auto province_definitions = GetProvinceDefinitions("./test_data/map_importer_test/valid_map_data", provinces_image);
    province_definitions.clear();  // make the annoying warning go away
 
    EXPECT_THAT(log.str(), testing::HasSubstr("[WARNING] Broken Definition Line: 10;broken_line; - "));

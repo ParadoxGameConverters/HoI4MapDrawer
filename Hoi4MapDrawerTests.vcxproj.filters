@@ -100,6 +100,9 @@
     <Filter Include="data\test_data\country_colors\country_color_importer\common\countries">
       <UniqueIdentifier>{a3a456e5-4d86-4a5b-9161-98f356894bbb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\map_drawer">
+      <UniqueIdentifier>{0a936d03-e6c0-45bd-8389-0876b6c02ac8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="external\commonItems\iconvlite.cpp">
@@ -198,6 +201,9 @@
     <ClCompile Include="src\country_colors\country_color_importer_test.cpp">
       <Filter>src\country_colors</Filter>
     </ClCompile>
+    <ClCompile Include="src\map_drawer\ownership_drawer.cpp">
+      <Filter>src\map_drawer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\commonItems\iconvlite.h">
@@ -256,6 +262,9 @@
     </ClInclude>
     <ClInclude Include="src\country_colors\country_color_importer.h">
       <Filter>src\country_colors</Filter>
+    </ClInclude>
+    <ClInclude Include="src\map_drawer\ownership_drawer.h">
+      <Filter>src\map_drawer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
