@@ -20,6 +20,15 @@ include_directories("./external/googletest/googlemock/include")
 
 #### Drawer ####
 
+set(COUNTRY_COLORS_SOURCES ${COUNTRY_COLORS_SOURCES} "src/country_colors/country_color_importer.cpp")
+set(COUNTRY_COLORS_SOURCES ${COUNTRY_COLORS_SOURCES} "src/country_colors/country_definition_reader.cpp")
+set(COUNTRY_COLORS_SOURCES ${COUNTRY_COLORS_SOURCES} "src/country_colors/country_tags_reader.cpp")
+set(COUNTRY_COLORS_SOURCES ${COUNTRY_COLORS_SOURCES} "src/country_colors/country_tag_file_reader.cpp")
+add_library(
+	CountryColors
+	${COUNTRY_COLORS_SOURCES}
+)
+
 set(MAP_IMPORTER_SOURCES ${MAP_IMPORTER_SOURCES} "src/map_importer/map_importer.cpp")
 add_library(
 	MapImporter
@@ -41,14 +50,14 @@ add_library(
 	${STATE_DEFINITIONS_SOURCES}
 )
 
+set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/Color.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/iconvlite.cpp")
+set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/LinuxUtils.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/Log.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/OSCommonLayer.cpp")
-set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/LinuxUtils.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/Parser.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/ParserHelpers.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/StringUtils.cpp")
-set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/LinuxUtils.cpp")
 add_library(
 	CommonItems
 	${COMMON_SOURCES}
@@ -67,12 +76,17 @@ set_target_properties( Hoi4MapDrawer
 target_compile_definitions(Hoi4MapDrawer PRIVATE cimg_display=0)
 
 find_library(RAKALY_LIB librakaly.so PATHS "external/rakaly/" REQUIRED)
-target_link_libraries(Hoi4MapDrawer MapImporter SaveReader StateDefintitions CommonItems ${RAKALY_LIB} pthread)
+target_link_libraries(Hoi4MapDrawer CountryColors MapImporter SaveReader StateDefintitions CommonItems ${RAKALY_LIB} pthread)
 
 add_custom_command(TARGET Hoi4MapDrawer POST_BUILD WORKING_DIRECTORY ${CMAKE_SOURCE_DIR} COMMAND git rev-parse HEAD > ${MAP_DRAWER_OUTPUT_DIRECTORY}/../commit_id.txt)
 
 
 #### Tests ####
+
+set(COUNTRY_COLORS_TEST_SOURCES ${COUNTRY_COLORS_TEST_SOURCES} "src/country_colors/country_color_importer_test.cpp")
+set(COUNTRY_COLORS_TEST_SOURCES ${COUNTRY_COLORS_TEST_SOURCES} "src/country_colors/country_definition_reader_test.cpp")
+set(COUNTRY_COLORS_TEST_SOURCES ${COUNTRY_COLORS_TEST_SOURCES} "src/country_colors/country_tags_reader_test.cpp")
+set(COUNTRY_COLORS_TEST_SOURCES ${COUNTRY_COLORS_TEST_SOURCES} "src/country_colors/country_tag_file_reader_test.cpp")
 
 set(MAP_IMPORTER_TEST_SOURCES ${MAP_IMPORTER_TEST_SOURCES} "src/map_importer/map_importer_test.cpp")
 set(MAP_IMPORTER_TEST_SOURCES ${MAP_IMPORTER_TEST_SOURCES} "src/map_importer/pixel_test.cpp")
@@ -90,6 +104,7 @@ set(GTEST_SOURCES ${GTEST_SOURCES} "external/googletest/googlemock/src/gmock-all
 
 add_executable(
 	Hoi4MapDrawerTests
+	${COUNTRY_COLORS_TEST_SOURCES}
 	${MAP_IMPORTER_TEST_SOURCES}
 	${SAVE_READER_TEST_SOURCES}
 	${STATE_DEFINITIONS_TEST_SOURCES}
@@ -102,4 +117,4 @@ set_target_properties( Hoi4MapDrawerTests
 
 file(COPY "data/test_data" DESTINATION "${TEST_OUTPUT_DIRECTORY}")
 
-target_link_libraries(Hoi4MapDrawerTests MapImporter SaveReader StateDefintitions CommonItems ${RAKALY_LIB} pthread)
+target_link_libraries(Hoi4MapDrawerTests CountryColors MapImporter SaveReader StateDefintitions CommonItems ${RAKALY_LIB} pthread)

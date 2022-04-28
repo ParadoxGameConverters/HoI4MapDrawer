@@ -1,0 +1,3 @@
+dynamic_tags = yes
+TAG = "country/country_tag.txt"
+TWO = "country/tag_two.txt"

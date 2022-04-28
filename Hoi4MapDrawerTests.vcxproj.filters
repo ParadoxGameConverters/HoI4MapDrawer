@@ -73,6 +73,33 @@
     <Filter Include="external\rakaly">
       <UniqueIdentifier>{2d81d4c5-12eb-4d11-978c-8fe23d861224}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\country_colors">
+      <UniqueIdentifier>{fdf84302-f797-4059-9338-882669283d38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\test_data\country_colors">
+      <UniqueIdentifier>{40443b90-7ad4-4a78-b393-8ff1cf40a338}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\test_data\country_colors\tags_directory">
+      <UniqueIdentifier>{06ccc570-81ac-4ccb-850c-b377fca59890}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\test_data\country_colors\tags_directory\common">
+      <UniqueIdentifier>{1de9bb2f-424a-453c-9dfe-12c70c709869}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\test_data\country_colors\tags_directory\common\country_tags">
+      <UniqueIdentifier>{4dbbde7d-cfac-4d81-a011-71239ed50ee0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\test_data\country_colors\country_color_importer">
+      <UniqueIdentifier>{73323888-56c1-4bd7-9b9c-181fe2c3a449}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\test_data\country_colors\country_color_importer\common">
+      <UniqueIdentifier>{1816003c-d0a9-4bcc-b5d3-c3a6853a551c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\test_data\country_colors\country_color_importer\common\country_tags">
+      <UniqueIdentifier>{98967360-0a05-404b-9c6d-c173cfcfbe41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\test_data\country_colors\country_color_importer\common\countries">
+      <UniqueIdentifier>{a3a456e5-4d86-4a5b-9161-98f356894bbb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="external\commonItems\iconvlite.cpp">
@@ -144,6 +171,33 @@
     <ClCompile Include="src\save_reader\save_importer_test.cpp">
       <Filter>src\save_reader</Filter>
     </ClCompile>
+    <ClCompile Include="src\country_colors\country_definition_reader_test.cpp">
+      <Filter>src\country_colors</Filter>
+    </ClCompile>
+    <ClCompile Include="src\country_colors\country_definition_reader.cpp">
+      <Filter>src\country_colors</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\Color.cpp">
+      <Filter>external\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\country_colors\country_tag_file_reader.cpp">
+      <Filter>src\country_colors</Filter>
+    </ClCompile>
+    <ClCompile Include="src\country_colors\country_tag_file_reader_test.cpp">
+      <Filter>src\country_colors</Filter>
+    </ClCompile>
+    <ClCompile Include="src\country_colors\country_tags_reader.cpp">
+      <Filter>src\country_colors</Filter>
+    </ClCompile>
+    <ClCompile Include="src\country_colors\country_tags_reader_test.cpp">
+      <Filter>src\country_colors</Filter>
+    </ClCompile>
+    <ClCompile Include="src\country_colors\country_color_importer.cpp">
+      <Filter>src\country_colors</Filter>
+    </ClCompile>
+    <ClCompile Include="src\country_colors\country_color_importer_test.cpp">
+      <Filter>src\country_colors</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\commonItems\iconvlite.h">
@@ -188,6 +242,21 @@
     <ClInclude Include="external\rakaly\rakaly.h">
       <Filter>external\rakaly</Filter>
     </ClInclude>
+    <ClInclude Include="src\country_colors\country_definition_reader.h">
+      <Filter>src\country_colors</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\Color.h">
+      <Filter>external\commonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="src\country_colors\country_tag_file_reader.h">
+      <Filter>src\country_colors</Filter>
+    </ClInclude>
+    <ClInclude Include="src\country_colors\country_tags_reader.h">
+      <Filter>src\country_colors</Filter>
+    </ClInclude>
+    <ClInclude Include="src\country_colors\country_color_importer.h">
+      <Filter>src\country_colors</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="data\test_data\map_importer_test\missing_definition.csv\map\provinces.bmp">
@@ -222,6 +291,42 @@
     </CopyFileToFolders>
     <CopyFileToFolders Include="external\rakaly\rakaly.dll">
       <Filter>external\rakaly</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\country_colors\definition_with_color.txt">
+      <Filter>data\test_data\country_colors</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\country_colors\empty_country_definition.txt">
+      <Filter>data\test_data\country_colors</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\country_colors\definition_with_extra_data.txt">
+      <Filter>data\test_data\country_colors</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\country_colors\empty_tag_file.txt">
+      <Filter>data\test_data\country_colors</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\country_colors\definition_with_tags.txt">
+      <Filter>data\test_data\country_colors</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\country_colors\tags_directory\common\country_tags\extra_tag.txt">
+      <Filter>data\test_data\country_colors\tags_directory\common\country_tags</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\country_colors\tags_directory\common\country_tags\main_tags.txt">
+      <Filter>data\test_data\country_colors\tags_directory\common\country_tags</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\country_colors\tags_directory\common\country_tags\replacement_tag.txt">
+      <Filter>data\test_data\country_colors\tags_directory\common\country_tags</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\country_colors\tag_file_with_extra_data.txt">
+      <Filter>data\test_data\country_colors</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\country_colors\country_color_importer\common\country_tags\00_countries.txt">
+      <Filter>data\test_data\country_colors\country_color_importer\common\country_tags</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\country_colors\country_color_importer\common\countries\country_one.txt">
+      <Filter>data\test_data\country_colors\country_color_importer\common\countries</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\country_colors\country_color_importer\common\countries\country_two.txt">
+      <Filter>data\test_data\country_colors\country_color_importer\common\countries</Filter>
     </CopyFileToFolders>
   </ItemGroup>
 </Project>
