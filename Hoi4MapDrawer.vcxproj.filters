@@ -29,6 +29,9 @@
     <Filter Include="src\country_colors">
       <UniqueIdentifier>{121898c9-c74f-4e4e-b0a4-cedb4e207979}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\map_drawer">
+      <UniqueIdentifier>{e436006d-1c03-4ae0-8d69-df332dbcc00e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -90,6 +93,9 @@
     </ClCompile>
     <ClCompile Include="src\country_colors\country_color_importer.cpp">
       <Filter>src\country_colors</Filter>
+    </ClCompile>
+    <ClCompile Include="src\map_drawer\ownership_drawer.cpp">
+      <Filter>src\map_drawer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -158,6 +164,9 @@
     </ClInclude>
     <ClInclude Include="src\country_colors\country_color_importer.h">
       <Filter>src\country_colors</Filter>
+    </ClInclude>
+    <ClInclude Include="src\map_drawer\ownership_drawer.h">
+      <Filter>src\map_drawer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
