@@ -7,6 +7,7 @@
 #include <string_view>
 #include <vector>
 
+#include "external/commonItems/ModLoader/ModFilesystem.h"
 #include "external/commonItems/Parser.h"
 #include "src/state_definitions/state_definition_importer.h"
 
@@ -21,7 +22,7 @@ class StateDefinitionsImporter
 {
   public:
    StateDefinitionsImporter();
-   std::map<int, std::vector<int>> ImportStateDefinitions(const std::string& states_history_folder);
+   std::map<int, std::vector<int>> ImportStateDefinitions(const commonItems::ModFilesystem& mod_filesystem);
 
   private:
    commonItems::parser parser_;

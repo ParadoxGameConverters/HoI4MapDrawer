@@ -5,6 +5,7 @@
 #include <string>
 
 #include "external/commonItems/Log.h"
+#include "external/commonItems/ModLoader/ModFilesystem.h"
 #include "external/commonItems/OSCompatibilityLayer.h"
 
 
@@ -146,11 +147,17 @@ std::map<int, int> LoadDefinitions(const std::string& filename)
 }  // namespace
 
 
-std::map<int, std::set<Pixel>> GetProvinceDefinitions(const std::string& hoi4_folder,
+std::map<int, std::set<Pixel>> GetProvinceDefinitions(const commonItems::ModFilesystem& mod_filesystem,
     const cimg_library::CImg<uint8_t>& provinces_image)
 {
    const auto color_to_pixel_definitions = GetColorToPixelDefinitions(provinces_image);
-   const auto color_to_province_definitions = LoadDefinitions(hoi4_folder + "/map/definition.csv");
+
+   const auto definition_csv_location = mod_filesystem.GetActualFileLocation("/map/definition.csv");
+   if (!definition_csv_location)
+   {
+      throw std::runtime_error("/map/definition.csv couldn't be found!");
+   }
+   const auto color_to_province_definitions = LoadDefinitions(*definition_csv_location);
 
    std::map<int, std::set<Pixel>> province_to_pixel_map;
    for (const auto& [color, pixels]: color_to_pixel_definitions)

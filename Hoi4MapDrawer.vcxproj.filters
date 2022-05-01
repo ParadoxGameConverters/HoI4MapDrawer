@@ -32,6 +32,27 @@
     <Filter Include="src\map_drawer">
       <UniqueIdentifier>{e436006d-1c03-4ae0-8d69-df332dbcc00e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="external\commonItems\modloader">
+      <UniqueIdentifier>{cae2a6a0-1ed2-4673-a487-df9ea4416fa0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\commonItems\ZipLib">
+      <UniqueIdentifier>{0cd17ac7-ed16-44fc-822e-0cd66fb1b18b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\commonItems\ZipLib\detail">
+      <UniqueIdentifier>{6a02f37d-ac31-4b7e-900c-9e40506aee4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\commonItems\ZipLib\extlibs">
+      <UniqueIdentifier>{2b93f123-a334-4e77-97c1-277a9a485f86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\commonItems\ZipLib\extlibs\zlib">
+      <UniqueIdentifier>{197a4699-cd20-4658-83bb-a550de7131ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\commonItems\ZipLib\extlibs\lzma">
+      <UniqueIdentifier>{36a1b656-cffd-4673-9cd1-7a4e7e5e27f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\commonItems\ZipLib\extlibs\bzip2">
+      <UniqueIdentifier>{76e6d36d-e400-4780-9637-45779e906c69}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -96,6 +117,207 @@
     </ClCompile>
     <ClCompile Include="src\map_drawer\ownership_drawer.cpp">
       <Filter>src\map_drawer</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ModLoader\ModLoader.cpp">
+      <Filter>external\commonItems\modloader</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ModLoader\ModParser.cpp">
+      <Filter>external\commonItems\modloader</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ModLoader\ModFilesystem.cpp">
+      <Filter>external\commonItems\modloader</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\ZipArchive.cpp">
+      <Filter>external\commonItems\ZipLib</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\ZipArchiveEntry.cpp">
+      <Filter>external\commonItems\ZipLib</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\ZipFile.cpp">
+      <Filter>external\commonItems\ZipLib</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\CommonFunctions.cpp">
+      <Filter>external\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ConvenientParser.cpp">
+      <Filter>external\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\detail\EndOfCentralDirectoryBlock.cpp">
+      <Filter>external\commonItems\ZipLib\detail</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\detail\ZipCentralDirectoryFileHeader.cpp">
+      <Filter>external\commonItems\ZipLib\detail</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\detail\ZipGenericExtraField.cpp">
+      <Filter>external\commonItems\ZipLib\detail</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\detail\ZipLocalFileHeader.cpp">
+      <Filter>external\commonItems\ZipLib\detail</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\zlib\adler32.c">
+      <Filter>external\commonItems\ZipLib\extlibs\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\zlib\compress.c">
+      <Filter>external\commonItems\ZipLib\extlibs\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\zlib\crc32.c">
+      <Filter>external\commonItems\ZipLib\extlibs\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\zlib\deflate.c">
+      <Filter>external\commonItems\ZipLib\extlibs\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\zlib\infback.c">
+      <Filter>external\commonItems\ZipLib\extlibs\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\zlib\inffast.c">
+      <Filter>external\commonItems\ZipLib\extlibs\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\zlib\inflate.c">
+      <Filter>external\commonItems\ZipLib\extlibs\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\zlib\inftrees.c">
+      <Filter>external\commonItems\ZipLib\extlibs\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\zlib\trees.c">
+      <Filter>external\commonItems\ZipLib\extlibs\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\zlib\uncompr.c">
+      <Filter>external\commonItems\ZipLib\extlibs\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\zlib\zutil.c">
+      <Filter>external\commonItems\ZipLib\extlibs\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\7zAlloc.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\7zBuf.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\7zBuf2.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\7zCrc.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\7zCrcOpt.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\7zDec.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\7zFile.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\7zIn.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\7zStream.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\Alloc.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\Bcj2.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\Bra.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\Bra86.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\BraIA64.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\CpuArch.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\Delta.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\LzFind.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\LzFindMt.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\Lzma2Dec.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\Lzma2Enc.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\Lzma86Dec.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\Lzma86Enc.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\LzmaDec.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\LzmaEnc.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\LzmaLib.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\MtCoder.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\Ppmd7.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\Ppmd7Dec.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\Ppmd7Enc.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\Sha256.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\Threads.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\Xz.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\XzCrc64.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\XzDec.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\XzEnc.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\lzma\XzIn.c">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\bzip2\bcompress.c">
+      <Filter>external\commonItems\ZipLib\extlibs\bzip2</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\bzip2\blocksort.c">
+      <Filter>external\commonItems\ZipLib\extlibs\bzip2</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\bzip2\bzerror.c">
+      <Filter>external\commonItems\ZipLib\extlibs\bzip2</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\bzip2\bzlib.c">
+      <Filter>external\commonItems\ZipLib\extlibs\bzip2</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\bzip2\crctable.c">
+      <Filter>external\commonItems\ZipLib\extlibs\bzip2</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\bzip2\decompress.c">
+      <Filter>external\commonItems\ZipLib\extlibs\bzip2</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\bzip2\huffman.c">
+      <Filter>external\commonItems\ZipLib\extlibs\bzip2</Filter>
+    </ClCompile>
+    <ClCompile Include="external\commonItems\ZipLib\extlibs\bzip2\randtable.c">
+      <Filter>external\commonItems\ZipLib\extlibs\bzip2</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -168,10 +390,186 @@
     <ClInclude Include="src\map_drawer\ownership_drawer.h">
       <Filter>src\map_drawer</Filter>
     </ClInclude>
+    <ClInclude Include="external\commonItems\ModLoader\ModLoader.h">
+      <Filter>external\commonItems\modloader</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ModLoader\ModParser.h">
+      <Filter>external\commonItems\modloader</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ModLoader\ModFilesystem.h">
+      <Filter>external\commonItems\modloader</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\ZipArchive.h">
+      <Filter>external\commonItems\ZipLib</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\ZipArchiveEntry.h">
+      <Filter>external\commonItems\ZipLib</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\ZipFile.h">
+      <Filter>external\commonItems\ZipLib</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\CommonFunctions.h">
+      <Filter>external\commonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ConvenientParser.h">
+      <Filter>external\commonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\detail\EndOfCentralDirectoryBlock.h">
+      <Filter>external\commonItems\ZipLib\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\detail\ZipCentralDirectoryFileHeader.h">
+      <Filter>external\commonItems\ZipLib\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\detail\ZipGenericExtraField.h">
+      <Filter>external\commonItems\ZipLib\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\detail\ZipLocalFileHeader.h">
+      <Filter>external\commonItems\ZipLib\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\zlib\crc32.h">
+      <Filter>external\commonItems\ZipLib\extlibs\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\zlib\deflate.h">
+      <Filter>external\commonItems\ZipLib\extlibs\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\zlib\gzguts.h">
+      <Filter>external\commonItems\ZipLib\extlibs\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\zlib\inffast.h">
+      <Filter>external\commonItems\ZipLib\extlibs\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\zlib\inffixed.h">
+      <Filter>external\commonItems\ZipLib\extlibs\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\zlib\inflate.h">
+      <Filter>external\commonItems\ZipLib\extlibs\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\zlib\inftrees.h">
+      <Filter>external\commonItems\ZipLib\extlibs\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\zlib\trees.h">
+      <Filter>external\commonItems\ZipLib\extlibs\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\zlib\zconf.h">
+      <Filter>external\commonItems\ZipLib\extlibs\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\zlib\zlib.h">
+      <Filter>external\commonItems\ZipLib\extlibs\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\zlib\zutil.h">
+      <Filter>external\commonItems\ZipLib\extlibs\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\7z.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\7zAlloc.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\7zBuf.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\7zCrc.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\7zFile.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\7zVersion.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\Alloc.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\Bcj2.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\Bra.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\CpuArch.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\Delta.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\LzFind.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\LzFindMt.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\LzHash.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\Lzma2Dec.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\Lzma2Enc.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\Lzma86.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\LzmaDec.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\LzmaEnc.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\LzmaLib.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\MtCoder.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\Ppmd.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\Ppmd7.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\RotateDefs.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\Sha256.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\Threads.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\Types.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\Xz.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\XzCrc64.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\lzma\XzEnc.h">
+      <Filter>external\commonItems\ZipLib\extlibs\lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\bzip2\bzlib.h">
+      <Filter>external\commonItems\ZipLib\extlibs\bzip2</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\ZipLib\extlibs\bzip2\bzlib_private.h">
+      <Filter>external\commonItems\ZipLib\extlibs\bzip2</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="external\rakaly\rakaly.dll">
       <Filter>external\rakaly</Filter>
     </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="external\commonItems\ZipLib\extlibs\zlib\zlib.vcxproj">
+      <Filter>external\commonItems\ZipLib\extlibs\zlib</Filter>
+    </None>
+    <None Include="external\commonItems\ZipLib\extlibs\zlib\zlib.vcxproj.filters">
+      <Filter>external\commonItems\ZipLib\extlibs\zlib</Filter>
+    </None>
+    <None Include="external\commonItems\ZipLib\extlibs\zlib\zlib.vcxproj.user">
+      <Filter>external\commonItems\ZipLib\extlibs\zlib</Filter>
+    </None>
   </ItemGroup>
 </Project>
