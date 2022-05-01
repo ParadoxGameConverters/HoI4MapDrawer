@@ -22,7 +22,7 @@ namespace
 
 uint32_t PixelPack(const uint8_t r, const uint8_t g, const uint8_t b)
 {
-   return r << 0xFU | g << 0x8U | b;
+   return r << 0x10U | g << 0x8U | b;
 }
 
 
