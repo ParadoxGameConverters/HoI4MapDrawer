@@ -14,7 +14,7 @@ std::map<std::string, std::string> hoi4_map_drawer::country_colors::CountryTagsR
       {
          if (auto [iterator, success] = tag_to_filename_map_.emplace(tag, "common/" + filename); !success)
          {
-            iterator->second = filename;
+            iterator->second = "common/" + filename;
          }
       }
    }
