@@ -7,6 +7,7 @@
 #include "external/CImg/CImg.h"
 #include "external/commonItems/Log.h"
 #include "external/commonItems/ModLoader/ModFilesystem.h"
+#include "external/commonItems/ModLoader/ModLoader.h"
 #include "rakaly_wrapper.h"
 #include "src/country_colors/country_color_importer.h"
 #include "src/map_drawer/ownership_drawer.h"
@@ -21,21 +22,12 @@ int main()
    try
    {
       const std::string hoi4_folder = "C:/Program Files (x86)/Steam/steamapps/common/Hearts of Iron IV";
-      Mod rsb_mod("Converted - Rome_Strikes_Back",
-          "C:/Users/idhre/OneDrive/Documents/Paradox Interactive/Hearts of Iron IV/mod/Rome_Strikes_Back",
-          {},
-          {"common/ideologies",
-              "history/countries",
-              "history/states",
-              "history/units",
-              "common/national_focus",
-              "common/countries",
-              "common/ideas",
-              "map/supplyareas",
-              "map/strategicregions",
-              "events"});
+      commonItems::ModLoader mod_loader;
 
-      commonItems::ModFilesystem mod_filesystem(hoi4_folder, {rsb_mod});
+      Mod rsb_mod("Converted - Rome_Strikes_Back", "");
+
+      mod_loader.loadMods("C:/Users/idhre/OneDrive/Documents/Paradox Interactive/Hearts of Iron IV", {rsb_mod});
+      commonItems::ModFilesystem mod_filesystem(hoi4_folder, mod_loader.getMods());
 
       Log(LogLevel::Info) << "Importing HoI4 map.";
       const auto provinces_bmp_location = mod_filesystem.GetActualFileLocation("/map/provinces.bmp");
