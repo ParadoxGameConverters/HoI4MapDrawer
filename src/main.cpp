@@ -6,6 +6,7 @@
 #define cimg_display 0
 #include "external/CImg/CImg.h"
 #include "external/commonItems/Log.h"
+#include "external/commonItems/ModLoader/Mod.h"
 #include "external/commonItems/ModLoader/ModFilesystem.h"
 #include "external/commonItems/ModLoader/ModLoader.h"
 #include "rakaly_wrapper.h"
@@ -22,11 +23,13 @@ int main()
    try
    {
       const std::string hoi4_folder = "C:/Program Files (x86)/Steam/steamapps/common/Hearts of Iron IV";
+
+      Log(LogLevel::Info) << "Importing save";
+      hoi4_map_drawer::save_reader::SaveImporter save_importer;
+      const auto save = save_importer.ImportSave("../../data/saves/RME_1936_01_01_12.hoi4");
+
       commonItems::ModLoader mod_loader;
-
-      Mod rsb_mod("Converted - Rome_Strikes_Back", "");
-
-      mod_loader.loadMods("C:/Users/idhre/OneDrive/Documents/Paradox Interactive/Hearts of Iron IV", {rsb_mod});
+      mod_loader.loadMods("C:/Users/idhre/OneDrive/Documents/Paradox Interactive/Hearts of Iron IV", save.GetMods());
       commonItems::ModFilesystem mod_filesystem(hoi4_folder, mod_loader.getMods());
 
       Log(LogLevel::Info) << "Importing HoI4 map.";
@@ -42,10 +45,6 @@ int main()
       Log(LogLevel::Info) << "Importing state definitions";
       const auto state_definitions =
           hoi4_map_drawer::state_definitions::StateDefinitionsImporter{}.ImportStateDefinitions(mod_filesystem);
-
-      Log(LogLevel::Info) << "Importing save";
-      hoi4_map_drawer::save_reader::SaveImporter save_importer;
-      const auto save = save_importer.ImportSave("../../data/saves/RME_1936_01_01_12.hoi4");
 
       Log(LogLevel::Info) << "Importing country colors";
       const auto tags_to_colors_map = hoi4_map_drawer::country_colors::ImportCountryColors(mod_filesystem);

@@ -555,6 +555,9 @@
     <ClInclude Include="external\commonItems\ZipLib\extlibs\bzip2\bzlib_private.h">
       <Filter>external\commonItems\ZipLib\extlibs\bzip2</Filter>
     </ClInclude>
+    <ClInclude Include="external\commonItems\ModLoader\Mod.h">
+      <Filter>external\commonItems\modloader</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="external\rakaly\rakaly.dll">

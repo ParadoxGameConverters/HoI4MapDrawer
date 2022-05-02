@@ -31,6 +31,12 @@ hoi4_map_drawer::save_reader::SaveImporter::SaveImporter()
    parser_.registerKeyword("states", [this](std::istream& the_stream) {
       states_ = states_importer_.ImportStates(the_stream);
    });
+   parser_.registerKeyword("mods", [this](std::istream& the_stream) {
+      for (const auto& mod_name: commonItems::getStrings(the_stream))
+      {
+         mods_.emplace_back(mod_name, "");
+      }
+   });
    parser_.registerKeyword("HOI4txt", [](std::istream& the_stream) {
    });
    parser_.registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
@@ -54,5 +60,5 @@ hoi4_map_drawer::save_reader::Save hoi4_map_drawer::save_reader::SaveImporter::I
    auto game_state = std::istringstream(unmelted_save);
 
    parser_.parseStream(game_state);
-   return Save(states_);
+   return Save(states_, mods_);
 }

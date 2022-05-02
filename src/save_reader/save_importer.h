@@ -3,6 +3,7 @@
 
 
 
+#include "external/commonItems/ModLoader/Mod.h"
 #include "external/commonItems/Parser.h"
 #include "src/save_reader/save.h"
 #include "src/save_reader/states_importer.h"
@@ -23,6 +24,7 @@ class SaveImporter
 
   private:
    std::map<int, State> states_;
+   std::vector<Mod> mods_;
    commonItems::parser parser_;
    StatesImporter states_importer_;
 };
