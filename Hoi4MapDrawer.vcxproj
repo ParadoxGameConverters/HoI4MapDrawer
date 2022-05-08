@@ -130,6 +130,7 @@
     <ClCompile Include="external\commonItems\ZipLib\ZipArchive.cpp" />
     <ClCompile Include="external\commonItems\ZipLib\ZipArchiveEntry.cpp" />
     <ClCompile Include="external\commonItems\ZipLib\ZipFile.cpp" />
+    <ClCompile Include="src\configuration\Configuration.cpp" />
     <ClCompile Include="src\country_colors\country_color_importer.cpp" />
     <ClCompile Include="src\country_colors\country_definition_reader.cpp" />
     <ClCompile Include="src\country_colors\country_tags_reader.cpp" />

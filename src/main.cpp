@@ -24,16 +24,17 @@ int main()
    try
    {
       Log(LogLevel::Info) << "Loading configuration";
-      hoi4_map_drawer::configuration::Configuration configuration;
+      const auto configuration = hoi4_map_drawer::configuration::ImportConfiguration();
 
       Log(LogLevel::Info) << "Importing save";
       hoi4_map_drawer::save_reader::SaveImporter save_importer;
-      const auto save = save_importer.ImportSave(configuration.GetSaveLocation());
+      const auto save = save_importer.ImportSave(configuration.save_location);
 
+      Log(LogLevel::Info) << "Reading mods";
       commonItems::ModLoader mod_loader;
-      mod_loader.loadMods(configuration.GetModFolder(), save.GetMods());
+      mod_loader.loadMods(configuration.mod_folder, save.GetMods());
       mod_loader.sortMods();
-      commonItems::ModFilesystem mod_filesystem(configuration.GetHoi4Folder(), mod_loader.getMods());
+      commonItems::ModFilesystem mod_filesystem(configuration.hoi4_folder, mod_loader.getMods());
 
       Log(LogLevel::Info) << "Importing HoI4 map.";
       const auto provinces_bmp_location = mod_filesystem.GetActualFileLocation("/map/provinces.bmp");
