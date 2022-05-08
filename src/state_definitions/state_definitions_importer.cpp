@@ -1,6 +1,7 @@
 #include "src/state_definitions/state_definitions_importer.h"
 
 #include "external/commonItems/CommonRegexes.h"
+#include "external/commonItems/ModLoader/ModFilesystem.h"
 #include "external/commonItems/OSCompatibilityLayer.h"
 #include "external/commonItems/ParserHelpers.h"
 
@@ -20,13 +21,13 @@ hoi4_map_drawer::state_definitions::StateDefinitionsImporter::StateDefinitionsIm
 
 
 std::map<int, std::vector<int>> hoi4_map_drawer::state_definitions::StateDefinitionsImporter::ImportStateDefinitions(
-    const std::string& states_history_folder)
+    const commonItems::ModFilesystem& mod_filesystem)
 {
    state_data_.clear();
 
-   for (const auto& file: commonItems::GetAllFilesInFolder(std::string(states_history_folder + "/history/states/")))
+   for (const auto& file: mod_filesystem.GetAllFilesInFolder("history/states/"))
    {
-      parser_.parseFile(states_history_folder + "/history/states/" + file);
+      parser_.parseFile(file);
    }
 
    return state_data_;

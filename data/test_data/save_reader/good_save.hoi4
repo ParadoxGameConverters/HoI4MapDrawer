@@ -1,4 +1,8 @@
-# This save has states data
+# This save has data
+mods={
+	"Mod One"
+	"Mod Two"
+}
 states={
 	1={
 		owner="TAG"

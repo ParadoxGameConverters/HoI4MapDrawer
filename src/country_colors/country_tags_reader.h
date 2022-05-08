@@ -6,6 +6,7 @@
 #include <map>
 #include <string>
 
+#include "external/commonItems/ModLoader/ModFilesystem.h"
 #include "src/country_colors/country_tag_file_reader.h"
 
 
@@ -19,7 +20,7 @@ class CountryTagsReader
 {
   public:
    CountryTagsReader() = default;
-   std::map<std::string, std::string> ImportTags(const std::string& hoi4_install_folder);
+   std::map<std::string, std::string> ImportTags(const commonItems::ModFilesystem& mod_filesystem);
 
   private:
    std::map<std::string, std::string> tag_to_filename_map_;

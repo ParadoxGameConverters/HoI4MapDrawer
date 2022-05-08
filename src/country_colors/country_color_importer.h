@@ -7,6 +7,7 @@
 #include <string>
 
 #include "external/commonItems/Color.h"
+#include "external/commonItems/ModLoader/ModFilesystem.h"
 
 
 
@@ -15,7 +16,7 @@ namespace hoi4_map_drawer
 namespace country_colors
 {
 
-std::map<std::string, commonItems::Color> ImportCountryColors(const std::string& hoi4_install_folder);
+std::map<std::string, commonItems::Color> ImportCountryColors(const commonItems::ModFilesystem& mod_filesystem);
 
 }  // namespace country_colors
 }  // namespace hoi4_map_drawer

@@ -2,6 +2,7 @@
 
 #include <sstream>
 
+#include "external/commonItems/ModLoader/Mod.h"
 #include "external/googletest/googlemock/include/gmock/gmock-matchers.h"
 #include "external/googletest/googletest/include/gtest/gtest.h"
 
@@ -14,16 +15,17 @@ TEST(SaveImporterTest, MissingFileThrowsException)
 }
 
 
-TEST(SaveImporterTest, NoStatesFromEmptySave)
+TEST(SaveImporterTest, DefaultsAreSet)
 {
    hoi4_map_drawer::save_reader::SaveImporter importer;
    const auto save = importer.ImportSave("./test_data/save_reader/empty_save.hoi4");
 
    EXPECT_TRUE(save.GetStates().empty());
+   EXPECT_TRUE(save.GetMods().empty());
 }
 
 
-TEST(SaveImporterTest, StatesAreImported)
+TEST(SaveImporterTest, ItemsAreImported)
 {
    hoi4_map_drawer::save_reader::SaveImporter importer;
    const auto save = importer.ImportSave("./test_data/save_reader/good_save.hoi4");
@@ -31,6 +33,7 @@ TEST(SaveImporterTest, StatesAreImported)
    EXPECT_THAT(save.GetStates(),
        testing::UnorderedElementsAre(testing::Pair(1, hoi4_map_drawer::save_reader::State(1, "TAG")),
            testing::Pair(2, hoi4_map_drawer::save_reader::State(2, "TWO"))));
+   EXPECT_THAT(save.GetMods(), testing::ElementsAre(Mod("Mod One", ""), Mod("Mod Two", "")));
 }
 
 

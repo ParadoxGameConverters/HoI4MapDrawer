@@ -6,6 +6,9 @@
 #define cimg_display 0
 #include "external/CImg/CImg.h"
 #include "external/commonItems/Log.h"
+#include "external/commonItems/ModLoader/Mod.h"
+#include "external/commonItems/ModLoader/ModFilesystem.h"
+#include "external/commonItems/ModLoader/ModLoader.h"
 #include "rakaly_wrapper.h"
 #include "src/country_colors/country_color_importer.h"
 #include "src/map_drawer/ownership_drawer.h"
@@ -21,20 +24,31 @@ int main()
    {
       const std::string hoi4_folder = "C:/Program Files (x86)/Steam/steamapps/common/Hearts of Iron IV";
 
+      Log(LogLevel::Info) << "Importing save";
+      hoi4_map_drawer::save_reader::SaveImporter save_importer;
+      const auto save = save_importer.ImportSave("../../data/saves/RME_1936_01_01_12.hoi4");
+
+      commonItems::ModLoader mod_loader;
+      mod_loader.loadMods("C:/Users/idhre/OneDrive/Documents/Paradox Interactive/Hearts of Iron IV", save.GetMods());
+      mod_loader.sortMods();
+      commonItems::ModFilesystem mod_filesystem(hoi4_folder, mod_loader.getMods());
+
       Log(LogLevel::Info) << "Importing HoI4 map.";
-      const cimg_library::CImg<uint8_t> provinces_image((hoi4_folder + "/map/provinces.bmp").c_str());
-      const auto map_definitions = hoi4_map_drawer::map_importer::GetProvinceDefinitions(hoi4_folder, provinces_image);
+      const auto provinces_bmp_location = mod_filesystem.GetActualFileLocation("/map/provinces.bmp");
+      if (!provinces_bmp_location)
+      {
+         throw std::runtime_error("/map/provinces.bmp couldn't be found!");
+      }
+      const cimg_library::CImg<uint8_t> provinces_image(provinces_bmp_location->c_str());
+      const auto map_definitions =
+          hoi4_map_drawer::map_importer::GetProvinceDefinitions(mod_filesystem, provinces_image);
 
       Log(LogLevel::Info) << "Importing state definitions";
       const auto state_definitions =
-          hoi4_map_drawer::state_definitions::StateDefinitionsImporter{}.ImportStateDefinitions(hoi4_folder);
-
-      Log(LogLevel::Info) << "Importing save";
-      hoi4_map_drawer::save_reader::SaveImporter save_importer;
-      const auto save = save_importer.ImportSave("../../data/saves/input.hoi4");
+          hoi4_map_drawer::state_definitions::StateDefinitionsImporter{}.ImportStateDefinitions(mod_filesystem);
 
       Log(LogLevel::Info) << "Importing country colors";
-      const auto tags_to_colors_map = hoi4_map_drawer::country_colors::ImportCountryColors(hoi4_folder);
+      const auto tags_to_colors_map = hoi4_map_drawer::country_colors::ImportCountryColors(mod_filesystem);
 
       Log(LogLevel::Info) << "Drawing ownership map";
       hoi4_map_drawer::map_importer::DrawOwnershipMap(provinces_image.width(),
