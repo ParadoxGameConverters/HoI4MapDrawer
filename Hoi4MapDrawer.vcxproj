@@ -138,6 +138,7 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\map_drawer\ownership_drawer.cpp" />
     <ClCompile Include="src\map_importer\map_importer.cpp" />
+    <ClCompile Include="src\save_reader\province_importer.cpp" />
     <ClCompile Include="src\save_reader\save_importer.cpp" />
     <ClCompile Include="src\save_reader\states_importer.cpp" />
     <ClCompile Include="src\save_reader\state_importer.cpp" />
@@ -220,6 +221,7 @@
     <ClInclude Include="src\map_importer\map_importer.h" />
     <ClInclude Include="src\map_importer\pixel.h" />
     <ClInclude Include="src\rakaly_wrapper.h" />
+    <ClInclude Include="src\save_reader\province_importer.h" />
     <ClInclude Include="src\save_reader\save.h" />
     <ClInclude Include="src\save_reader\save_importer.h" />
     <ClInclude Include="src\save_reader\state.h" />
