@@ -432,9 +432,6 @@
     <ClCompile Include="external\commonItems\ModLoader\ModParser.cpp">
       <Filter>external\commonItems\modloader</Filter>
     </ClCompile>
-    <ClCompile Include="src\configuration\configuration.cpp">
-      <Filter>src\configuration</Filter>
-    </ClCompile>
     <ClCompile Include="src\configuration\configuration_test.cpp">
       <Filter>src\configuration</Filter>
     </ClCompile>

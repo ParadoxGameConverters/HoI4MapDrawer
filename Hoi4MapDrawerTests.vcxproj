@@ -133,7 +133,6 @@
     <ClCompile Include="external\googletest\googlemock\src\gmock-all.cc" />
     <ClCompile Include="external\googletest\googletest\src\gtest-all.cc" />
     <ClCompile Include="external\googletest\googletest\src\gtest_main.cc" />
-    <ClCompile Include="src\configuration\configuration.cpp" />
     <ClCompile Include="src\configuration\configuration_test.cpp" />
     <ClCompile Include="src\country_colors\country_color_importer.cpp" />
     <ClCompile Include="src\country_colors\country_color_importer_test.cpp" />
