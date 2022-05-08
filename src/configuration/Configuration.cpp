@@ -1,14 +1,25 @@
 #include "src/configuration/configuration.h"
 
+#include "external/commonItems/Parser.h"
+#include "external/commonItems/ParserHelpers.h"
+
 
 
 hoi4_map_drawer::configuration::Configuration hoi4_map_drawer::configuration::ImportConfiguration()
 {
    Configuration configuration;
 
-   configuration.hoi4_folder = "C:/Program Files (x86)/Steam/steamapps/common/Hearts of Iron IV";
-   configuration.mod_folder = "C:/Users/idhre/OneDrive/Documents/Paradox Interactive/Hearts of Iron IV";
-   configuration.save_location = "../../data/saves/RME_1936_01_01_12.hoi4";
+   commonItems::parser configuration_parser;
+   configuration_parser.registerKeyword("hoi4_folder", [&configuration](std::istream& the_stream) {
+      configuration.hoi4_folder = commonItems::getString(the_stream);
+   });
+   configuration_parser.registerKeyword("mod_folder", [&configuration](std::istream& the_stream) {
+      configuration.mod_folder = commonItems::getString(the_stream);
+   });
+   configuration_parser.registerKeyword("save_location", [&configuration](std::istream& the_stream) {
+      configuration.save_location = commonItems::getString(the_stream);
+   });
+   configuration_parser.parseFile("configuration.txt");
 
    return configuration;
 }

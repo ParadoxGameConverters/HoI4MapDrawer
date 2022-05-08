@@ -56,6 +56,12 @@
     <Filter Include="src\configuration">
       <UniqueIdentifier>{81aa5592-1cf3-4a74-9e67-0eb8b1044c87}</UniqueIdentifier>
     </Filter>
+    <Filter Include="data">
+      <UniqueIdentifier>{9b6f5678-3505-4a4f-b9fd-2e2b9e4556ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\build_files">
+      <UniqueIdentifier>{a2f52889-53f0-4509-96b9-733fbfd7563e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -571,6 +577,12 @@
   <ItemGroup>
     <CopyFileToFolders Include="external\rakaly\rakaly.dll">
       <Filter>external\rakaly</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\build_files\configuration_example.txt">
+      <Filter>data\build_files</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\build_files\configuration.txt">
+      <Filter>data\build_files</Filter>
     </CopyFileToFolders>
   </ItemGroup>
   <ItemGroup>
