@@ -38,6 +38,7 @@ add_library(
 	${COUNTRY_COLORS_SOURCES}
 )
 
+set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/map_drawer/controller_drawer.cpp")
 set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/map_drawer/ownership_drawer.cpp")
 add_library(
 	MapDrawer
@@ -50,6 +51,8 @@ add_library(
 	${MAP_IMPORTER_SOURCES}
 )
 
+set(SAVE_READER_SOURCES ${SAVE_READER_SOURCES} "src/save_reader/province_importer.cpp")
+set(SAVE_READER_SOURCES ${SAVE_READER_SOURCES} "src/save_reader/provinces_importer.cpp")
 set(SAVE_READER_SOURCES ${SAVE_READER_SOURCES} "src/save_reader/save_importer.cpp")
 set(SAVE_READER_SOURCES ${SAVE_READER_SOURCES} "src/save_reader/state_importer.cpp")
 set(SAVE_READER_SOURCES ${SAVE_READER_SOURCES} "src/save_reader/states_importer.cpp")
@@ -113,6 +116,8 @@ set(COUNTRY_COLORS_TEST_SOURCES ${COUNTRY_COLORS_TEST_SOURCES} "src/country_colo
 set(MAP_IMPORTER_TEST_SOURCES ${MAP_IMPORTER_TEST_SOURCES} "src/map_importer/map_importer_test.cpp")
 set(MAP_IMPORTER_TEST_SOURCES ${MAP_IMPORTER_TEST_SOURCES} "src/map_importer/pixel_test.cpp")
 
+set(SAVE_READER_TEST_SOURCES ${SAVE_READER_TEST_SOURCES} "src/save_reader/province_importer_test.cpp")
+set(SAVE_READER_TEST_SOURCES ${SAVE_READER_TEST_SOURCES} "src/save_reader/provinces_importer_test.cpp")
 set(SAVE_READER_TEST_SOURCES ${SAVE_READER_TEST_SOURCES} "src/save_reader/save_importer_test.cpp")
 set(SAVE_READER_TEST_SOURCES ${SAVE_READER_TEST_SOURCES} "src/save_reader/state_importer_test.cpp")
 set(SAVE_READER_TEST_SOURCES ${SAVE_READER_TEST_SOURCES} "src/save_reader/states_importer_test.cpp")
