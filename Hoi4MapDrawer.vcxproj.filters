@@ -53,6 +53,9 @@
     <Filter Include="external\commonItems\ZipLib\extlibs\bzip2">
       <UniqueIdentifier>{76e6d36d-e400-4780-9637-45779e906c69}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\configuration">
+      <UniqueIdentifier>{81aa5592-1cf3-4a74-9e67-0eb8b1044c87}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -557,6 +560,9 @@
     </ClInclude>
     <ClInclude Include="external\commonItems\ModLoader\Mod.h">
       <Filter>external\commonItems\modloader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\configuration\configuration.h">
+      <Filter>src\configuration</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

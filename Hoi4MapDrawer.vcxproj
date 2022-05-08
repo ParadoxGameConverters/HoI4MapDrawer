@@ -210,6 +210,7 @@
     <ClInclude Include="external\commonItems\ZipLib\ZipArchiveEntry.h" />
     <ClInclude Include="external\commonItems\ZipLib\ZipFile.h" />
     <ClInclude Include="external\rakaly\rakaly.h" />
+    <ClInclude Include="src\configuration\configuration.h" />
     <ClInclude Include="src\country_colors\country_color_importer.h" />
     <ClInclude Include="src\country_colors\country_definition_reader.h" />
     <ClInclude Include="src\country_colors\country_tags_reader.h" />
