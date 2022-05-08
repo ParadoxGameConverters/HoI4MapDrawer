@@ -25,7 +25,7 @@ void DrawOwnershipMap(int width,
     const std::map<std::string, commonItems::Color>& tags_to_colors_map,
     const std::map<int, std::set<map_importer::Pixel>>& map_definitions);
 
-}  // namespace map_importer
+}  // namespace map_drawer
 }  // namespace hoi4_map_drawer
 
 

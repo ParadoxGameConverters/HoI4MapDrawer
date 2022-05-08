@@ -1,0 +1,3 @@
+hoi4_folder = "test_hoi4_folder"
+mod_folder = "test_mod_folder"
+save_location = "test_save_location"
