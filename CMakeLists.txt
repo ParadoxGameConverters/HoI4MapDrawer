@@ -69,7 +69,7 @@ set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/OSCommonLayer.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/Parser.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/ParserHelpers.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/StringUtils.cpp")
-set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/modLoader/ModFileSystem.cpp")
+set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/modLoader/ModFilesystem.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/modLoader/ModLoader.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/modLoader/ModParser.cpp")
 add_library(
