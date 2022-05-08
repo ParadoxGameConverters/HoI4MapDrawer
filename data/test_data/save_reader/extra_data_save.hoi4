@@ -1,5 +1,23 @@
 # This save has states data plus some extra (real) lines
 player="USA"
+mods={
+	"Mod One"
+	"Mod Two"
+}
+provinces={
+	1={
+		owner="TAG"
+	}
+	2={
+		owner="TAG"
+	}
+	3={
+		owner="TWO"
+	}
+	4={
+		owner="TWO"
+	}
+}
 states={
 	1={
 		owner="TAG"

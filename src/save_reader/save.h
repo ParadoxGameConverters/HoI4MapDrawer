@@ -18,16 +18,21 @@ namespace save_reader
 class Save
 {
   public:
-   explicit Save(std::map<int, State> states, std::vector<Mod> mods): states_(std::move(states)), mods_(std::move(mods))
+   explicit Save(std::map<int, State> states, std::vector<Mod> mods, std::map<int, std::string> controlled_provinces):
+       states_(std::move(states)),
+       mods_(std::move(mods)),
+       controlled_provinces_(std::move(controlled_provinces))
    {
    }
 
    [[nodiscard]] const auto& GetStates() const { return states_; }
    [[nodiscard]] const auto& GetMods() const { return mods_; }
+   [[nodiscard]] const auto& GetControlledProvinces() const { return controlled_provinces_; }
 
   private:
    std::map<int, State> states_;
    std::vector<Mod> mods_;
+   std::map<int, std::string> controlled_provinces_;
 };
 
 }  // namespace save_reader

@@ -22,6 +22,7 @@ TEST(SaveImporterTest, DefaultsAreSet)
 
    EXPECT_TRUE(save.GetStates().empty());
    EXPECT_TRUE(save.GetMods().empty());
+   EXPECT_TRUE(save.GetControlledProvinces().empty());
 }
 
 
@@ -34,6 +35,11 @@ TEST(SaveImporterTest, ItemsAreImported)
        testing::UnorderedElementsAre(testing::Pair(1, hoi4_map_drawer::save_reader::State(1, "TAG")),
            testing::Pair(2, hoi4_map_drawer::save_reader::State(2, "TWO"))));
    EXPECT_THAT(save.GetMods(), testing::ElementsAre(Mod("Mod One", ""), Mod("Mod Two", "")));
+   EXPECT_THAT(save.GetControlledProvinces(),
+       testing::ElementsAre(testing::Pair(1, "TAG"),
+           testing::Pair(2, "TAG"),
+           testing::Pair(3, "TWO"),
+           testing::Pair(4, "TWO")));
 }
 
 

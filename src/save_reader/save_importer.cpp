@@ -37,6 +37,9 @@ hoi4_map_drawer::save_reader::SaveImporter::SaveImporter()
          mods_.emplace_back(mod_name, "");
       }
    });
+   parser_.registerKeyword("provinces", [this](std::istream& the_stream) {
+      controlled_provinces_ = provinces_importer_.ImportProvinces(the_stream);
+   });
    parser_.registerKeyword("HOI4txt", [](std::istream& the_stream) {
    });
    parser_.registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
@@ -46,6 +49,8 @@ hoi4_map_drawer::save_reader::SaveImporter::SaveImporter()
 hoi4_map_drawer::save_reader::Save hoi4_map_drawer::save_reader::SaveImporter::ImportSave(std::string_view filename)
 {
    states_.clear();
+   mods_.clear();
+   controlled_provinces_.clear();
 
    std::ifstream in_binary(std::filesystem::path(filename), std::ios::binary);
    if (!in_binary.is_open())
@@ -60,5 +65,5 @@ hoi4_map_drawer::save_reader::Save hoi4_map_drawer::save_reader::SaveImporter::I
    auto game_state = std::istringstream(unmelted_save);
 
    parser_.parseStream(game_state);
-   return Save(states_, mods_);
+   return Save(states_, mods_, controlled_provinces_);
 }
