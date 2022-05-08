@@ -12,10 +12,13 @@ set(UNICODE_DEFAULT OFF)
 
 
 include_directories(.)
+include_directories("./external/commonItems/ZipLib")
 include_directories("./external/googletest/googletest")
 include_directories("./external/googletest/googletest/include")
 include_directories("./external/googletest/googlemock")
 include_directories("./external/googletest/googlemock/include")
+
+add_subdirectory(./external/commonItems/ZipLib [binary_dir])
 
 
 #### Drawer ####
@@ -57,6 +60,8 @@ add_library(
 )
 
 set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/Color.cpp")
+set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/CommonFunctions.cpp")
+set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/ConvenientParser.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/iconvlite.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/LinuxUtils.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/Log.cpp")
@@ -64,6 +69,9 @@ set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/OSCommonLayer.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/Parser.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/ParserHelpers.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/StringUtils.cpp")
+set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/modLoader/ModFileSystem.cpp")
+set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/modLoader/ModLoader.cpp")
+set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/modLoader/ModParser.cpp")
 add_library(
 	CommonItems
 	${COMMON_SOURCES}
@@ -82,7 +90,7 @@ set_target_properties( Hoi4MapDrawer
 target_compile_definitions(Hoi4MapDrawer PRIVATE cimg_display=0)
 
 find_library(RAKALY_LIB librakaly.so PATHS "external/rakaly/" REQUIRED)
-target_link_libraries(Hoi4MapDrawer CountryColors MapDrawer MapImporter SaveReader StateDefintitions CommonItems ${RAKALY_LIB} pthread)
+target_link_libraries(Hoi4MapDrawer CountryColors MapDrawer MapImporter SaveReader StateDefintitions CommonItems ${RAKALY_LIB} ZIPLIB pthread)
 
 add_custom_command(TARGET Hoi4MapDrawer POST_BUILD WORKING_DIRECTORY ${CMAKE_SOURCE_DIR} COMMAND git rev-parse HEAD > ${MAP_DRAWER_OUTPUT_DIRECTORY}/../commit_id.txt)
 
@@ -123,4 +131,4 @@ set_target_properties( Hoi4MapDrawerTests
 
 file(COPY "data/test_data" DESTINATION "${TEST_OUTPUT_DIRECTORY}")
 
-target_link_libraries(Hoi4MapDrawerTests CountryColors MapDrawer MapImporter SaveReader StateDefintitions CommonItems ${RAKALY_LIB} pthread)
+target_link_libraries(Hoi4MapDrawerTests CountryColors MapDrawer MapImporter SaveReader StateDefintitions CommonItems ${RAKALY_LIB} ZIPLIB pthread)
