@@ -30,6 +30,7 @@ int main()
 
       commonItems::ModLoader mod_loader;
       mod_loader.loadMods("C:/Users/idhre/OneDrive/Documents/Paradox Interactive/Hearts of Iron IV", save.GetMods());
+      mod_loader.sortMods();
       commonItems::ModFilesystem mod_filesystem(hoi4_folder, mod_loader.getMods());
 
       Log(LogLevel::Info) << "Importing HoI4 map.";
