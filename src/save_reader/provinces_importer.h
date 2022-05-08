@@ -1,0 +1,37 @@
+#ifndef SRC_SAVE_READER_PROVINCES_IMPORTER_H_
+#define SRC_SAVE_READER_PROVINCES_IMPORTER_H_
+
+
+#include <map>
+#include <set>
+#include <string>
+
+#include "external/commonItems/Parser.h"
+#include "src/save_reader/province_importer.h"
+
+
+
+namespace hoi4_map_drawer
+{
+namespace save_reader
+{
+
+class ProvincesImporter
+{
+  public:
+   ProvincesImporter();
+   std::map<int, std::string> ImportProvinces(std::istream& the_stream);
+
+  private:
+   std::map<int, std::string> controlled_provinces_;
+
+   commonItems::parser parser_;
+   ProvinceImporter province_importer_;
+};
+
+}  // namespace save_reader
+}  // namespace hoi4_map_drawer
+
+
+
+#endif  // SRC_SAVE_READER_PROVINCES_IMPORTER_H_

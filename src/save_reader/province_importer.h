@@ -17,7 +17,7 @@ class ProvinceImporter
 {
   public:
    ProvinceImporter();
-   std::optional<std::string> ImportProvince(std::istream& the_stream);
+   [[nodiscard]] std::optional<std::string> ImportProvince(std::istream& the_stream);
 
   private:
    commonItems::parser parser_;

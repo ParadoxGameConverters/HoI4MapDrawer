@@ -334,6 +334,9 @@
     <ClCompile Include="src\save_reader\province_importer.cpp">
       <Filter>src\save_reader</Filter>
     </ClCompile>
+    <ClCompile Include="src\save_reader\provinces_importer.cpp">
+      <Filter>src\save_reader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\commonItems\Log.h">
@@ -577,6 +580,9 @@
       <Filter>src\configuration</Filter>
     </ClInclude>
     <ClInclude Include="src\save_reader\province_importer.h">
+      <Filter>src\save_reader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\save_reader\provinces_importer.h">
       <Filter>src\save_reader</Filter>
     </ClInclude>
   </ItemGroup>
