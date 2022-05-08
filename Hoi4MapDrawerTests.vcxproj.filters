@@ -127,6 +127,9 @@
     <Filter Include="src\configuration">
       <UniqueIdentifier>{8e138599-be9f-4181-af03-e0177f793619}</UniqueIdentifier>
     </Filter>
+    <Filter Include="data\test_data\configuration">
+      <UniqueIdentifier>{7ab10473-bb63-4dda-9c1e-e3393343a796}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="external\commonItems\iconvlite.cpp">
@@ -735,6 +738,12 @@
     </CopyFileToFolders>
     <CopyFileToFolders Include="data\test_data\country_colors\country_color_importer\common\countries\country_two.txt">
       <Filter>data\test_data\country_colors\country_color_importer\common\countries</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\configuration\empty_config.txt">
+      <Filter>data\test_data\configuration</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\configuration\test_config.txt">
+      <Filter>data\test_data\configuration</Filter>
     </CopyFileToFolders>
   </ItemGroup>
 </Project>
