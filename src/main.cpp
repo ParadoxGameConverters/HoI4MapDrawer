@@ -23,13 +23,15 @@ int main()
    try
    {
       const std::string hoi4_folder = "C:/Program Files (x86)/Steam/steamapps/common/Hearts of Iron IV";
+      const std::string mod_folder = "C:/Users/idhre/OneDrive/Documents/Paradox Interactive/Hearts of Iron IV";
+      const std::string save_location = "../../data/saves/RME_1936_01_01_12.hoi4";
 
       Log(LogLevel::Info) << "Importing save";
       hoi4_map_drawer::save_reader::SaveImporter save_importer;
-      const auto save = save_importer.ImportSave("../../data/saves/RME_1936_01_01_12.hoi4");
+      const auto save = save_importer.ImportSave(save_location);
 
       commonItems::ModLoader mod_loader;
-      mod_loader.loadMods("C:/Users/idhre/OneDrive/Documents/Paradox Interactive/Hearts of Iron IV", save.GetMods());
+      mod_loader.loadMods(mod_folder, save.GetMods());
       mod_loader.sortMods();
       commonItems::ModFilesystem mod_filesystem(hoi4_folder, mod_loader.getMods());
 
