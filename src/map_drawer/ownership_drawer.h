@@ -15,7 +15,7 @@
 
 namespace hoi4_map_drawer
 {
-namespace map_importer
+namespace map_drawer
 {
 
 void DrawOwnershipMap(int width,
@@ -23,7 +23,7 @@ void DrawOwnershipMap(int width,
     const std::map<int, std::vector<int>>& state_definitions,
     const std::map<int, save_reader::State>& save_states,
     const std::map<std::string, commonItems::Color>& tags_to_colors_map,
-    const std::map<int, std::set<Pixel>>& map_definitions);
+    const std::map<int, std::set<map_importer::Pixel>>& map_definitions);
 
 }  // namespace map_importer
 }  // namespace hoi4_map_drawer
