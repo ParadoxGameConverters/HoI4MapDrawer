@@ -38,6 +38,7 @@ add_library(
 	${COUNTRY_COLORS_SOURCES}
 )
 
+set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/map_drawer/controller_drawer.cpp")
 set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/map_drawer/ownership_drawer.cpp")
 add_library(
 	MapDrawer

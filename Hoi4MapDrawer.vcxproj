@@ -136,6 +136,7 @@
     <ClCompile Include="src\country_colors\country_tags_reader.cpp" />
     <ClCompile Include="src\country_colors\country_tag_file_reader.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\map_drawer\controller_drawer.cpp" />
     <ClCompile Include="src\map_drawer\ownership_drawer.cpp" />
     <ClCompile Include="src\map_importer\map_importer.cpp" />
     <ClCompile Include="src\save_reader\provinces_importer.cpp" />
@@ -218,6 +219,7 @@
     <ClInclude Include="src\country_colors\country_definition_reader.h" />
     <ClInclude Include="src\country_colors\country_tags_reader.h" />
     <ClInclude Include="src\country_colors\country_tag_file_reader.h" />
+    <ClInclude Include="src\map_drawer\controller_drawer.h" />
     <ClInclude Include="src\map_drawer\ownership_drawer.h" />
     <ClInclude Include="src\map_importer\map_importer.h" />
     <ClInclude Include="src\map_importer\pixel.h" />
