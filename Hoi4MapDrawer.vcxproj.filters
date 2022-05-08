@@ -581,9 +581,6 @@
     <CopyFileToFolders Include="data\build_files\configuration_example.txt">
       <Filter>data\build_files</Filter>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="data\build_files\configuration.txt">
-      <Filter>data\build_files</Filter>
-    </CopyFileToFolders>
   </ItemGroup>
   <ItemGroup>
     <None Include="external\commonItems\ZipLib\extlibs\zlib\zlib.vcxproj">

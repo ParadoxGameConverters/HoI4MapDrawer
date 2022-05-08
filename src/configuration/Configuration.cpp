@@ -5,7 +5,8 @@
 
 
 
-hoi4_map_drawer::configuration::Configuration hoi4_map_drawer::configuration::ImportConfiguration()
+hoi4_map_drawer::configuration::Configuration hoi4_map_drawer::configuration::ImportConfiguration(
+    std::string_view filename)
 {
    Configuration configuration;
 
@@ -19,7 +20,7 @@ hoi4_map_drawer::configuration::Configuration hoi4_map_drawer::configuration::Im
    configuration_parser.registerKeyword("save_location", [&configuration](std::istream& the_stream) {
       configuration.save_location = commonItems::getString(the_stream);
    });
-   configuration_parser.parseFile("configuration.txt");
+   configuration_parser.parseFile(filename);
 
    return configuration;
 }

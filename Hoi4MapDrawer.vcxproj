@@ -240,9 +240,6 @@
   <ItemGroup>
     <CopyFileToFolders Include="data\build_files\configuration_example.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <CopyFileToFolders Include="data\build_files\configuration.txt" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

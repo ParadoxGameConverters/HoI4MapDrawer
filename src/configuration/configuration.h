@@ -20,7 +20,7 @@ struct Configuration
 };
 
 
-Configuration ImportConfiguration();
+Configuration ImportConfiguration(std::string_view filename);
 
 }  // namespace configuration
 }  // namespace hoi4_map_drawer
