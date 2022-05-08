@@ -124,6 +124,9 @@
     <Filter Include="external\commonItems\modloader">
       <UniqueIdentifier>{58f5d997-e183-403c-94ad-4f4529fd3e36}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\configuration">
+      <UniqueIdentifier>{8e138599-be9f-4181-af03-e0177f793619}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="external\commonItems\iconvlite.cpp">
@@ -426,6 +429,9 @@
     <ClCompile Include="external\commonItems\ModLoader\ModParser.cpp">
       <Filter>external\commonItems\modloader</Filter>
     </ClCompile>
+    <ClCompile Include="src\configuration\configuration.cpp">
+      <Filter>src\configuration</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\commonItems\iconvlite.h">
@@ -652,6 +658,9 @@
     </ClInclude>
     <ClInclude Include="external\commonItems\ModLoader\ModParser.h">
       <Filter>external\commonItems\modloader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\configuration\configuration.h">
+      <Filter>src\configuration</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -328,7 +328,7 @@
     <ClCompile Include="external\commonItems\ZipLib\extlibs\bzip2\randtable.c">
       <Filter>external\commonItems\ZipLib\extlibs\bzip2</Filter>
     </ClCompile>
-    <ClCompile Include="src\configuration\Configuration.cpp">
+    <ClCompile Include="src\configuration\configuration.cpp">
       <Filter>src\configuration</Filter>
     </ClCompile>
   </ItemGroup>
