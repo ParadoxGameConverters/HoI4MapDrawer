@@ -65,12 +65,12 @@ void ColorProvince(int province,
 }  // namespace
 
 
-void hoi4_map_drawer::map_importer::DrawOwnershipMap(int width,
+void hoi4_map_drawer::map_drawer::DrawOwnershipMap(int width,
     int height,
     const std::map<int, std::vector<int>>& state_definitions,
     const std::map<int, save_reader::State>& save_states,
     const std::map<std::string, commonItems::Color>& tags_to_colors_map,
-    const std::map<int, std::set<Pixel>>& map_definitions)
+    const std::map<int, std::set<map_importer::Pixel>>& map_definitions)
 {
    auto ownership_map = CreateBaseMap(width, height);
 

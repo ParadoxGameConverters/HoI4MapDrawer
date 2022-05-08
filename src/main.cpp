@@ -9,10 +9,10 @@
 #include "external/commonItems/ModLoader/Mod.h"
 #include "external/commonItems/ModLoader/ModFilesystem.h"
 #include "external/commonItems/ModLoader/ModLoader.h"
-#include "rakaly_wrapper.h"
 #include "src/country_colors/country_color_importer.h"
 #include "src/map_drawer/ownership_drawer.h"
 #include "src/map_importer/map_importer.h"
+#include "src/rakaly_wrapper.h"
 #include "src/save_reader/save_importer.h"
 #include "src/state_definitions/state_definitions_importer.h"
 
@@ -51,7 +51,7 @@ int main()
       const auto tags_to_colors_map = hoi4_map_drawer::country_colors::ImportCountryColors(mod_filesystem);
 
       Log(LogLevel::Info) << "Drawing ownership map";
-      hoi4_map_drawer::map_importer::DrawOwnershipMap(provinces_image.width(),
+      hoi4_map_drawer::map_drawer::DrawOwnershipMap(provinces_image.width(),
           provinces_image.height(),
           state_definitions,
           save.GetStates(),
