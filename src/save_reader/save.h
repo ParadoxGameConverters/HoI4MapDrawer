@@ -28,11 +28,13 @@ class Save
    [[nodiscard]] const auto& GetStates() const { return states_; }
    [[nodiscard]] const auto& GetMods() const { return mods_; }
    [[nodiscard]] const auto& GetControlledProvinces() const { return controlled_provinces_; }
+   [[nodiscard]] const auto& GetTagsToFactionLeaderMap() const { return tags_to_faction_leader_map_; }
 
   private:
    std::map<int, State> states_;
    std::vector<Mod> mods_;
    std::map<int, std::string> controlled_provinces_;
+   std::map<std::string, std::string> tags_to_faction_leader_map_ = {{"UTA", "UTA"}, {"CAN", "UTA"}};
 };
 
 }  // namespace save_reader
