@@ -78,7 +78,7 @@ int main()
           state_definitions,
           save.GetStates(),
           tags_to_colors_map,
-          {},
+          save.GetTagsToFactionLeaderMap(),
           map_definitions);
 
       Log(LogLevel::Info) << "All done!";
