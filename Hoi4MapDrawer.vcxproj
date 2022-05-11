@@ -140,6 +140,7 @@
     <ClCompile Include="src\map_drawer\faction_ownership_drawer.cpp" />
     <ClCompile Include="src\map_drawer\ownership_drawer.cpp" />
     <ClCompile Include="src\map_importer\map_importer.cpp" />
+    <ClCompile Include="src\save_reader\faction_importer.cpp" />
     <ClCompile Include="src\save_reader\provinces_importer.cpp" />
     <ClCompile Include="src\save_reader\province_importer.cpp" />
     <ClCompile Include="src\save_reader\save_importer.cpp" />
@@ -226,6 +227,7 @@
     <ClInclude Include="src\map_importer\map_importer.h" />
     <ClInclude Include="src\map_importer\pixel.h" />
     <ClInclude Include="src\rakaly_wrapper.h" />
+    <ClInclude Include="src\save_reader\faction_importer.h" />
     <ClInclude Include="src\save_reader\provinces_importer.h" />
     <ClInclude Include="src\save_reader\province_importer.h" />
     <ClInclude Include="src\save_reader\save.h" />

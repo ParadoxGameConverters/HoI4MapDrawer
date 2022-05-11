@@ -149,6 +149,8 @@
     <ClCompile Include="src\map_importer\map_importer.cpp" />
     <ClCompile Include="src\map_importer\map_importer_test.cpp" />
     <ClCompile Include="src\map_importer\pixel_test.cpp" />
+    <ClCompile Include="src\save_reader\faction_importer.cpp" />
+    <ClCompile Include="src\save_reader\faction_importer_test.cpp" />
     <ClCompile Include="src\save_reader\provinces_importer.cpp" />
     <ClCompile Include="src\save_reader\provinces_importer_test.cpp" />
     <ClCompile Include="src\save_reader\province_importer.cpp" />
@@ -236,6 +238,7 @@
     <ClInclude Include="src\map_drawer\faction_ownership_drawer.h" />
     <ClInclude Include="src\map_drawer\ownership_drawer.h" />
     <ClInclude Include="src\map_importer\map_importer.h" />
+    <ClInclude Include="src\save_reader\faction_importer.h" />
     <ClInclude Include="src\save_reader\provinces_importer.h" />
     <ClInclude Include="src\save_reader\province_importer.h" />
     <ClInclude Include="src\save_reader\save.h" />
