@@ -25,3 +25,9 @@ states={
 		owner="TWO"
 	}
 }
+faction={
+	members={
+		"UTA"
+		"CAN"
+	}
+}

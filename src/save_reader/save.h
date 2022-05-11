@@ -18,10 +18,14 @@ namespace save_reader
 class Save
 {
   public:
-   explicit Save(std::map<int, State> states, std::vector<Mod> mods, std::map<int, std::string> controlled_provinces):
+   explicit Save(std::map<int, State> states,
+       std::vector<Mod> mods,
+       std::map<int, std::string> controlled_provinces,
+       std::map<std::string, std::string> tags_to_faction_leader_map):
        states_(std::move(states)),
        mods_(std::move(mods)),
-       controlled_provinces_(std::move(controlled_provinces))
+       controlled_provinces_(std::move(controlled_provinces)),
+       tags_to_faction_leader_map_(tags_to_faction_leader_map)
    {
    }
 
@@ -34,7 +38,7 @@ class Save
    std::map<int, State> states_;
    std::vector<Mod> mods_;
    std::map<int, std::string> controlled_provinces_;
-   std::map<std::string, std::string> tags_to_faction_leader_map_ = {{"UTA", "UTA"}, {"CAN", "UTA"}};
+   std::map<std::string, std::string> tags_to_faction_leader_map_;
 };
 
 }  // namespace save_reader

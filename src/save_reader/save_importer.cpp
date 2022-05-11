@@ -40,6 +40,12 @@ hoi4_map_drawer::save_reader::SaveImporter::SaveImporter()
    parser_.registerKeyword("provinces", [this](std::istream& the_stream) {
       controlled_provinces_ = provinces_importer_.ImportProvinces(the_stream);
    });
+   parser_.registerKeyword("faction", [this](std::istream& the_stream) {
+      for (const auto& new_tags_to_faction_leader_mapping: faction_importer_.ImportFaction(the_stream))
+      {
+         tags_to_faction_leader_map_.emplace(new_tags_to_faction_leader_mapping);
+      }
+   });
    parser_.registerKeyword("HOI4txt", [](std::istream& the_stream) {
    });
    parser_.registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
@@ -65,5 +71,5 @@ hoi4_map_drawer::save_reader::Save hoi4_map_drawer::save_reader::SaveImporter::I
    auto game_state = std::istringstream(unmelted_save);
 
    parser_.parseStream(game_state);
-   return Save(states_, mods_, controlled_provinces_);
+   return Save(states_, mods_, controlled_provinces_, tags_to_faction_leader_map_);
 }
