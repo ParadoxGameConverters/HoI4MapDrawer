@@ -40,6 +40,8 @@ TEST(SaveImporterTest, ItemsAreImported)
            testing::Pair(2, "TAG"),
            testing::Pair(3, "TWO"),
            testing::Pair(4, "TWO")));
+   EXPECT_THAT(save.GetTagsToFactionLeaderMap(),
+       testing::UnorderedElementsAre(testing::Pair("UTA", "UTA"), testing::Pair("CAN", "UTA")));
 }
 
 

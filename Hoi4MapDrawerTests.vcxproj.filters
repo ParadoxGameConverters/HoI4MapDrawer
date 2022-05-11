@@ -453,6 +453,15 @@
     <ClCompile Include="src\map_drawer\controller_drawer.cpp">
       <Filter>src\map_drawer</Filter>
     </ClCompile>
+    <ClCompile Include="src\map_drawer\faction_ownership_drawer.cpp">
+      <Filter>src\map_drawer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\save_reader\faction_importer.cpp">
+      <Filter>src\save_reader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\save_reader\faction_importer_test.cpp">
+      <Filter>src\save_reader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\commonItems\iconvlite.h">
@@ -691,6 +700,12 @@
     </ClInclude>
     <ClInclude Include="src\map_drawer\controller_drawer.h">
       <Filter>src\map_drawer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\map_drawer\faction_ownership_drawer.h">
+      <Filter>src\map_drawer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\save_reader\faction_importer.h">
+      <Filter>src\save_reader</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -12,6 +12,7 @@
 #include "map_drawer/controller_drawer.h"
 #include "src/configuration/configuration.h"
 #include "src/country_colors/country_color_importer.h"
+#include "src/map_drawer/faction_ownership_drawer.h"
 #include "src/map_drawer/ownership_drawer.h"
 #include "src/map_importer/map_importer.h"
 #include "src/rakaly_wrapper.h"
@@ -69,6 +70,15 @@ int main()
           save.GetStates(),
           save.GetControlledProvinces(),
           tags_to_colors_map,
+          map_definitions);
+
+      Log(LogLevel::Info) << "Drawing faction ownership map";
+      hoi4_map_drawer::map_drawer::DrawFactionOwnershipMap(provinces_image.width(),
+          provinces_image.height(),
+          state_definitions,
+          save.GetStates(),
+          tags_to_colors_map,
+          save.GetTagsToFactionLeaderMap(),
           map_definitions);
 
       Log(LogLevel::Info) << "All done!";
