@@ -346,6 +346,9 @@
     <ClCompile Include="src\save_reader\faction_importer.cpp">
       <Filter>src\save_reader</Filter>
     </ClCompile>
+    <ClCompile Include="src\map_drawer\faction_controller_drawer.cpp">
+      <Filter>src\map_drawer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\commonItems\Log.h">
@@ -602,6 +605,9 @@
     </ClInclude>
     <ClInclude Include="src\save_reader\faction_importer.h">
       <Filter>src\save_reader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\map_drawer\faction_controller_drawer.h">
+      <Filter>src\map_drawer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
