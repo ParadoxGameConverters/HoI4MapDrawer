@@ -41,7 +41,7 @@ commonItems::Color DetermineColor(int state_number,
       return commonItems::Color(std::array<int, 3>{0, 0, 0});
    }
 
-   const auto color_mapping = tags_to_colors_map.find(*owner);
+   const auto color_mapping = tags_to_colors_map.find(faction_leader->second);
    if (color_mapping == tags_to_colors_map.end())
    {
       return commonItems::Color(std::array<int, 3>{0, 0, 0});
