@@ -4,19 +4,12 @@
 #define cimg_display 0
 #include "external/CImg/CImg.h"
 #include "external/commonItems/Color.h"
+#include "src/map_drawer/drawer_utils.h"
 
 
 
 namespace
 {
-
-cimg_library::CImg<uint8_t> CreateBaseMap(int width, int height)
-{
-   cimg_library::CImg<uint8_t> map(width, height, 1, 3);
-   map.fill(255);
-   return map;
-}
-
 
 commonItems::Color DetermineColor(int state_number,
     const std::map<int, hoi4_map_drawer::save_reader::State>& save_states,
@@ -40,26 +33,6 @@ commonItems::Color DetermineColor(int state_number,
       return commonItems::Color(std::array<int, 3>{0, 0, 0});
    }
    return color_mapping->second;
-}
-
-
-void ColorProvince(int province,
-    const std::map<int, std::set<hoi4_map_drawer::map_importer::Pixel>>& map_definitions,
-    const commonItems::Color& color,
-    cimg_library::CImg<uint8_t>& map)
-{
-   const auto& definition = map_definitions.find(province);
-   if (definition == map_definitions.end())
-   {
-      return;
-   }
-
-   for (const auto& pixel: definition->second)
-   {
-      map(pixel.x, pixel.y, 0, 0) = color.r();
-      map(pixel.x, pixel.y, 0, 1) = color.g();
-      map(pixel.x, pixel.y, 0, 2) = color.b();
-   }
 }
 
 }  // namespace
