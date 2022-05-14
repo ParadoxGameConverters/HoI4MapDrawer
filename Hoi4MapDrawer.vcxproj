@@ -142,6 +142,7 @@
     <ClCompile Include="src\map_drawer\faction_ownership_drawer.cpp" />
     <ClCompile Include="src\map_drawer\ownership_drawer.cpp" />
     <ClCompile Include="src\map_importer\map_importer.cpp" />
+    <ClCompile Include="src\save_reader\countries_importer.cpp" />
     <ClCompile Include="src\save_reader\country_importer.cpp" />
     <ClCompile Include="src\save_reader\faction_importer.cpp" />
     <ClCompile Include="src\save_reader\provinces_importer.cpp" />

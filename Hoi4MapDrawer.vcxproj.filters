@@ -355,6 +355,9 @@
     <ClCompile Include="src\save_reader\country_importer.cpp">
       <Filter>src\save_reader</Filter>
     </ClCompile>
+    <ClCompile Include="src\save_reader\countries_importer.cpp">
+      <Filter>src\save_reader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\commonItems\Log.h">

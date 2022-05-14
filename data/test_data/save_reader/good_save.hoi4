@@ -25,6 +25,14 @@ states={
 		owner="TWO"
 	}
 }
+countries={
+	TAG={
+		cosmetic_tag="TAG_cosmetic_tag"
+	}
+	TWO={
+		cosmetic_tag="TWO_cosmetic_tag"
+	}
+}
 faction={
 	members={
 		"UTA"
