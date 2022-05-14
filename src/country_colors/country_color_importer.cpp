@@ -7,7 +7,8 @@
 
 
 std::map<std::string, commonItems::Color> hoi4_map_drawer::country_colors::ImportCountryColors(
-    const commonItems::ModFilesystem& mod_filesystem)
+    const commonItems::ModFilesystem& mod_filesystem,
+    const std::map<std::string, std::string>& tags_to_cosmetic_tags_map)
 {
    std::map<std::string, commonItems::Color> tag_to_colors_map;
 
