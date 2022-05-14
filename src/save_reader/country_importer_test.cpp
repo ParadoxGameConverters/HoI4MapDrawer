@@ -22,7 +22,7 @@ TEST(CountryImporterTest, CosmeticTagCanBeInput)
 {
    std::stringstream input;
    input << "= {\n";
-   input << "\tcosmetic_tag=\"TAG_cosmetic_tag\"";
+   input << "\tcosmetic_tag=\"TAG_cosmetic_tag\"\n";
    input << "}";
 
    hoi4_map_drawer::save_reader::CountryImporter importer;
@@ -41,7 +41,7 @@ TEST(CountryImporterTest, ExtraInputIsIgnored)
 
    std::stringstream input;
    input << "= {\n";
-   input << "\tcosmetic_tag=\"TAG_cosmetic_tag\"";
+   input << "\tcosmetic_tag=\"TAG_cosmetic_tag\"\n";
    input << "\tunhandled_input = 42\n";
    input << "}";
 

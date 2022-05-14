@@ -54,6 +54,7 @@ add_library(
 	${MAP_IMPORTER_SOURCES}
 )
 
+set(SAVE_READER_SOURCES ${SAVE_READER_SOURCES} "src/save_reader/countries_importer.cpp")
 set(SAVE_READER_SOURCES ${SAVE_READER_SOURCES} "src/save_reader/country_importer.cpp")
 set(SAVE_READER_SOURCES ${SAVE_READER_SOURCES} "src/save_reader/faction_importer.cpp")
 set(SAVE_READER_SOURCES ${SAVE_READER_SOURCES} "src/save_reader/province_importer.cpp")
@@ -121,6 +122,7 @@ set(COUNTRY_COLORS_TEST_SOURCES ${COUNTRY_COLORS_TEST_SOURCES} "src/country_colo
 set(MAP_IMPORTER_TEST_SOURCES ${MAP_IMPORTER_TEST_SOURCES} "src/map_importer/map_importer_test.cpp")
 set(MAP_IMPORTER_TEST_SOURCES ${MAP_IMPORTER_TEST_SOURCES} "src/map_importer/pixel_test.cpp")
 
+set(SAVE_READER_TEST_SOURCES ${SAVE_READER_TEST_SOURCES} "src/save_reader/countries_importer_test.cpp")
 set(SAVE_READER_TEST_SOURCES ${SAVE_READER_TEST_SOURCES} "src/save_reader/country_importer_test.cpp")
 set(SAVE_READER_TEST_SOURCES ${SAVE_READER_TEST_SOURCES} "src/save_reader/faction_importer_test.cpp")
 set(SAVE_READER_TEST_SOURCES ${SAVE_READER_TEST_SOURCES} "src/save_reader/province_importer_test.cpp")

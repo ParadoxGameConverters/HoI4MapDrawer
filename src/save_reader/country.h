@@ -16,7 +16,7 @@ namespace save_reader
 class Country
 {
   public:
-   Country(std::optional<std::string> cosmetic_tag): cosmetic_tag_(cosmetic_tag) {}
+   explicit Country(std::optional<std::string> cosmetic_tag): cosmetic_tag_(std::move(cosmetic_tag)) {}
 
    [[nodiscard]] const auto& GetCosmeticTag() const { return cosmetic_tag_; }
 

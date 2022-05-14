@@ -624,6 +624,15 @@
     <ClInclude Include="src\save_reader\country_importer.h">
       <Filter>src\save_reader</Filter>
     </ClInclude>
+    <ClInclude Include="src\save_reader\countries_importer.h">
+      <Filter>src\save_reader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\save_reader\countries.h">
+      <Filter>src\save_reader</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\CommonRegexes.h">
+      <Filter>external\commonItems</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="external\rakaly\rakaly.dll">

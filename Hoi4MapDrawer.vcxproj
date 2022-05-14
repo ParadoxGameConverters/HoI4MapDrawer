@@ -157,6 +157,7 @@
     <ClInclude Include="external\CImg\CImg.h" />
     <ClInclude Include="external\commonItems\Color.h" />
     <ClInclude Include="external\commonItems\CommonFunctions.h" />
+    <ClInclude Include="external\commonItems\CommonRegexes.h" />
     <ClInclude Include="external\commonItems\ConvenientParser.h" />
     <ClInclude Include="external\commonItems\iconvlite.h" />
     <ClInclude Include="external\commonItems\Log.h" />
@@ -232,6 +233,8 @@
     <ClInclude Include="src\map_importer\map_importer.h" />
     <ClInclude Include="src\map_importer\pixel.h" />
     <ClInclude Include="src\rakaly_wrapper.h" />
+    <ClInclude Include="src\save_reader\countries.h" />
+    <ClInclude Include="src\save_reader\countries_importer.h" />
     <ClInclude Include="src\save_reader\country.h" />
     <ClInclude Include="src\save_reader\country_importer.h" />
     <ClInclude Include="src\save_reader\faction_importer.h" />

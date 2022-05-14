@@ -474,6 +474,12 @@
     <ClCompile Include="src\save_reader\country_importer_test.cpp">
       <Filter>src\save_reader</Filter>
     </ClCompile>
+    <ClCompile Include="src\save_reader\countries_importer.cpp">
+      <Filter>src\save_reader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\save_reader\countries_importer_test.cpp">
+      <Filter>src\save_reader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\commonItems\iconvlite.h">
@@ -733,6 +739,12 @@
     </ClInclude>
     <ClInclude Include="src\map_importer\pixel.h">
       <Filter>src\map_importer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\save_reader\countries.h">
+      <Filter>src\save_reader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\save_reader\countries_importer.h">
+      <Filter>src\save_reader</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
