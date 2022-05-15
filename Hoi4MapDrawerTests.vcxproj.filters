@@ -130,6 +130,15 @@
     <Filter Include="data\test_data\configuration">
       <UniqueIdentifier>{7ab10473-bb63-4dda-9c1e-e3393343a796}</UniqueIdentifier>
     </Filter>
+    <Filter Include="data\test_data\country_colors\cosmetic_tags_importer">
+      <UniqueIdentifier>{98bd8324-a60f-4d8f-8131-ce67b4610598}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\test_data\country_colors\cosmetic_tags_importer\common">
+      <UniqueIdentifier>{eb11a80a-8274-459d-99ac-bc851a9fe442}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\test_data\country_colors\cosmetic_tags_importer\common\countries">
+      <UniqueIdentifier>{7ff7b638-d224-4caf-b2a4-7968b63e4651}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="external\commonItems\iconvlite.cpp">
@@ -480,6 +489,12 @@
     <ClCompile Include="src\save_reader\countries_importer_test.cpp">
       <Filter>src\save_reader</Filter>
     </ClCompile>
+    <ClCompile Include="src\country_colors\cosmetic_tags_importer.cpp">
+      <Filter>src\country_colors</Filter>
+    </ClCompile>
+    <ClCompile Include="src\country_colors\cosmetic_tags_importer_test.cpp">
+      <Filter>src\country_colors</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\commonItems\iconvlite.h">
@@ -746,6 +761,9 @@
     <ClInclude Include="src\save_reader\countries_importer.h">
       <Filter>src\save_reader</Filter>
     </ClInclude>
+    <ClInclude Include="src\country_colors\cosmetic_tags_importer.h">
+      <Filter>src\country_colors</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="data\test_data\map_importer_test\missing_definition.csv\map\provinces.bmp">
@@ -822,6 +840,9 @@
     </CopyFileToFolders>
     <CopyFileToFolders Include="data\test_data\configuration\test_config.txt">
       <Filter>data\test_data\configuration</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\country_colors\cosmetic_tags_importer\common\countries\cosmetic.txt">
+      <Filter>data\test_data\country_colors\cosmetic_tags_importer\common\countries</Filter>
     </CopyFileToFolders>
   </ItemGroup>
 </Project>

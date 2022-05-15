@@ -1,0 +1,9 @@
+TAG_cosmetic_tag = {
+	color = rgb { 1 2 3 }
+	color_ui = rgb { 101 100 100 }
+}
+
+TWO_cosmetic_tag = {
+	color = rgb { 10 11 12 }
+	color_ui = rgb { 168 10 10 }
+}

@@ -135,6 +135,8 @@
     <ClCompile Include="external\googletest\googletest\src\gtest_main.cc" />
     <ClCompile Include="src\configuration\configuration.cpp" />
     <ClCompile Include="src\configuration\configuration_test.cpp" />
+    <ClCompile Include="src\country_colors\cosmetic_tags_importer.cpp" />
+    <ClCompile Include="src\country_colors\cosmetic_tags_importer_test.cpp" />
     <ClCompile Include="src\country_colors\country_color_importer.cpp" />
     <ClCompile Include="src\country_colors\country_color_importer_test.cpp" />
     <ClCompile Include="src\country_colors\country_definition_reader.cpp" />
@@ -236,6 +238,7 @@
     <ClInclude Include="external\commonItems\ZipLib\ZipFile.h" />
     <ClInclude Include="external\rakaly\rakaly.h" />
     <ClInclude Include="src\configuration\configuration.h" />
+    <ClInclude Include="src\country_colors\cosmetic_tags_importer.h" />
     <ClInclude Include="src\country_colors\country_color_importer.h" />
     <ClInclude Include="src\country_colors\country_definition_reader.h" />
     <ClInclude Include="src\country_colors\country_tags_reader.h" />
@@ -381,6 +384,11 @@
   <ItemGroup>
     <CopyFileToFolders Include="data\test_data\configuration\test_config.txt">
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/test_data/configuration/</DestinationFolders>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="data\test_data\country_colors\cosmetic_tags_importer\common\countries\cosmetic.txt">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/test_data/country_colors/cosmetic_tags_importer/common/countries/</DestinationFolders>
     </CopyFileToFolders>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

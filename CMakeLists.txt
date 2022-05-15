@@ -29,6 +29,7 @@ add_library(
 	${CONFIGURATION_SOURCES}
 )
 
+set(COUNTRY_COLORS_SOURCES ${COUNTRY_COLORS_SOURCES} "src/country_colors/cosmetic_tags_importer.cpp")
 set(COUNTRY_COLORS_SOURCES ${COUNTRY_COLORS_SOURCES} "src/country_colors/country_color_importer.cpp")
 set(COUNTRY_COLORS_SOURCES ${COUNTRY_COLORS_SOURCES} "src/country_colors/country_definition_reader.cpp")
 set(COUNTRY_COLORS_SOURCES ${COUNTRY_COLORS_SOURCES} "src/country_colors/country_tag_file_reader.cpp")
@@ -114,6 +115,7 @@ add_custom_command(TARGET Hoi4MapDrawer POST_BUILD WORKING_DIRECTORY ${CMAKE_SOU
 
 set(CONFIGURATION_TEST_SOURCES ${CONFIGURATION_TEST_SOURCES} "src/configuration/configuration_test.cpp")
 
+set(COUNTRY_COLORS_TEST_SOURCES ${COUNTRY_COLORS_TEST_SOURCES} "src/country_colors/cosmetic_tags_importer_test.cpp")
 set(COUNTRY_COLORS_TEST_SOURCES ${COUNTRY_COLORS_TEST_SOURCES} "src/country_colors/country_color_importer_test.cpp")
 set(COUNTRY_COLORS_TEST_SOURCES ${COUNTRY_COLORS_TEST_SOURCES} "src/country_colors/country_definition_reader_test.cpp")
 set(COUNTRY_COLORS_TEST_SOURCES ${COUNTRY_COLORS_TEST_SOURCES} "src/country_colors/country_tag_file_reader_test.cpp")

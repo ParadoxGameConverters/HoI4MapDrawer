@@ -21,3 +21,12 @@ commonItems::Color hoi4_map_drawer::country_colors::CountryDefinitionReader::Imp
    parser_.parseFile(filename);
    return the_color_;
 }
+
+
+commonItems::Color hoi4_map_drawer::country_colors::CountryDefinitionReader::ImportCountryDefinition(
+    std::istream& the_stream)
+{
+   the_color_ = commonItems::Color(std::array{0, 0, 0});
+   parser_.parseStream(the_stream);
+   return the_color_;
+}
