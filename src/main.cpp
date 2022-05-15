@@ -27,7 +27,7 @@ int main()
    try
    {
       Log(LogLevel::Info) << "Loading configuration";
-      const auto configuration = hoi4_map_drawer::configuration::ImportConfiguration("configuration_example.txt");
+      const auto configuration = hoi4_map_drawer::configuration::ImportConfiguration("configuration.txt");
 
       Log(LogLevel::Info) << "Importing save";
       hoi4_map_drawer::save_reader::SaveImporter save_importer;
