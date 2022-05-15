@@ -35,7 +35,7 @@ int main()
 
       Log(LogLevel::Info) << "Reading mods";
       commonItems::ModLoader mod_loader;
-      mod_loader.loadMods(configuration.mod_folder, save.GetMods());
+      mod_loader.loadMods(configuration.documents_folder, save.GetMods());
       mod_loader.sortMods();
       commonItems::ModFilesystem mod_filesystem(configuration.hoi4_folder, mod_loader.getMods());
 

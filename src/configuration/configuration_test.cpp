@@ -27,7 +27,7 @@ TEST(ConfigurationTest, ItemsAreDefaulted)
    const auto configuration =
        hoi4_map_drawer::configuration::ImportConfiguration("./test_data/configuration/empty_config.txt");
    EXPECT_TRUE(configuration.hoi4_folder.empty());
-   EXPECT_TRUE(configuration.mod_folder.empty());
+   EXPECT_TRUE(configuration.documents_folder.empty());
    EXPECT_TRUE(configuration.save_location.empty());
 }
 
@@ -37,6 +37,6 @@ TEST(ConfigurationTest, ItemsCanBeSet)
    const auto configuration =
        hoi4_map_drawer::configuration::ImportConfiguration("./test_data/configuration/test_config.txt");
    EXPECT_EQ(configuration.hoi4_folder, "test_hoi4_folder");
-   EXPECT_EQ(configuration.mod_folder, "test_mod_folder");
+   EXPECT_EQ(configuration.documents_folder, "test_documents_folder");
    EXPECT_EQ(configuration.save_location, "test_save_location");
 }

@@ -31,10 +31,10 @@ requiredFolder = {
 }
 
 requiredFolder = {
-	name = mod_folder
-	displayName = HOI4MOD
-	tooltip = HOI4MODTIP
+	name = documents_folder
+	displayName = HOI4DOC
+	tooltip = HOI4DOCTIP
 	mandatory = false
 	searchPathType = steamFolder
-	searchPathID = "Paradox Interactive\Hearts of Iron IV\mod"
+	searchPathID = "Paradox Interactive\Hearts of Iron IV"
 }
