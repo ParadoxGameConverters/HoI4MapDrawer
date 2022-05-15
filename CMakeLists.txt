@@ -29,16 +29,20 @@ add_library(
 	${CONFIGURATION_SOURCES}
 )
 
+set(COUNTRY_COLORS_SOURCES ${COUNTRY_COLORS_SOURCES} "src/country_colors/cosmetic_tags_importer.cpp")
 set(COUNTRY_COLORS_SOURCES ${COUNTRY_COLORS_SOURCES} "src/country_colors/country_color_importer.cpp")
 set(COUNTRY_COLORS_SOURCES ${COUNTRY_COLORS_SOURCES} "src/country_colors/country_definition_reader.cpp")
-set(COUNTRY_COLORS_SOURCES ${COUNTRY_COLORS_SOURCES} "src/country_colors/country_tags_reader.cpp")
 set(COUNTRY_COLORS_SOURCES ${COUNTRY_COLORS_SOURCES} "src/country_colors/country_tag_file_reader.cpp")
+set(COUNTRY_COLORS_SOURCES ${COUNTRY_COLORS_SOURCES} "src/country_colors/country_tags_reader.cpp")
 add_library(
 	CountryColors
 	${COUNTRY_COLORS_SOURCES}
 )
 
 set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/map_drawer/controller_drawer.cpp")
+set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/map_drawer/drawer_utils.cpp")
+set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/map_drawer/faction_controller_drawer.cpp")
+set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/map_drawer/faction_ownership_drawer.cpp")
 set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/map_drawer/ownership_drawer.cpp")
 add_library(
 	MapDrawer
@@ -51,6 +55,9 @@ add_library(
 	${MAP_IMPORTER_SOURCES}
 )
 
+set(SAVE_READER_SOURCES ${SAVE_READER_SOURCES} "src/save_reader/countries_importer.cpp")
+set(SAVE_READER_SOURCES ${SAVE_READER_SOURCES} "src/save_reader/country_importer.cpp")
+set(SAVE_READER_SOURCES ${SAVE_READER_SOURCES} "src/save_reader/faction_importer.cpp")
 set(SAVE_READER_SOURCES ${SAVE_READER_SOURCES} "src/save_reader/province_importer.cpp")
 set(SAVE_READER_SOURCES ${SAVE_READER_SOURCES} "src/save_reader/provinces_importer.cpp")
 set(SAVE_READER_SOURCES ${SAVE_READER_SOURCES} "src/save_reader/save_importer.cpp")
@@ -108,14 +115,18 @@ add_custom_command(TARGET Hoi4MapDrawer POST_BUILD WORKING_DIRECTORY ${CMAKE_SOU
 
 set(CONFIGURATION_TEST_SOURCES ${CONFIGURATION_TEST_SOURCES} "src/configuration/configuration_test.cpp")
 
+set(COUNTRY_COLORS_TEST_SOURCES ${COUNTRY_COLORS_TEST_SOURCES} "src/country_colors/cosmetic_tags_importer_test.cpp")
 set(COUNTRY_COLORS_TEST_SOURCES ${COUNTRY_COLORS_TEST_SOURCES} "src/country_colors/country_color_importer_test.cpp")
 set(COUNTRY_COLORS_TEST_SOURCES ${COUNTRY_COLORS_TEST_SOURCES} "src/country_colors/country_definition_reader_test.cpp")
-set(COUNTRY_COLORS_TEST_SOURCES ${COUNTRY_COLORS_TEST_SOURCES} "src/country_colors/country_tags_reader_test.cpp")
 set(COUNTRY_COLORS_TEST_SOURCES ${COUNTRY_COLORS_TEST_SOURCES} "src/country_colors/country_tag_file_reader_test.cpp")
+set(COUNTRY_COLORS_TEST_SOURCES ${COUNTRY_COLORS_TEST_SOURCES} "src/country_colors/country_tags_reader_test.cpp")
 
 set(MAP_IMPORTER_TEST_SOURCES ${MAP_IMPORTER_TEST_SOURCES} "src/map_importer/map_importer_test.cpp")
 set(MAP_IMPORTER_TEST_SOURCES ${MAP_IMPORTER_TEST_SOURCES} "src/map_importer/pixel_test.cpp")
 
+set(SAVE_READER_TEST_SOURCES ${SAVE_READER_TEST_SOURCES} "src/save_reader/countries_importer_test.cpp")
+set(SAVE_READER_TEST_SOURCES ${SAVE_READER_TEST_SOURCES} "src/save_reader/country_importer_test.cpp")
+set(SAVE_READER_TEST_SOURCES ${SAVE_READER_TEST_SOURCES} "src/save_reader/faction_importer_test.cpp")
 set(SAVE_READER_TEST_SOURCES ${SAVE_READER_TEST_SOURCES} "src/save_reader/province_importer_test.cpp")
 set(SAVE_READER_TEST_SOURCES ${SAVE_READER_TEST_SOURCES} "src/save_reader/provinces_importer_test.cpp")
 set(SAVE_READER_TEST_SOURCES ${SAVE_READER_TEST_SOURCES} "src/save_reader/save_importer_test.cpp")

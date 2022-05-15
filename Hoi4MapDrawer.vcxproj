@@ -131,6 +131,7 @@
     <ClCompile Include="external\commonItems\ZipLib\ZipArchiveEntry.cpp" />
     <ClCompile Include="external\commonItems\ZipLib\ZipFile.cpp" />
     <ClCompile Include="src\configuration\configuration.cpp" />
+    <ClCompile Include="src\country_colors\cosmetic_tags_importer.cpp" />
     <ClCompile Include="src\country_colors\country_color_importer.cpp" />
     <ClCompile Include="src\country_colors\country_definition_reader.cpp" />
     <ClCompile Include="src\country_colors\country_tags_reader.cpp" />
@@ -142,6 +143,8 @@
     <ClCompile Include="src\map_drawer\faction_ownership_drawer.cpp" />
     <ClCompile Include="src\map_drawer\ownership_drawer.cpp" />
     <ClCompile Include="src\map_importer\map_importer.cpp" />
+    <ClCompile Include="src\save_reader\countries_importer.cpp" />
+    <ClCompile Include="src\save_reader\country_importer.cpp" />
     <ClCompile Include="src\save_reader\faction_importer.cpp" />
     <ClCompile Include="src\save_reader\provinces_importer.cpp" />
     <ClCompile Include="src\save_reader\province_importer.cpp" />
@@ -156,6 +159,7 @@
     <ClInclude Include="external\CImg\CImg.h" />
     <ClInclude Include="external\commonItems\Color.h" />
     <ClInclude Include="external\commonItems\CommonFunctions.h" />
+    <ClInclude Include="external\commonItems\CommonRegexes.h" />
     <ClInclude Include="external\commonItems\ConvenientParser.h" />
     <ClInclude Include="external\commonItems\iconvlite.h" />
     <ClInclude Include="external\commonItems\Log.h" />
@@ -219,6 +223,7 @@
     <ClInclude Include="external\commonItems\ZipLib\ZipFile.h" />
     <ClInclude Include="external\rakaly\rakaly.h" />
     <ClInclude Include="src\configuration\configuration.h" />
+    <ClInclude Include="src\country_colors\cosmetic_tags_importer.h" />
     <ClInclude Include="src\country_colors\country_color_importer.h" />
     <ClInclude Include="src\country_colors\country_definition_reader.h" />
     <ClInclude Include="src\country_colors\country_tags_reader.h" />
@@ -231,6 +236,10 @@
     <ClInclude Include="src\map_importer\map_importer.h" />
     <ClInclude Include="src\map_importer\pixel.h" />
     <ClInclude Include="src\rakaly_wrapper.h" />
+    <ClInclude Include="src\save_reader\countries.h" />
+    <ClInclude Include="src\save_reader\countries_importer.h" />
+    <ClInclude Include="src\save_reader\country.h" />
+    <ClInclude Include="src\save_reader\country_importer.h" />
     <ClInclude Include="src\save_reader\faction_importer.h" />
     <ClInclude Include="src\save_reader\provinces_importer.h" />
     <ClInclude Include="src\save_reader\province_importer.h" />

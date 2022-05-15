@@ -352,6 +352,15 @@
     <ClCompile Include="src\map_drawer\drawer_utils.cpp">
       <Filter>src\map_drawer</Filter>
     </ClCompile>
+    <ClCompile Include="src\save_reader\country_importer.cpp">
+      <Filter>src\save_reader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\save_reader\countries_importer.cpp">
+      <Filter>src\save_reader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\country_colors\cosmetic_tags_importer.cpp">
+      <Filter>src\country_colors</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\commonItems\Log.h">
@@ -614,6 +623,24 @@
     </ClInclude>
     <ClInclude Include="src\map_drawer\drawer_utils.h">
       <Filter>src\map_drawer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\save_reader\country.h">
+      <Filter>src\save_reader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\save_reader\country_importer.h">
+      <Filter>src\save_reader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\save_reader\countries_importer.h">
+      <Filter>src\save_reader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\save_reader\countries.h">
+      <Filter>src\save_reader</Filter>
+    </ClInclude>
+    <ClInclude Include="external\commonItems\CommonRegexes.h">
+      <Filter>external\commonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="src\country_colors\cosmetic_tags_importer.h">
+      <Filter>src\country_colors</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

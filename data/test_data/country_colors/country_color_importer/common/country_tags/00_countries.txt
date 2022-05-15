@@ -1,2 +1,3 @@
 ONE = "countries/country_one.txt"
 TWO = "countries/country_two.txt"
+TST = "countries/country_tst.txt"

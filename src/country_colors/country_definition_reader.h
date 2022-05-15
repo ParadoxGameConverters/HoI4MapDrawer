@@ -20,6 +20,7 @@ class CountryDefinitionReader
   public:
    CountryDefinitionReader();
    commonItems::Color ImportCountryDefinition(std::string_view filename);
+   commonItems::Color ImportCountryDefinition(std::istream& the_stream);
 
   private:
    commonItems::parser parser_;

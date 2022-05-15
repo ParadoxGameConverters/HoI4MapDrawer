@@ -21,11 +21,13 @@ class Save
    explicit Save(std::map<int, State> states,
        std::vector<Mod> mods,
        std::map<int, std::string> controlled_provinces,
-       std::map<std::string, std::string> tags_to_faction_leader_map):
+       std::map<std::string, std::string> tags_to_faction_leader_map,
+       std::map<std::string, std::string> tags_to_cosmetic_tags_map):
        states_(std::move(states)),
        mods_(std::move(mods)),
        controlled_provinces_(std::move(controlled_provinces)),
-       tags_to_faction_leader_map_(tags_to_faction_leader_map)
+       tags_to_faction_leader_map_(std::move(tags_to_faction_leader_map)),
+       tags_to_cosmetic_tags_map_(std::move(tags_to_cosmetic_tags_map))
    {
    }
 
@@ -33,12 +35,14 @@ class Save
    [[nodiscard]] const auto& GetMods() const { return mods_; }
    [[nodiscard]] const auto& GetControlledProvinces() const { return controlled_provinces_; }
    [[nodiscard]] const auto& GetTagsToFactionLeaderMap() const { return tags_to_faction_leader_map_; }
+   [[nodiscard]] const auto& GetTagsToCosmeticTagsMap() const { return tags_to_cosmetic_tags_map_; }
 
   private:
    std::map<int, State> states_;
    std::vector<Mod> mods_;
    std::map<int, std::string> controlled_provinces_;
    std::map<std::string, std::string> tags_to_faction_leader_map_;
+   std::map<std::string, std::string> tags_to_cosmetic_tags_map_;
 };
 
 }  // namespace save_reader

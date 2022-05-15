@@ -54,7 +54,8 @@ int main()
           hoi4_map_drawer::state_definitions::StateDefinitionsImporter{}.ImportStateDefinitions(mod_filesystem);
 
       Log(LogLevel::Info) << "Importing country colors";
-      const auto tags_to_colors_map = hoi4_map_drawer::country_colors::ImportCountryColors(mod_filesystem);
+      const auto tags_to_colors_map =
+          hoi4_map_drawer::country_colors::ImportCountryColors(mod_filesystem, save.GetTagsToCosmeticTagsMap());
 
       Log(LogLevel::Info) << "Drawing ownership map";
       hoi4_map_drawer::map_drawer::DrawOwnershipMap(provinces_image.width(),
