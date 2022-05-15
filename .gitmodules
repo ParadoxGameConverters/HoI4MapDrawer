@@ -10,3 +10,6 @@
 [submodule "external/CImg"]
 	path = external/CImg
 	url = git@github.com:dtschump/CImg.git
+[submodule "external/Fronter.NET"]
+	path = external/Fronter.NET
+	url = git@github.com:ParadoxGameConverters/Fronter.NET.git
