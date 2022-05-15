@@ -66,7 +66,7 @@ hoi4_map_drawer::save_reader::Save hoi4_map_drawer::save_reader::SaveImporter::I
    std::ifstream in_binary(std::filesystem::path(filename), std::ios::binary);
    if (!in_binary.is_open())
    {
-      throw std::runtime_error("Could not open input.hoi4 for parsing.");
+      throw std::runtime_error(std::string("Could not open ").append(filename).append(" for parsing."));
    }
    std::stringstream inStream;
    inStream << in_binary.rdbuf();
