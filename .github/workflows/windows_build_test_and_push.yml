@@ -26,6 +26,9 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: '6.*'
+        
+    - name: Setup fronter in Dot Net
+      run: |
         cd "external/Fronter.Net"
         dotnet restore
 
@@ -99,7 +102,11 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: '6.*'
-        cd external/Fron
+        
+    - name: Setup fronter in Dot Net
+      run: |
+        cd "external/Fronter.Net"
+        dotnet restore
 
     - name: "Build solution"
       run: |
