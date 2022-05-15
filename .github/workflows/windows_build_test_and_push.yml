@@ -10,7 +10,7 @@ on:
 jobs:
   build_test_and_publish:
     name: Build, test and publish local
-    if: github.repository_owner == 'HoI4MapDrawer'
+    if: github.repository_owner == 'ParadoxGameConverters'
     runs-on: windows-latest
 
     steps:
@@ -83,7 +83,7 @@ jobs:
 
   build_test:
     name: Build and test foreign
-    if: github.repository_owner != 'HoI4MapDrawer'
+    if: github.repository_owner != 'ParadoxGameConverters'
     runs-on: windows-latest
 
     steps:
@@ -94,6 +94,12 @@ jobs:
       with:
         fetch-depth: 0
         submodules: recursive
+        
+    - name: Setup Dotnet for use with actions
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: '6.*'
+        cd external/Fron
 
     - name: "Build solution"
       run: |
