@@ -11,7 +11,7 @@ sourceGame = HOI4GAME
 copyToTargetGameModDirectory = false
 
 requiredFile = {
-	name = SaveGame
+	name = save_location
 	displayName = HOI4SAVE
 	tooltip = HOI4SAVETIP
 	mandatory = false
@@ -22,7 +22,7 @@ requiredFile = {
 }
 
 requiredFolder = {
-	name = HoI4directory
+	name = hoi4_folder
 	displayName = HOI4FOLDER
 	tooltip = HOI4FOLDERTIP
 	mandatory = true
@@ -31,7 +31,7 @@ requiredFolder = {
 }
 
 requiredFolder = {
-	name = sourceGameModPath
+	name = mod_folder
 	displayName = HOI4MOD
 	tooltip = HOI4MODTIP
 	mandatory = false
