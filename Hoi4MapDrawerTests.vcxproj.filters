@@ -844,5 +844,11 @@
     <CopyFileToFolders Include="data\test_data\country_colors\cosmetic_tags_importer\common\countries\cosmetic.txt">
       <Filter>data\test_data\country_colors\cosmetic_tags_importer\common\countries</Filter>
     </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\country_colors\country_color_importer\common\countries\cosmetic.txt">
+      <Filter>data\test_data\country_colors\country_color_importer\common\countries</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\test_data\country_colors\country_color_importer\common\countries\country_tst.txt">
+      <Filter>data\test_data\country_colors\country_color_importer\common\countries</Filter>
+    </CopyFileToFolders>
   </ItemGroup>
 </Project>
