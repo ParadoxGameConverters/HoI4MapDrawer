@@ -10,7 +10,7 @@ on:
 jobs:
   build_test_and_publish:
     name: Build, test and publish local
-    if: github.repository_owner == 'HoI4MapDrawer'
+    if: github.repository_owner == 'ParadoxGameConverters'
     runs-on: windows-latest
 
     steps:
