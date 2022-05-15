@@ -26,6 +26,7 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: '6.*'
+      run: |
         cd "external/Fronter.Net"
         dotnet restore
 
