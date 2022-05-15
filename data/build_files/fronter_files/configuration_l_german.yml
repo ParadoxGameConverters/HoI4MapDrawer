@@ -1,0 +1,9 @@
+l_german:
+ VIC3DISPLAYNAME: "Hearts of Iron IV Kartenschublade"
+ HOI4GAME: "Hearts of Iron IV"
+ HOI4FOLDER: "Hearts of Iron IV-Installationsverzeichnis"
+ HOI4FOLDERTIP: "Der Pfad auf Ihrem Computer, auf dem Hearts of Iron IV installiert ist"
+ HOI4MOD: "Hearts of Iron IV Mod-Verzeichnis"
+ HOI4MODTIP: "Der Pfad auf Ihrem Computer, auf dem Hearts of Iron IV Mods speichert"
+ HOI4SAVE: "Pfad zum Hoi4-Savegame"
+ HOI4SAVETIP: "Pfad zu Ihrem Savegame von Hoi4"

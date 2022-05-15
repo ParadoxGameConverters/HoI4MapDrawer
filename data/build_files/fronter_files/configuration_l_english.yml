@@ -1,0 +1,9 @@
+l_english:
+ DISPLAYNAME: "Hearts of Iron IV Map Drawer"
+ HOI4GAME: "Hearts of Iron IV"
+ HOI4FOLDER: "Hearts of Iron IV Install Directory"
+ HOI4FOLDERTIP: "The path on your computer where Hearts of Iron IV is installed"
+ HOI4MOD: "Hearts of Iron IV Mod Directory"
+ HOI4MODTIP: "The path on your computer where Hearts of Iron IV stores mods"
+ HOI4SAVE: "Path to the Hoi4 savegame"
+ HOI4SAVETIP: "Path to your savegame from Hoi4"

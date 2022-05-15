@@ -1,0 +1,9 @@
+l_italian:
+ DISPLAYNAME: "Cassetto mappe Hearts of Iron IV"
+ HOI4GAME: "Hearts of Iron IV"
+ HOI4FOLDER: "Cartella di installazione di Hearts of Iron IV"
+ HOI4FOLDERTIP: "Il percorso in cui è installato Hearts of Iron IV"
+ HOI4MOD: "Cartella delle mod per Hearts of Iron IV"
+ HOI4MODTIP: "Il percorso in cui Hearts of Iron IV memorizza le mod"
+ HOI4SAVE: "Percorso per il savegame Hoi4"
+ HOI4SAVETIP: "Percorso per il tuo savegame da Hoi4"
