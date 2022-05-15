@@ -3,15 +3,15 @@ converterFolder = MapDrawer
 backendExePath = Hoi4MapDrawer
 enableUpdateChecker = true
 checkForUpdatesOnStartup = true
-latestGitHubConverterReleaseUrl = "https://github.com/HoI4MapDrawer/CppHoI4MapDrawer/releases/download/latest/Hoi4MapDrawer-latest-win-x64.zip"
+latestGitHubConverterReleaseUrl = "https://github.com/ParadoxGameConverters/HoI4MapDrawer/releases/download/latest/Hoi4MapDrawer-latest-win-x64.zip"
 converterReleaseForumThread = "https://forum.paradoxplaza.com/forum/threads/tool-hoi4-mapping-tool.1046139/"
-pagesCommitIdUrl = "https://paradoxgameconverters.com/commit_ids/Vic3ToHoI4.txt"
+pagesCommitIdUrl = "https://paradoxgameconverters.com/commit_ids/HoI4MapDrawer.txt"
 displayName = DISPLAYNAME
 sourceGame = HOI4GAME
 copyToTargetGameModDirectory = false
 
 requiredFile = {
-	name = SaveGame
+	name = save_location
 	displayName = HOI4SAVE
 	tooltip = HOI4SAVETIP
 	mandatory = false
@@ -22,7 +22,7 @@ requiredFile = {
 }
 
 requiredFolder = {
-	name = HoI4directory
+	name = hoi4_folder
 	displayName = HOI4FOLDER
 	tooltip = HOI4FOLDERTIP
 	mandatory = true
@@ -31,10 +31,10 @@ requiredFolder = {
 }
 
 requiredFolder = {
-	name = sourceGameModPath
-	displayName = HOI4MOD
-	tooltip = HOI4MODTIP
+	name = documents_folder
+	displayName = HOI4DOC
+	tooltip = HOI4DOCTIP
 	mandatory = false
 	searchPathType = steamFolder
-	searchPathID = "Paradox Interactive\Hearts of Iron IV\mod"
+	searchPathID = "Paradox Interactive\Hearts of Iron IV"
 }

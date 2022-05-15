@@ -27,7 +27,7 @@ int main()
    try
    {
       Log(LogLevel::Info) << "Loading configuration";
-      const auto configuration = hoi4_map_drawer::configuration::ImportConfiguration("configuration_example.txt");
+      const auto configuration = hoi4_map_drawer::configuration::ImportConfiguration("configuration.txt");
 
       Log(LogLevel::Info) << "Importing save";
       hoi4_map_drawer::save_reader::SaveImporter save_importer;
@@ -35,7 +35,7 @@ int main()
 
       Log(LogLevel::Info) << "Reading mods";
       commonItems::ModLoader mod_loader;
-      mod_loader.loadMods(configuration.mod_folder, save.GetMods());
+      mod_loader.loadMods(configuration.documents_folder, save.GetMods());
       mod_loader.sortMods();
       commonItems::ModFilesystem mod_filesystem(configuration.hoi4_folder, mod_loader.getMods());
 
@@ -93,7 +93,7 @@ int main()
           save.GetTagsToFactionLeaderMap(),
           map_definitions);
 
-      Log(LogLevel::Info) << "All done!";
+      Log(LogLevel::Info) << "All done! Maps are in the MapDrawer folder.";
    }
    catch (const std::exception& e)
    {

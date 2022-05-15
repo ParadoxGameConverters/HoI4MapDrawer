@@ -15,7 +15,7 @@ namespace configuration
 struct Configuration
 {
    std::string hoi4_folder;
-   std::string mod_folder;
+   std::string documents_folder;
    std::string save_location;
 };
 
