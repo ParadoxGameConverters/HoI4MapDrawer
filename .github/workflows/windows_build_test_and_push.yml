@@ -21,6 +21,13 @@ jobs:
       with:
         fetch-depth: 0
         submodules: recursive
+        
+    - name: Setup Dotnet for use with actions
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: '6.*'
+        cd external/Fronter.Net
+        dotnet restore
 
     - name: "Build solution"
       run: |

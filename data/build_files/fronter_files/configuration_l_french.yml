@@ -1,0 +1,9 @@
+l_french:
+ DISPLAYNAME: "Tiroir de cartes Hearts of Iron IV"
+ HOI4GAME: "Hearts of Iron IV"
+ HOI4FOLDER: "Répertoire d'installation de Hearts of Iron IV"
+ HOI4FOLDERTIP: "Le chemin sur votre ordinateur où Hearts of Iron IV est installé"
+ HOI4MOD: "Répertoire des mods Hearts of Iron IV"
+ HOI4MODTIP: "Le chemin sur votre ordinateur où Hearts of Iron IV stocke les mods"
+ HOI4SAVE: "Chemin vers la sauvegarde Hoi4"
+ HOI4SAVETIP: "Chemin vers votre sauvegarde de Hoi4"

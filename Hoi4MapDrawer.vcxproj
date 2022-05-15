@@ -32,7 +32,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)\build\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)\build\$(Configuration)\MapDrawer\</OutDir>
     <IntDir>$(SolutionDir)\build\$(Configuration)-intermediate\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -53,6 +53,9 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>external/rakaly/rakaly.dll.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>tools/save_commit_id.bat</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="external\commonItems\Color.cpp" />
@@ -256,12 +259,81 @@
     </CopyFileToFolders>
   </ItemGroup>
   <ItemGroup>
+    <CopyFileToFolders Include="data\build_files\fronter_files\configuration_l_english.yml">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/../Configuration</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\build_files\fronter_files\configuration_l_french.yml">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/../Configuration</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\build_files\fronter_files\configuration_l_german.yml">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/../Configuration</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\build_files\fronter_files\configuration_l_italian.yml">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/../Configuration</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\build_files\fronter_files\configuration_l_latin.yml">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/../Configuration</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\build_files\fronter_files\configuration_l_russian.yml">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/../Configuration</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\build_files\fronter_files\converter_l_english.yml">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/../Configuration</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\build_files\fronter_files\converter_l_french.yml">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/../Configuration</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\build_files\fronter_files\converter_l_german.yml">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/../Configuration</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\build_files\fronter_files\converter_l_italian.yml">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/../Configuration</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\build_files\fronter_files\converter_l_latin.yml">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/../Configuration</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\build_files\fronter_files\converter_l_russian.yml">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/../Configuration</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\build_files\fronter_files\converter_l_simp_chinese.yml">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/../Configuration</DestinationFolders>
+    </CopyFileToFolders>
     <None Include="external\commonItems\ZipLib\extlibs\zlib\zlib.vcxproj" />
     <None Include="external\commonItems\ZipLib\extlibs\zlib\zlib.vcxproj.filters" />
     <None Include="external\commonItems\ZipLib\extlibs\zlib\zlib.vcxproj.user" />
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="data\build_files\configuration_example.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="external\Fronter.NET\Release\**\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+      <Link>..\%(RecursiveDir)\%(Filename)%(Extension)</Link>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="data\build_files\fronter_files\fronter-configuration.txt">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/../Configuration</DestinationFolders>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="data\build_files\fronter_files\fronter-options.txt">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)/../Configuration</DestinationFolders>
+    </CopyFileToFolders>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

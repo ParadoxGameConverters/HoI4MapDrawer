@@ -62,6 +62,9 @@
     <Filter Include="data\build_files">
       <UniqueIdentifier>{a2f52889-53f0-4509-96b9-733fbfd7563e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="data\build_files\fronter_files">
+      <UniqueIdentifier>{fd572a3f-c74d-40bb-8576-214fa29b79e1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -649,6 +652,51 @@
     </CopyFileToFolders>
     <CopyFileToFolders Include="data\build_files\configuration_example.txt">
       <Filter>data\build_files</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\build_files\fronter_files\fronter-configuration.txt">
+      <Filter>data\build_files\fronter_files</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\build_files\fronter_files\fronter-options.txt">
+      <Filter>data\build_files\fronter_files</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\build_files\fronter_files\configuration_l_english.yml">
+      <Filter>data\build_files\fronter_files</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\build_files\fronter_files\configuration_l_french.yml">
+      <Filter>data\build_files\fronter_files</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\build_files\fronter_files\configuration_l_german.yml">
+      <Filter>data\build_files\fronter_files</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\build_files\fronter_files\configuration_l_italian.yml">
+      <Filter>data\build_files\fronter_files</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\build_files\fronter_files\configuration_l_latin.yml">
+      <Filter>data\build_files\fronter_files</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\build_files\fronter_files\configuration_l_russian.yml">
+      <Filter>data\build_files\fronter_files</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\build_files\fronter_files\converter_l_english.yml">
+      <Filter>data\build_files\fronter_files</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\build_files\fronter_files\converter_l_french.yml">
+      <Filter>data\build_files\fronter_files</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\build_files\fronter_files\converter_l_german.yml">
+      <Filter>data\build_files\fronter_files</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\build_files\fronter_files\converter_l_italian.yml">
+      <Filter>data\build_files\fronter_files</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\build_files\fronter_files\converter_l_latin.yml">
+      <Filter>data\build_files\fronter_files</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\build_files\fronter_files\converter_l_russian.yml">
+      <Filter>data\build_files\fronter_files</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="data\build_files\fronter_files\converter_l_simp_chinese.yml">
+      <Filter>data\build_files\fronter_files</Filter>
     </CopyFileToFolders>
   </ItemGroup>
   <ItemGroup>
