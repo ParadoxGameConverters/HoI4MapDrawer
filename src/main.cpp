@@ -93,7 +93,7 @@ int main()
           save.GetTagsToFactionLeaderMap(),
           map_definitions);
 
-      Log(LogLevel::Info) << "All done!";
+      Log(LogLevel::Info) << "All done! Maps are in the MapDrawer folder.";
    }
    catch (const std::exception& e)
    {
