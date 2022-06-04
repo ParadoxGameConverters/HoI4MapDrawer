@@ -9,6 +9,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@main
+        with:
+          # We must fetch at least the immediate parents so that if this is
+          # a pull request then we can checkout the head.
+          fetch-depth: 0
+          submodules: recursive
 
       - name: Run Codacy Analysis CLI
         uses: codacy/codacy-analysis-cli-action@master
