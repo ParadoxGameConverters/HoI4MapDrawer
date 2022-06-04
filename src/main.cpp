@@ -28,16 +28,19 @@ int main()
    {
       Log(LogLevel::Info) << "Loading configuration";
       const auto configuration = hoi4_map_drawer::configuration::ImportConfiguration("configuration.txt");
+      Log(LogLevel::Progress) << "5";
 
       Log(LogLevel::Info) << "Importing save";
       hoi4_map_drawer::save_reader::SaveImporter save_importer;
       const auto save = save_importer.ImportSave(configuration.save_location);
+      Log(LogLevel::Progress) << "15";
 
       Log(LogLevel::Info) << "Reading mods";
       commonItems::ModLoader mod_loader;
       mod_loader.loadMods(configuration.documents_folder, save.GetMods());
       mod_loader.sortMods();
       commonItems::ModFilesystem mod_filesystem(configuration.hoi4_folder, mod_loader.getMods());
+      Log(LogLevel::Progress) << "20";
 
       Log(LogLevel::Info) << "Importing HoI4 map.";
       const auto provinces_bmp_location = mod_filesystem.GetActualFileLocation("/map/provinces.bmp");
@@ -48,14 +51,17 @@ int main()
       const cimg_library::CImg<uint8_t> provinces_image(provinces_bmp_location->c_str());
       const auto map_definitions =
           hoi4_map_drawer::map_importer::GetProvinceDefinitions(mod_filesystem, provinces_image);
+      Log(LogLevel::Progress) << "50";
 
       Log(LogLevel::Info) << "Importing state definitions";
       const auto state_definitions =
           hoi4_map_drawer::state_definitions::StateDefinitionsImporter{}.ImportStateDefinitions(mod_filesystem);
+      Log(LogLevel::Progress) << "60";
 
       Log(LogLevel::Info) << "Importing country colors";
       const auto tags_to_colors_map =
           hoi4_map_drawer::country_colors::ImportCountryColors(mod_filesystem, save.GetTagsToCosmeticTagsMap());
+      Log(LogLevel::Progress) << "65";
 
       Log(LogLevel::Info) << "Drawing ownership map";
       hoi4_map_drawer::map_drawer::DrawOwnershipMap(provinces_image.width(),
@@ -64,6 +70,7 @@ int main()
           save.GetStates(),
           tags_to_colors_map,
           map_definitions);
+      Log(LogLevel::Progress) << "70";
 
       Log(LogLevel::Info) << "Drawing controller map";
       hoi4_map_drawer::map_drawer::DrawControllerMap(provinces_image.width(),
@@ -73,6 +80,7 @@ int main()
           save.GetControlledProvinces(),
           tags_to_colors_map,
           map_definitions);
+      Log(LogLevel::Progress) << "80";
 
       Log(LogLevel::Info) << "Drawing faction ownership map";
       hoi4_map_drawer::map_drawer::DrawFactionOwnershipMap(provinces_image.width(),
@@ -82,6 +90,7 @@ int main()
           tags_to_colors_map,
           save.GetTagsToFactionLeaderMap(),
           map_definitions);
+      Log(LogLevel::Progress) << "90";
 
       Log(LogLevel::Info) << "Drawing faction controller map";
       hoi4_map_drawer::map_drawer::DrawFactionControllerMap(provinces_image.width(),
@@ -92,6 +101,7 @@ int main()
           tags_to_colors_map,
           save.GetTagsToFactionLeaderMap(),
           map_definitions);
+      Log(LogLevel::Progress) << "100";
 
       Log(LogLevel::Info) << "All done! Maps are in the MapDrawer folder.";
    }
