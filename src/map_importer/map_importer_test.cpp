@@ -5,10 +5,10 @@
 // clang-format off
 // gtest must be before CImg, else we get compile errors
 #define cimg_display 0
-#include "external/googletest/googletest/include/gtest/gtest.h"
-#include "external/googletest/googlemock/include/gmock/gmock.h"
-#include "external/CImg/CImg.h"
-#include "external/commonItems/ModLoader/ModFilesystem.h"
+#include <external/googletest/googletest/include/gtest/gtest.h>
+#include <external/googletest/googlemock/include/gmock/gmock.h>
+#include <external/CImg/CImg.h>
+#include <external/commonItems/ModLoader/ModFilesystem.h>
 // clang-format on
 
 

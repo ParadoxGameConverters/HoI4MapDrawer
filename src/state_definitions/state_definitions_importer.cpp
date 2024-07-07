@@ -1,9 +1,9 @@
 #include "src/state_definitions/state_definitions_importer.h"
 
-#include "external/commonItems/CommonRegexes.h"
-#include "external/commonItems/ModLoader/ModFilesystem.h"
-#include "external/commonItems/OSCompatibilityLayer.h"
-#include "external/commonItems/ParserHelpers.h"
+#include <external/commonItems/CommonRegexes.h>
+#include <external/commonItems/ModLoader/ModFilesystem.h>
+#include <external/commonItems/OSCompatibilityLayer.h>
+#include <external/commonItems/ParserHelpers.h>
 
 
 

@@ -1,6 +1,6 @@
 #include "src/map_importer/pixel.h"
 
-#include "external/googletest/googletest/include/gtest/gtest.h"
+#include <external/googletest/googletest/include/gtest/gtest.h>
 
 
 

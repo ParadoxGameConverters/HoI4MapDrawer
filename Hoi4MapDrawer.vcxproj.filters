@@ -372,9 +372,6 @@
     <ClInclude Include="external\rakaly\rakaly.h">
       <Filter>external\rakaly</Filter>
     </ClInclude>
-    <ClInclude Include="src\rakaly_wrapper.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="external\commonItems\iconvlite.h">
       <Filter>external\commonItems</Filter>
     </ClInclude>

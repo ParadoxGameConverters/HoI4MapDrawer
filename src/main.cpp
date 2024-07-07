@@ -1,14 +1,16 @@
+#define cimg_verbosity 0
+#define cimg_display 0
+
+#include <external/CImg/CImg.h>
+#include <external/commonItems/Log.h>
+#include <external/commonItems/ModLoader/Mod.h>
+#include <external/commonItems/ModLoader/ModFilesystem.h>
+#include <external/commonItems/ModLoader/ModLoader.h>
+
 #include <filesystem>
 #include <fstream>
 #include <ranges>
 
-#define cimg_verbosity 0
-#define cimg_display 0
-#include "external/CImg/CImg.h"
-#include "external/commonItems/Log.h"
-#include "external/commonItems/ModLoader/Mod.h"
-#include "external/commonItems/ModLoader/ModFilesystem.h"
-#include "external/commonItems/ModLoader/ModLoader.h"
 #include "map_drawer/controller_drawer.h"
 #include "src/configuration/configuration.h"
 #include "src/country_colors/country_color_importer.h"
@@ -16,7 +18,6 @@
 #include "src/map_drawer/faction_ownership_drawer.h"
 #include "src/map_drawer/ownership_drawer.h"
 #include "src/map_importer/map_importer.h"
-#include "src/rakaly_wrapper.h"
 #include "src/save_reader/save_importer.h"
 #include "src/state_definitions/state_definitions_importer.h"
 

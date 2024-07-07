@@ -3,11 +3,12 @@
 
 
 
+#include <external/commonItems/Color.h>
+
 #include <map>
 #include <set>
 #include <vector>
 
-#include "external/commonItems/Color.h"
 #include "src/map_importer/pixel.h"
 #include "src/save_reader/state.h"
 

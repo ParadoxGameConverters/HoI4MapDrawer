@@ -1,10 +1,9 @@
 #include "src/state_definitions/state_definition_importer.h"
 
+#include <external/googletest/googletest/include/gtest/gtest.h>
 #include <gmock/gmock-matchers.h>
 
 #include <sstream>
-
-#include "external/googletest/googletest/include/gtest/gtest.h"
 
 
 

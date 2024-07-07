@@ -1,9 +1,9 @@
 #include "src/configuration/configuration.h"
 
-#include <sstream>
+#include <external/googletest/googlemock/include/gmock/gmock-matchers.h>
+#include <external/googletest/googletest/include/gtest/gtest.h>
 
-#include "external/googletest/googlemock/include/gmock/gmock-matchers.h"
-#include "external/googletest/googletest/include/gtest/gtest.h"
+#include <sstream>
 
 
 

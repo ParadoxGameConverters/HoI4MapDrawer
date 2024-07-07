@@ -3,12 +3,13 @@
 
 
 
+#include <external/commonItems/ModLoader/ModFilesystem.h>
+#include <external/commonItems/Parser.h>
+
 #include <map>
 #include <string_view>
 #include <vector>
 
-#include "external/commonItems/ModLoader/ModFilesystem.h"
-#include "external/commonItems/Parser.h"
 #include "src/state_definitions/state_definition_importer.h"
 
 
