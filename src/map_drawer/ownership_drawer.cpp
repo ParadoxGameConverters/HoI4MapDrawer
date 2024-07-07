@@ -1,9 +1,11 @@
-#include "src/map_drawer/ownership_drawer.h"
-
 #define cimg_verbosity 0
 #define cimg_display 0
-#include "external/CImg/CImg.h"
-#include "external/commonItems/Color.h"
+
+#include "src/map_drawer/ownership_drawer.h"
+
+#include <external/CImg/CImg.h>
+#include <external/commonItems/Color.h>
+
 #include "src/map_drawer/drawer_utils.h"
 
 

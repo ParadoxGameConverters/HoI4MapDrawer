@@ -1,12 +1,12 @@
 #include "src/map_importer/map_importer.h"
 
+#include <external/commonItems/Log.h>
+#include <external/commonItems/ModLoader/ModFilesystem.h>
+#include <external/commonItems/OSCompatibilityLayer.h>
+
 #include <fstream>
 #include <optional>
 #include <string>
-
-#include "external/commonItems/Log.h"
-#include "external/commonItems/ModLoader/ModFilesystem.h"
-#include "external/commonItems/OSCompatibilityLayer.h"
 
 
 

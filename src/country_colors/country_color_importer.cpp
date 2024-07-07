@@ -1,6 +1,7 @@
 #include "src/country_colors/country_color_importer.h"
 
-#include "external/commonItems/Log.h"
+#include <external/commonItems/Log.h>
+
 #include "src/country_colors/cosmetic_tags_importer.h"
 #include "src/country_colors/country_definition_reader.h"
 #include "src/country_colors/country_tags_reader.h"

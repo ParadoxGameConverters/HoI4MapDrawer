@@ -3,8 +3,9 @@
 
 
 
-#include "external/commonItems/ModLoader/Mod.h"
-#include "external/commonItems/Parser.h"
+#include <external/commonItems/ModLoader/Mod.h>
+#include <external/commonItems/Parser.h>
+
 #include "src/save_reader/countries_importer.h"
 #include "src/save_reader/faction_importer.h"
 #include "src/save_reader/provinces_importer.h"

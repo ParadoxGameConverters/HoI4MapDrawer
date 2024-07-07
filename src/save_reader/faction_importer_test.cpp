@@ -1,9 +1,9 @@
 #include "src/save_reader/faction_importer.h"
 
-#include <sstream>
+#include <external/googletest/googlemock/include/gmock/gmock-matchers.h>
+#include <external/googletest/googletest/include/gtest/gtest.h>
 
-#include "external/googletest/googlemock/include/gmock/gmock-matchers.h"
-#include "external/googletest/googletest/include/gtest/gtest.h"
+#include <sstream>
 
 
 

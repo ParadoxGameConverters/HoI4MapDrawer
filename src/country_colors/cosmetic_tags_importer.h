@@ -3,18 +3,20 @@
 
 
 
+#include <external/commonItems/Color.h>
+#include <external/commonItems/ModLoader/ModFilesystem.h>
+#include <external/commonItems/Parser.h>
+
 #include <map>
 #include <string>
 
-#include "external/commonItems/Color.h"
-#include "external/commonItems/ModLoader/ModFilesystem.h"
-#include "external/commonItems/Parser.h"
 #include "src/country_colors/country_definition_reader.h"
 
 
 
 namespace hoi4_map_drawer
 {
+
 namespace country_colors
 {
 
