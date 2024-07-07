@@ -18,7 +18,6 @@
 #include "src/map_drawer/faction_ownership_drawer.h"
 #include "src/map_drawer/ownership_drawer.h"
 #include "src/map_importer/map_importer.h"
-#include "src/rakaly_wrapper.h"
 #include "src/save_reader/save_importer.h"
 #include "src/state_definitions/state_definitions_importer.h"
 

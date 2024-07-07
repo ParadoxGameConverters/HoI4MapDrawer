@@ -16,7 +16,12 @@ std::string UnmeltSaveIfNeeded(const std::string& save_data)
 {
    if (save_data.starts_with("HOI4bin"))
    {
-      return rakaly::meltHoi4(save_data);
+      const rakaly::GameFile game_file = rakaly::parseHoi4(save_data);
+      const rakaly::MeltedOutput melted_output = game_file.melt();
+
+      std::string data;
+      melted_output.writeData(data);
+      return data;
    }
 
    return save_data;
@@ -28,7 +33,7 @@ std::string UnmeltSaveIfNeeded(const std::string& save_data)
 
 hoi4_map_drawer::save_reader::SaveImporter::SaveImporter()
 {
-   parser_.registerKeyword("HOI4txt", [](std::istream& the_stream) {
+   parser_.registerKeyword("HOI4txt", []([[maybe_unused]] std::istream& the_stream) {
    });
    parser_.registerKeyword("mods", [this](std::istream& the_stream) {
       for (const auto& mod_name: commonItems::getStrings(the_stream))

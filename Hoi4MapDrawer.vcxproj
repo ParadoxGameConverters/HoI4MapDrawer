@@ -240,7 +240,6 @@
     <ClInclude Include="src\map_drawer\ownership_drawer.h" />
     <ClInclude Include="src\map_importer\map_importer.h" />
     <ClInclude Include="src\map_importer\pixel.h" />
-    <ClInclude Include="src\rakaly_wrapper.h" />
     <ClInclude Include="src\save_reader\countries.h" />
     <ClInclude Include="src\save_reader\countries_importer.h" />
     <ClInclude Include="src\save_reader\country.h" />
