@@ -17,9 +17,6 @@
 namespace hoi4_map_drawer
 {
 
-namespace country_colors
-{
-
 class CosmeticTagsImporter
 {
   public:
@@ -34,7 +31,6 @@ class CosmeticTagsImporter
    CountryDefinitionReader country_definition_reader_;
 };
 
-}  // namespace country_colors
 }  // namespace hoi4_map_drawer
 
 

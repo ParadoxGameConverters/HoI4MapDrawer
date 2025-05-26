@@ -5,6 +5,7 @@
 
 #include <external/commonItems/ModLoader/ModFilesystem.h>
 
+#include <filesystem>
 #include <map>
 #include <string>
 
@@ -14,22 +15,19 @@
 
 namespace hoi4_map_drawer
 {
-namespace country_colors
-{
 
 class CountryTagsReader
 {
   public:
    CountryTagsReader() = default;
-   std::map<std::string, std::string> ImportTags(const commonItems::ModFilesystem& mod_filesystem);
+   std::map<std::string, std::filesystem::path> ImportTags(const commonItems::ModFilesystem& mod_filesystem);
 
   private:
-   std::map<std::string, std::string> tag_to_filename_map_;
+   std::map<std::string, std::filesystem::path> tag_to_filename_map_;
 
    CountryTagFileReader reader_;
 };
 
-}  // namespace country_colors
 }  // namespace hoi4_map_drawer
 
 

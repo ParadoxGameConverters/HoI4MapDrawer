@@ -9,9 +9,6 @@
 
 namespace hoi4_map_drawer
 {
-namespace save_reader
-{
-
 
 class ProvinceImporter
 {
@@ -25,8 +22,6 @@ class ProvinceImporter
    std::optional<std::string> controller;
 };
 
-
-}  // namespace save_reader
 }  // namespace hoi4_map_drawer
 
 

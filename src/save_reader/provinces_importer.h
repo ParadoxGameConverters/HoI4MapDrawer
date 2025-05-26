@@ -14,8 +14,6 @@
 
 namespace hoi4_map_drawer
 {
-namespace save_reader
-{
 
 class ProvincesImporter
 {
@@ -30,7 +28,6 @@ class ProvincesImporter
    ProvinceImporter province_importer_;
 };
 
-}  // namespace save_reader
 }  // namespace hoi4_map_drawer
 
 

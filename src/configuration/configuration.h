@@ -3,26 +3,24 @@
 
 
 
+#include <filesystem>
 #include <string>
 
 
 
 namespace hoi4_map_drawer
 {
-namespace configuration
-{
 
 struct Configuration
 {
-   std::string hoi4_folder;
-   std::string documents_folder;
-   std::string save_location;
+   std::filesystem::path hoi4_folder;
+   std::filesystem::path documents_folder;
+   std::filesystem::path save_location;
 };
 
 
-Configuration ImportConfiguration(std::string_view filename);
+Configuration ImportConfiguration(const std::filesystem::path& filename);
 
-}  // namespace configuration
 }  // namespace hoi4_map_drawer
 
 

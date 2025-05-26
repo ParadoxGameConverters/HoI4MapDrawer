@@ -31,7 +31,7 @@ std::string UnmeltSaveIfNeeded(const std::string& save_data)
 
 
 
-hoi4_map_drawer::save_reader::SaveImporter::SaveImporter()
+hoi4_map_drawer::SaveImporter::SaveImporter()
 {
    parser_.registerKeyword("HOI4txt", []([[maybe_unused]] std::istream& the_stream) {
    });
@@ -60,7 +60,7 @@ hoi4_map_drawer::save_reader::SaveImporter::SaveImporter()
 }
 
 
-hoi4_map_drawer::save_reader::Save hoi4_map_drawer::save_reader::SaveImporter::ImportSave(std::string_view filename)
+hoi4_map_drawer::Save hoi4_map_drawer::SaveImporter::ImportSave(const std::filesystem::path& filename)
 {
    mods_.clear();
    controlled_provinces_.clear();
@@ -71,7 +71,7 @@ hoi4_map_drawer::save_reader::Save hoi4_map_drawer::save_reader::SaveImporter::I
    std::ifstream in_binary(std::filesystem::path(filename), std::ios::binary);
    if (!in_binary.is_open())
    {
-      throw std::runtime_error(std::string("Could not open ").append(filename).append(" for parsing."));
+      throw std::runtime_error("Could not open " + filename.string() + " for parsing.");
    }
    std::stringstream inStream;
    inStream << in_binary.rdbuf();

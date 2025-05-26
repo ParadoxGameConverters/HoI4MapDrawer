@@ -11,18 +11,21 @@
 
 TEST(CountryTagsReaderTest, DefaultColorWhenNoColorSpecified)
 {
-   const commonItems::ModFilesystem mod_filesystem("test_data/country_colors/empty_tags_directory", {});
+   const commonItems::ModFilesystem mod_filesystem(
+       std::filesystem::path("test_data/country_colors/empty_tags_directory"),
+       {});
 
-   hoi4_map_drawer::country_colors::CountryTagsReader reader;
+   hoi4_map_drawer::CountryTagsReader reader;
    EXPECT_TRUE(reader.ImportTags(mod_filesystem).empty());
 }
 
 
 TEST(CountryTagsReaderTest, ColorCanBeSpecified)
 {
-   const commonItems::ModFilesystem mod_filesystem("test_data/country_colors/tags_directory", {});
+   const commonItems::ModFilesystem mod_filesystem(std::filesystem::path("test_data/country_colors/tags_directory"),
+       {});
 
-   hoi4_map_drawer::country_colors::CountryTagsReader reader;
+   hoi4_map_drawer::CountryTagsReader reader;
    EXPECT_THAT(reader.ImportTags(mod_filesystem),
        testing::UnorderedElementsAre(testing::Pair("ONE", "common/country/country_tag_one.txt"),
            testing::Pair("TWO", "common/country/tag_two.txt"),

@@ -10,8 +10,6 @@
 
 namespace hoi4_map_drawer
 {
-namespace save_reader
-{
 
 class State
 {
@@ -29,7 +27,6 @@ class State
 };
 
 
-}  // namespace save_reader
 }  // namespace hoi4_map_drawer
 
 

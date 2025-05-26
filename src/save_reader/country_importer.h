@@ -11,8 +11,6 @@
 
 namespace hoi4_map_drawer
 {
-namespace save_reader
-{
 
 class CountryImporter
 {
@@ -27,7 +25,6 @@ class CountryImporter
    std::optional<std::string> cosmetic_tag_;
 };
 
-}  // namespace save_reader
 }  // namespace hoi4_map_drawer
 
 

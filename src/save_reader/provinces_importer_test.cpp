@@ -9,7 +9,7 @@
 
 TEST(ProvincesImporterTest, EmptyMapWhenNoProvinces)
 {
-   hoi4_map_drawer::save_reader::ProvincesImporter importer;
+   hoi4_map_drawer::ProvincesImporter importer;
 
    std::stringstream input;
    input << "= {\n";
@@ -22,7 +22,7 @@ TEST(ProvincesImporterTest, EmptyMapWhenNoProvinces)
 
 TEST(ProvincesImporterTest, EmptyMapWhenNoControllers)
 {
-   hoi4_map_drawer::save_reader::ProvincesImporter importer;
+   hoi4_map_drawer::ProvincesImporter importer;
 
    std::stringstream input;
    input << "= {\n";
@@ -37,7 +37,7 @@ TEST(ProvincesImporterTest, EmptyMapWhenNoControllers)
 
 TEST(ProvincesImporterTest, ControllersCanBeImported)
 {
-   hoi4_map_drawer::save_reader::ProvincesImporter importer;
+   hoi4_map_drawer::ProvincesImporter importer;
 
    std::stringstream input;
    input << "= {\n";

@@ -11,7 +11,7 @@ TEST(CountriesImporterTest, CosmeticTagsMapDefaultsToEmpty)
 {
    std::stringstream input;
 
-   hoi4_map_drawer::save_reader::CountriesImporter importer;
+   hoi4_map_drawer::CountriesImporter importer;
    const auto countries = importer.ImportCountries(input);
 
    EXPECT_TRUE(countries.GetTagsToCosmeticTagsMap().empty());
@@ -30,7 +30,7 @@ TEST(CountriesImporterTest, CosmeticTagsCanBeMapped)
    input << "\t}\n";
    input << "}";
 
-   hoi4_map_drawer::save_reader::CountriesImporter importer;
+   hoi4_map_drawer::CountriesImporter importer;
    const auto countries = importer.ImportCountries(input);
 
    EXPECT_THAT(countries.GetTagsToCosmeticTagsMap(),
@@ -53,7 +53,7 @@ TEST(CountriesImporterTest, CountriesWithoutCosmeticTagsAreIgnored)
    input << "\t}\n";
    input << "}";
 
-   hoi4_map_drawer::save_reader::CountriesImporter importer;
+   hoi4_map_drawer::CountriesImporter importer;
    const auto countries = importer.ImportCountries(input);
 
    EXPECT_THAT(countries.GetTagsToCosmeticTagsMap(),

@@ -9,7 +9,7 @@
 
 TEST(FactionImporterTest, EmptyMapWhenNoMembers)
 {
-   hoi4_map_drawer::save_reader::FactionImporter faction_importer;
+   hoi4_map_drawer::FactionImporter faction_importer;
 
    std::stringstream input;
 
@@ -19,7 +19,7 @@ TEST(FactionImporterTest, EmptyMapWhenNoMembers)
 
 TEST(FactionImporterTest, MembersCanBeInput)
 {
-   hoi4_map_drawer::save_reader::FactionImporter faction_importer;
+   hoi4_map_drawer::FactionImporter faction_importer;
 
    std::stringstream input;
    input << "= {\n";
@@ -40,7 +40,7 @@ TEST(FactionImporterTest, ExtraDataIsIgnored)
    std::streambuf* cout_buffer = std::cout.rdbuf();
    std::cout.rdbuf(log.rdbuf());
 
-   hoi4_map_drawer::save_reader::FactionImporter faction_importer;
+   hoi4_map_drawer::FactionImporter faction_importer;
 
    std::stringstream input;
    input << "= {\n";

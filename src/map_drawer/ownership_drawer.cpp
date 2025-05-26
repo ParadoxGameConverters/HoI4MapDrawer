@@ -14,7 +14,7 @@ namespace
 {
 
 commonItems::Color DetermineColor(int state_number,
-    const std::map<int, hoi4_map_drawer::save_reader::State>& save_states,
+    const std::map<int, hoi4_map_drawer::State>& save_states,
     const std::map<std::string, commonItems::Color>& tags_to_colors_map)
 {
    const auto save_state = save_states.find(state_number);
@@ -40,12 +40,12 @@ commonItems::Color DetermineColor(int state_number,
 }  // namespace
 
 
-void hoi4_map_drawer::map_drawer::DrawOwnershipMap(int width,
+void hoi4_map_drawer::DrawOwnershipMap(int width,
     int height,
     const std::map<int, std::vector<int>>& state_definitions,
-    const std::map<int, save_reader::State>& save_states,
+    const std::map<int, State>& save_states,
     const std::map<std::string, commonItems::Color>& tags_to_colors_map,
-    const std::map<int, std::set<map_importer::Pixel>>& map_definitions)
+    const std::map<int, std::set<Pixel>>& map_definitions)
 {
    auto ownership_map = CreateBaseMap(width, height);
 

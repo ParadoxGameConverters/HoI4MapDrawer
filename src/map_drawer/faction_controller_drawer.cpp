@@ -34,7 +34,7 @@ commonItems::Color DetermineColor(const std::string& tag,
 
 
 commonItems::Color DetermineStateColor(int state_number,
-    const std::map<int, hoi4_map_drawer::save_reader::State>& save_states,
+    const std::map<int, hoi4_map_drawer::State>& save_states,
     const std::map<std::string, std::string>& tags_to_faction_leader_map,
     const std::map<std::string, commonItems::Color>& tags_to_colors_map)
 {
@@ -56,14 +56,14 @@ commonItems::Color DetermineStateColor(int state_number,
 }  // namespace
 
 
-void hoi4_map_drawer::map_drawer::DrawFactionControllerMap(int width,
+void hoi4_map_drawer::DrawFactionControllerMap(int width,
     int height,
     const std::map<int, std::vector<int>>& state_definitions,
-    const std::map<int, save_reader::State>& save_states,
+    const std::map<int, State>& save_states,
     const std::map<int, std::string>& controlled_provinces,
     const std::map<std::string, commonItems::Color>& tags_to_colors_map,
     const std::map<std::string, std::string>& tags_to_faction_leader_map,
-    const std::map<int, std::set<map_importer::Pixel>>& map_definitions)
+    const std::map<int, std::set<Pixel>>& map_definitions)
 {
    auto controller_map = CreateBaseMap(width, height);
 

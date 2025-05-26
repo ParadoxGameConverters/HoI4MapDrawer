@@ -13,8 +13,6 @@
 
 namespace hoi4_map_drawer
 {
-namespace save_reader
-{
 
 class Save
 {
@@ -46,7 +44,6 @@ class Save
    std::map<std::string, std::string> tags_to_cosmetic_tags_map_;
 };
 
-}  // namespace save_reader
 }  // namespace hoi4_map_drawer
 
 

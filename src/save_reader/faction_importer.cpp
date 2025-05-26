@@ -5,7 +5,7 @@
 
 
 
-hoi4_map_drawer::save_reader::FactionImporter::FactionImporter()
+hoi4_map_drawer::FactionImporter::FactionImporter()
 {
    parser_.registerKeyword("members", [this](std::istream& the_stream) {
       const auto members = commonItems::getStrings(the_stream);
@@ -18,8 +18,7 @@ hoi4_map_drawer::save_reader::FactionImporter::FactionImporter()
 }
 
 
-std::map<std::string, std::string> hoi4_map_drawer::save_reader::FactionImporter::ImportFaction(
-    std::istream& the_stream)
+std::map<std::string, std::string> hoi4_map_drawer::FactionImporter::ImportFaction(std::istream& the_stream)
 {
    tags_to_faction_leader_map_.clear();
    parser_.parseStream(the_stream);

@@ -11,7 +11,7 @@ TEST(StateDefinitionImporterTest, ReturnsNulloptIfMissingId)
 {
    std::stringstream input;
 
-   hoi4_map_drawer::state_definitions::StateDefinitionImporter importer;
+   hoi4_map_drawer::StateDefinitionImporter importer;
 
    EXPECT_EQ(importer.ImportState(input), std::nullopt);
 }
@@ -24,7 +24,7 @@ TEST(StateDefinitionImporterTest, IdCanBeImported)
    input << "\tid = 42\n";
    input << "}";
 
-   hoi4_map_drawer::state_definitions::StateDefinitionImporter importer;
+   hoi4_map_drawer::StateDefinitionImporter importer;
    const auto state_data = importer.ImportState(input);
 
    ASSERT_TRUE(state_data.has_value());
@@ -39,7 +39,7 @@ TEST(StateDefinitionImporterTest, ReturnsEmptyVectorIfMissingProvinces)
    input << "\tid = 42\n";
    input << "}";
 
-   hoi4_map_drawer::state_definitions::StateDefinitionImporter importer;
+   hoi4_map_drawer::StateDefinitionImporter importer;
    const auto state_data = importer.ImportState(input);
 
    ASSERT_TRUE(state_data.has_value());
@@ -57,7 +57,7 @@ TEST(StateDefinitionImporterTest, ProvincesCanBeImported)
    input << "\t}";
    input << "}";
 
-   hoi4_map_drawer::state_definitions::StateDefinitionImporter importer;
+   hoi4_map_drawer::StateDefinitionImporter importer;
    const auto state_data = importer.ImportState(input);
 
    ASSERT_TRUE(state_data.has_value());
@@ -76,7 +76,7 @@ TEST(StateDefinitionImporterTest, ExtraInputIsIgnored)
    input << "\tunhandled_input = 42\n";
    input << "}";
 
-   hoi4_map_drawer::state_definitions::StateDefinitionImporter importer;
+   hoi4_map_drawer::StateDefinitionImporter importer;
    auto state_data = importer.ImportState(input);
    state_data.reset();  // make the annoying warning go away
 

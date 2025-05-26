@@ -17,13 +17,10 @@
 
 namespace hoi4_map_drawer
 {
-namespace map_importer
-{
 
 std::map<int, std::set<Pixel>> GetProvinceDefinitions(const commonItems::ModFilesystem& mod_filesystem,
     const cimg_library::CImg<uint8_t>& provinces_image);
 
-}  // namespace map_importer
 }  // namespace hoi4_map_drawer
 
 

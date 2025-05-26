@@ -15,9 +15,6 @@
 
 namespace hoi4_map_drawer
 {
-namespace save_reader
-{
-
 
 class StateImporter
 {
@@ -32,8 +29,6 @@ class StateImporter
    commonItems::parser parser_;
 };
 
-
-}  // namespace save_reader
 }  // namespace hoi4_map_drawer
 
 

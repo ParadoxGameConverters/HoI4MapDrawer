@@ -5,7 +5,7 @@
 
 
 
-hoi4_map_drawer::country_colors::CountryTagFileReader::CountryTagFileReader()
+hoi4_map_drawer::CountryTagFileReader::CountryTagFileReader()
 {
    parser_.registerRegex("([a-zA-Z0-9]){3}", [this](const std::string& tag, std::istream& the_stream) {
       tag_to_filename_map_.emplace(tag, commonItems::getString(the_stream));
@@ -14,8 +14,8 @@ hoi4_map_drawer::country_colors::CountryTagFileReader::CountryTagFileReader()
 }
 
 
-std::map<std::string, std::string> hoi4_map_drawer::country_colors::CountryTagFileReader::ImportTags(
-    std::string_view filename)
+std::map<std::string, std::filesystem::path> hoi4_map_drawer::CountryTagFileReader::ImportTags(
+    const std::filesystem::path& filename)
 {
    tag_to_filename_map_.clear();
    parser_.parseFile(filename);
