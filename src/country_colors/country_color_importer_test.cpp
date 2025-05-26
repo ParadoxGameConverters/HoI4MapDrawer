@@ -12,7 +12,7 @@
 TEST(CountryColorImporterTest, CountryColorsCanBeImported)
 {
    const commonItems::ModFilesystem mod_filesystem(
-       std::filesystem::path("test_data/country_colors/country_color_importer/"),
+       std::filesystem::path("test_data/country_colors/country_color_importer"),
        {});
 
    const auto colors = hoi4_map_drawer::ImportCountryColors(mod_filesystem, {{"TST", "TST_cosmetic_tag"}});

@@ -8,7 +8,7 @@ std::map<std::string, std::filesystem::path> hoi4_map_drawer::CountryTagsReader:
     const commonItems::ModFilesystem& mod_filesystem)
 {
    tag_to_filename_map_.clear();
-   for (const auto& filename: mod_filesystem.GetAllFilesInFolder("/common/country_tags/"))
+   for (const auto& filename: mod_filesystem.GetAllFilesInFolder("common/country_tags"))
    {
       for (const auto& [tag, tag_filename]: reader_.ImportTags(filename))
       {

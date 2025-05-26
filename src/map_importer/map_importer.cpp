@@ -150,7 +150,7 @@ std::map<int, std::set<Pixel>> GetProvinceDefinitions(const commonItems::ModFile
 {
    const auto color_to_pixel_definitions = GetColorToPixelDefinitions(provinces_image);
 
-   const auto definition_csv_location = mod_filesystem.GetActualFileLocation("/map/definition.csv");
+   const auto definition_csv_location = mod_filesystem.GetActualFileLocation("map/definition.csv");
    if (!definition_csv_location)
    {
       throw std::runtime_error("/map/definition.csv couldn't be found!");

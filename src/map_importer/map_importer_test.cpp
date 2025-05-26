@@ -22,22 +22,21 @@ using testing::UnorderedElementsAre;
 TEST(MapImporterTest, MissingDefinitionDotCsvThrowsException)
 {
    const commonItems::ModFilesystem mod_filesystem(
-       std::filesystem::path("./test_data/map_importer_test/missing_definition.csv"),
+       std::filesystem::path("test_data/map_importer_test/missing_definition.csv"),
        {});
 
    const cimg_library::CImg<uint8_t> provinces_image(
-       "./test_data/map_importer_test/missing_definition.csv/map/provinces.bmp");
+       "test_data/map_importer_test/missing_definition.csv/map/provinces.bmp");
    EXPECT_THROW(GetProvinceDefinitions(mod_filesystem, provinces_image), std::runtime_error);
 }
 
 
 TEST(MapImporterTest, ProvinceDefinitionsAreImported)
 {
-   const commonItems::ModFilesystem mod_filesystem(
-       std::filesystem::path("./test_data/map_importer_test/valid_map_data"),
+   const commonItems::ModFilesystem mod_filesystem(std::filesystem::path("test_data/map_importer_test/valid_map_data"),
        {});
 
-   const cimg_library::CImg<uint8_t> provinces_image("./test_data/map_importer_test/valid_map_data/map/provinces.bmp");
+   const cimg_library::CImg<uint8_t> provinces_image("test_data/map_importer_test/valid_map_data/map/provinces.bmp");
    const auto province_definitions = GetProvinceDefinitions(mod_filesystem, provinces_image);
 
    EXPECT_EQ(province_definitions.size(), 3);
@@ -120,11 +119,10 @@ TEST(MapImporterTest, BadDefinitionLinesAreLogged)
    std::streambuf* cout_buffer = std::cout.rdbuf();
    std::cout.rdbuf(log.rdbuf());
 
-   const commonItems::ModFilesystem mod_filesystem(
-       std::filesystem::path("./test_data/map_importer_test/valid_map_data"),
+   const commonItems::ModFilesystem mod_filesystem(std::filesystem::path("test_data/map_importer_test/valid_map_data"),
        {});
 
-   const cimg_library::CImg<uint8_t> provinces_image("./test_data/map_importer_test/valid_map_data/map/provinces.bmp");
+   const cimg_library::CImg<uint8_t> provinces_image("test_data/map_importer_test/valid_map_data/map/provinces.bmp");
    auto province_definitions = GetProvinceDefinitions(mod_filesystem, provinces_image);
    province_definitions.clear();  // make the annoying warning go away
 

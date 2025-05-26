@@ -16,7 +16,7 @@ std::map<std::string, commonItems::Color> hoi4_map_drawer::CosmeticTagsImporter:
     const commonItems::ModFilesystem& mod_filesystem)
 {
    cosmetic_tag_to_color_map_.clear();
-   if (const auto& cosmetic_tags_file = mod_filesystem.GetActualFileLocation("/common/countries/cosmetic.txt");
+   if (const auto& cosmetic_tags_file = mod_filesystem.GetActualFileLocation("common/countries/cosmetic.txt");
        cosmetic_tags_file.has_value())
    {
       parser_.parseFile(*cosmetic_tags_file);

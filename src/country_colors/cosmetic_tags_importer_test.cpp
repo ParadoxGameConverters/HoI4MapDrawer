@@ -12,7 +12,7 @@
 TEST(CosmeticTagsImporterTest, CosmeticTagsCanBeImported)
 {
    const commonItems::ModFilesystem mod_filesystem(
-       std::filesystem::path("test_data/country_colors/cosmetic_tags_importer/"),
+       std::filesystem::path("test_data/country_colors/cosmetic_tags_importer"),
        {});
 
    hoi4_map_drawer::CosmeticTagsImporter cosmetic_tags_importer;

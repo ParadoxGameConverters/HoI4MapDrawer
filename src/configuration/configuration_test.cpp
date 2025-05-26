@@ -16,7 +16,7 @@ TEST(ConfigurationTest, MissingFileThrowsException)
    hoi4_map_drawer::ImportConfiguration("./test_data/configuration/missing_config.txt");
 
    EXPECT_THAT(log.str(),
-       testing::HasSubstr("[ERROR] Could not open ./test_data/configuration/missing_config.txt for parsing."));
+       testing::HasSubstr("[ERROR] Could not open \"./test_data/configuration/missing_config.txt\" for parsing."));
 
    std::cout.rdbuf(cout_buffer);
 }
