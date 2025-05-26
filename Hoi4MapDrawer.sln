@@ -16,7 +16,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hoi4MapDrawerTests", "Hoi4M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fronter", "external\Fronter.NET\Fronter.NET\Fronter.csproj", "{E41AD4FB-9445-4277-A83F-E8C04CAAEE0D}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zip", "..\CK3ToEU4\commonItems\zip\zip.vcxproj", "{BD9BC07A-F4AC-44A3-AC06-6FDE91181C7C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zip", "external\commonItems\zip\zip.vcxproj", "{BD9BC07A-F4AC-44A3-AC06-6FDE91181C7C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
