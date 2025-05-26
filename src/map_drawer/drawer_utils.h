@@ -17,17 +17,14 @@
 
 namespace hoi4_map_drawer
 {
-namespace map_drawer
-{
 
 cimg_library::CImg<uint8_t> CreateBaseMap(int width, int height);
 
 void ColorProvince(int province,
-    const std::map<int, std::set<hoi4_map_drawer::map_importer::Pixel>>& map_definitions,
+    const std::map<int, std::set<hoi4_map_drawer::Pixel>>& map_definitions,
     const commonItems::Color& color,
     cimg_library::CImg<uint8_t>& map);
 
-}  // namespace map_drawer
 }  // namespace hoi4_map_drawer
 
 

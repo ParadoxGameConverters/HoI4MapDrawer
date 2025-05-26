@@ -16,15 +16,13 @@
 
 namespace hoi4_map_drawer
 {
-namespace save_reader
-{
 
 class SaveImporter
 {
   public:
    SaveImporter();
 
-   Save ImportSave(std::string_view filename);
+   Save ImportSave(const std::filesystem::path& filename);
 
   private:
    std::vector<Mod> mods_;
@@ -40,7 +38,6 @@ class SaveImporter
    FactionImporter faction_importer_;
 };
 
-}  // namespace save_reader
 }  // namespace hoi4_map_drawer
 
 

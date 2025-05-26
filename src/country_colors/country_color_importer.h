@@ -13,13 +13,10 @@
 
 namespace hoi4_map_drawer
 {
-namespace country_colors
-{
 
 std::map<std::string, commonItems::Color> ImportCountryColors(const commonItems::ModFilesystem& mod_filesystem,
     const std::map<std::string, std::string>& tags_to_cosmetic_tags_map);
 
-}  // namespace country_colors
 }  // namespace hoi4_map_drawer
 
 

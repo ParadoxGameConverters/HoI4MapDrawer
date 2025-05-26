@@ -10,14 +10,14 @@
 
 TEST(SaveImporterTest, MissingFileThrowsException)
 {
-   hoi4_map_drawer::save_reader::SaveImporter importer;
+   hoi4_map_drawer::SaveImporter importer;
    EXPECT_THROW(importer.ImportSave("./test_data/save_reader/missing_save.hoi4"), std::runtime_error);
 }
 
 
 TEST(SaveImporterTest, DefaultsAreSet)
 {
-   hoi4_map_drawer::save_reader::SaveImporter importer;
+   hoi4_map_drawer::SaveImporter importer;
    const auto save = importer.ImportSave("./test_data/save_reader/empty_save.hoi4");
 
    EXPECT_TRUE(save.GetStates().empty());
@@ -28,12 +28,12 @@ TEST(SaveImporterTest, DefaultsAreSet)
 
 TEST(SaveImporterTest, ItemsAreImported)
 {
-   hoi4_map_drawer::save_reader::SaveImporter importer;
+   hoi4_map_drawer::SaveImporter importer;
    const auto save = importer.ImportSave("./test_data/save_reader/good_save.hoi4");
 
    EXPECT_THAT(save.GetStates(),
-       testing::UnorderedElementsAre(testing::Pair(1, hoi4_map_drawer::save_reader::State(1, "TAG")),
-           testing::Pair(2, hoi4_map_drawer::save_reader::State(2, "TWO"))));
+       testing::UnorderedElementsAre(testing::Pair(1, hoi4_map_drawer::State(1, "TAG")),
+           testing::Pair(2, hoi4_map_drawer::State(2, "TWO"))));
    EXPECT_THAT(save.GetMods(), testing::ElementsAre(Mod("Mod One", ""), Mod("Mod Two", "")));
    EXPECT_THAT(save.GetControlledProvinces(),
        testing::ElementsAre(testing::Pair(1, "TAG"),
@@ -54,7 +54,7 @@ TEST(SaveImporterTest, ExtraDataInSaveIsIgnored)
    std::streambuf* cout_buffer = std::cout.rdbuf();
    std::cout.rdbuf(log.rdbuf());
 
-   hoi4_map_drawer::save_reader::SaveImporter importer;
+   hoi4_map_drawer::SaveImporter importer;
    const auto save = importer.ImportSave("./test_data/save_reader/extra_data_save.hoi4");
    auto states = save.GetStates();  // make the annoying warning go away
    states.clear();                  // make the annoying warning go away

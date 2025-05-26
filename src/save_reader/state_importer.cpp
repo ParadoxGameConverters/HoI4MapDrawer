@@ -5,7 +5,7 @@
 
 
 
-hoi4_map_drawer::save_reader::StateImporter::StateImporter()
+hoi4_map_drawer::StateImporter::StateImporter()
 {
    parser_.registerKeyword("owner", [this](std::istream& the_stream) {
       owner_ = commonItems::getString(the_stream);
@@ -14,8 +14,7 @@ hoi4_map_drawer::save_reader::StateImporter::StateImporter()
 }
 
 
-hoi4_map_drawer::save_reader::State hoi4_map_drawer::save_reader::StateImporter::ImportState(int id,
-    std::istream& the_stream)
+hoi4_map_drawer::State hoi4_map_drawer::StateImporter::ImportState(int id, std::istream& the_stream)
 {
    owner_.reset();
 

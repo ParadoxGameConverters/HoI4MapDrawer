@@ -10,12 +10,6 @@
 
 
 
-namespace hoi4_map_drawer
-{
-namespace map_importer
-{
-
-
 namespace
 {
 
@@ -26,9 +20,10 @@ uint32_t PixelPack(const uint8_t r, const uint8_t g, const uint8_t b)
 }
 
 
-std::map<int32_t, std::set<Pixel>> GetColorToPixelDefinitions(const cimg_library::CImg<uint8_t>& provinces_image)
+std::map<int32_t, std::set<hoi4_map_drawer::Pixel>> GetColorToPixelDefinitions(
+    const cimg_library::CImg<uint8_t>& provinces_image)
 {
-   std::map<int32_t, std::set<Pixel>> definitions;
+   std::map<int32_t, std::set<hoi4_map_drawer::Pixel>> definitions;
 
    for (int x = 0; x < provinces_image.width(); ++x)
    {
@@ -37,7 +32,7 @@ std::map<int32_t, std::set<Pixel>> GetColorToPixelDefinitions(const cimg_library
          const auto r = *provinces_image.data(x, y, 0, 0);
          const auto g = *provinces_image.data(x, y, 0, 1);
          const auto b = *provinces_image.data(x, y, 0, 2);
-         const Pixel coords{.x = x, .y = y};
+         const hoi4_map_drawer::Pixel coords{.x = x, .y = y};
          if (auto [existing, success] = definitions.emplace(PixelPack(r, g, b), std::set{coords}); !success)
          {
             existing->second.insert({x, y});
@@ -130,7 +125,7 @@ std::map<int, int> ParseStream(std::istream& the_stream)
 }
 
 
-std::map<int, int> LoadDefinitions(const std::string& filename)
+std::map<int, int> LoadDefinitions(const std::filesystem::path& filename)
 {
    if (!commonItems::DoesFileExist(filename))
    {
@@ -146,6 +141,9 @@ std::map<int, int> LoadDefinitions(const std::string& filename)
 
 }  // namespace
 
+
+namespace hoi4_map_drawer
+{
 
 std::map<int, std::set<Pixel>> GetProvinceDefinitions(const commonItems::ModFilesystem& mod_filesystem,
     const cimg_library::CImg<uint8_t>& provinces_image)
@@ -176,5 +174,4 @@ std::map<int, std::set<Pixel>> GetProvinceDefinitions(const commonItems::ModFile
    return province_to_pixel_map;
 }
 
-}  // namespace map_importer
 }  // namespace hoi4_map_drawer

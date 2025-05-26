@@ -8,7 +8,7 @@
 
 
 
-hoi4_map_drawer::save_reader::ProvincesImporter::ProvincesImporter()
+hoi4_map_drawer::ProvincesImporter::ProvincesImporter()
 {
    parser_.registerRegex(commonItems::integerRegex, [this](const std::string& number_string, std::istream& the_stream) {
       const auto province_controller = province_importer_.ImportProvince(the_stream);
@@ -35,7 +35,7 @@ hoi4_map_drawer::save_reader::ProvincesImporter::ProvincesImporter()
 }
 
 
-std::map<int, std::string> hoi4_map_drawer::save_reader::ProvincesImporter::ImportProvinces(std::istream& the_stream)
+std::map<int, std::string> hoi4_map_drawer::ProvincesImporter::ImportProvinces(std::istream& the_stream)
 {
    controlled_provinces_.clear();
 

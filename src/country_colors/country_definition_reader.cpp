@@ -5,7 +5,7 @@
 
 
 
-hoi4_map_drawer::country_colors::CountryDefinitionReader::CountryDefinitionReader()
+hoi4_map_drawer::CountryDefinitionReader::CountryDefinitionReader()
 {
    parser_.registerKeyword("color", [this](std::istream& the_stream) {
       the_color_ = commonItems::Color::Factory{}.getColor(the_stream);
@@ -14,8 +14,8 @@ hoi4_map_drawer::country_colors::CountryDefinitionReader::CountryDefinitionReade
 }
 
 
-commonItems::Color hoi4_map_drawer::country_colors::CountryDefinitionReader::ImportCountryDefinition(
-    std::string_view filename)
+commonItems::Color hoi4_map_drawer::CountryDefinitionReader::ImportCountryDefinition(
+    const std::filesystem::path& filename)
 {
    the_color_ = commonItems::Color(std::array{0, 0, 0});
    parser_.parseFile(filename);
@@ -23,8 +23,7 @@ commonItems::Color hoi4_map_drawer::country_colors::CountryDefinitionReader::Imp
 }
 
 
-commonItems::Color hoi4_map_drawer::country_colors::CountryDefinitionReader::ImportCountryDefinition(
-    std::istream& the_stream)
+commonItems::Color hoi4_map_drawer::CountryDefinitionReader::ImportCountryDefinition(std::istream& the_stream)
 {
    the_color_ = commonItems::Color(std::array{0, 0, 0});
    parser_.parseStream(the_stream);

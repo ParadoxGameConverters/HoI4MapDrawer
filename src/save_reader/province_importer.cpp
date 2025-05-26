@@ -5,7 +5,7 @@
 
 
 
-hoi4_map_drawer::save_reader::ProvinceImporter::ProvinceImporter()
+hoi4_map_drawer::ProvinceImporter::ProvinceImporter()
 {
    parser_.registerKeyword("controller", [this](std::istream& the_stream) {
       controller = commonItems::getString(the_stream);
@@ -14,7 +14,7 @@ hoi4_map_drawer::save_reader::ProvinceImporter::ProvinceImporter()
 }
 
 
-std::optional<std::string> hoi4_map_drawer::save_reader::ProvinceImporter::ImportProvince(std::istream& the_stream)
+std::optional<std::string> hoi4_map_drawer::ProvinceImporter::ImportProvince(std::istream& the_stream)
 {
    controller.reset();
 

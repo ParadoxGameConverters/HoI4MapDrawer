@@ -11,7 +11,7 @@ TEST(CountryImporterTest, CosmeticTagDefaultsToNullopt)
 {
    std::stringstream input;
 
-   hoi4_map_drawer::save_reader::CountryImporter importer;
+   hoi4_map_drawer::CountryImporter importer;
    const auto country = importer.ImportCountry(input);
 
    EXPECT_FALSE(country.GetCosmeticTag().has_value());
@@ -25,7 +25,7 @@ TEST(CountryImporterTest, CosmeticTagCanBeInput)
    input << "\tcosmetic_tag=\"TAG_cosmetic_tag\"\n";
    input << "}";
 
-   hoi4_map_drawer::save_reader::CountryImporter importer;
+   hoi4_map_drawer::CountryImporter importer;
    const auto country = importer.ImportCountry(input);
 
    ASSERT_TRUE(country.GetCosmeticTag().has_value());
@@ -45,7 +45,7 @@ TEST(CountryImporterTest, ExtraInputIsIgnored)
    input << "\tunhandled_input = 42\n";
    input << "}";
 
-   hoi4_map_drawer::save_reader::CountryImporter importer;
+   hoi4_map_drawer::CountryImporter importer;
    auto country = importer.ImportCountry(input);
    auto cosmetic_tag = country.GetCosmeticTag();  // make the annoying warning go away
    cosmetic_tag.reset();

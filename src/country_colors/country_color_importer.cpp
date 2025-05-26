@@ -8,7 +8,7 @@
 
 
 
-std::map<std::string, commonItems::Color> hoi4_map_drawer::country_colors::ImportCountryColors(
+std::map<std::string, commonItems::Color> hoi4_map_drawer::ImportCountryColors(
     const commonItems::ModFilesystem& mod_filesystem,
     const std::map<std::string, std::string>& tags_to_cosmetic_tags_map)
 {
@@ -17,8 +17,8 @@ std::map<std::string, commonItems::Color> hoi4_map_drawer::country_colors::Impor
    CosmeticTagsImporter cosmetic_tags_importer;
    const auto cosmetic_tags_to_colors_map = cosmetic_tags_importer.ImportCosmeticTags(mod_filesystem);
 
-   hoi4_map_drawer::country_colors::CountryTagsReader tags_reader;
-   hoi4_map_drawer::country_colors::CountryDefinitionReader definition_reader;
+   hoi4_map_drawer::CountryTagsReader tags_reader;
+   hoi4_map_drawer::CountryDefinitionReader definition_reader;
    for (const auto& [tag, definition_file]: tags_reader.ImportTags(mod_filesystem))
    {
       if (const auto cosmetic_tag = tags_to_cosmetic_tags_map.find(tag);
@@ -35,7 +35,7 @@ std::map<std::string, commonItems::Color> hoi4_map_drawer::country_colors::Impor
       const auto actual_definition_file = mod_filesystem.GetActualFileLocation(definition_file);
       if (!actual_definition_file)
       {
-         Log(LogLevel::Warning) << definition_file << " could not be found";
+         Log(LogLevel::Warning) << definition_file.string() << " could not be found";
          continue;
       }
       tag_to_colors_map.emplace(tag, definition_reader.ImportCountryDefinition(*actual_definition_file));

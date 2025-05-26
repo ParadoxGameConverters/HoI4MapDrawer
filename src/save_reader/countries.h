@@ -10,8 +10,6 @@
 
 namespace hoi4_map_drawer
 {
-namespace save_reader
-{
 
 class Countries
 {
@@ -27,7 +25,6 @@ class Countries
    std::map<std::string, std::string> tags_to_cosmetic_tags_map_;
 };
 
-}  // namespace save_reader
 }  // namespace hoi4_map_drawer
 
 

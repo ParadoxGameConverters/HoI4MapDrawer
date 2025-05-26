@@ -5,8 +5,6 @@
 
 namespace hoi4_map_drawer
 {
-namespace map_importer
-{
 
 struct Pixel
 {
@@ -26,7 +24,6 @@ inline bool operator==(const Pixel& lhs, const Pixel& rhs)
    return lhs.y == rhs.y && lhs.x == rhs.x;
 }
 
-}  // namespace map_importer
 }  // namespace hoi4_map_drawer
 
 

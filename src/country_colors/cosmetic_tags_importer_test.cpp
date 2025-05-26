@@ -11,9 +11,11 @@
 
 TEST(CosmeticTagsImporterTest, CosmeticTagsCanBeImported)
 {
-   const commonItems::ModFilesystem mod_filesystem("test_data/country_colors/cosmetic_tags_importer/", {});
+   const commonItems::ModFilesystem mod_filesystem(
+       std::filesystem::path("test_data/country_colors/cosmetic_tags_importer/"),
+       {});
 
-   hoi4_map_drawer::country_colors::CosmeticTagsImporter cosmetic_tags_importer;
+   hoi4_map_drawer::CosmeticTagsImporter cosmetic_tags_importer;
 
    EXPECT_THAT(cosmetic_tags_importer.ImportCosmeticTags(mod_filesystem),
        testing::UnorderedElementsAre(testing::Pair("TAG_cosmetic_tag", commonItems::Color(std::array<int, 3>{1, 2, 3})),

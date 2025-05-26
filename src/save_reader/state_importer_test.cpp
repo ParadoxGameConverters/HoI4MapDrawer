@@ -11,7 +11,7 @@ TEST(StateImporterTest, IdIsAsSet)
 {
    std::stringstream input;
 
-   hoi4_map_drawer::save_reader::StateImporter importer;
+   hoi4_map_drawer::StateImporter importer;
    const auto state = importer.ImportState(42, input);
 
    EXPECT_EQ(state.GetId(), 42);
@@ -22,7 +22,7 @@ TEST(StateImporterTest, GetOwnerReturnsNulloptIfMissingOwner)
 {
    std::stringstream input;
 
-   hoi4_map_drawer::save_reader::StateImporter importer;
+   hoi4_map_drawer::StateImporter importer;
    const auto state = importer.ImportState(0, input);
 
    EXPECT_EQ(state.GetOwner(), std::nullopt);
@@ -36,7 +36,7 @@ TEST(StateImporterTest, OwnerCanBeImported)
    input << "\towner=TAG\n";
    input << "}";
 
-   hoi4_map_drawer::save_reader::StateImporter importer;
+   hoi4_map_drawer::StateImporter importer;
    const auto state = importer.ImportState(0, input);
 
    ASSERT_TRUE(state.GetOwner());
@@ -55,7 +55,7 @@ TEST(StateImporterTest, ExtraInputIsIgnored)
    input << "\tunhandled_input = 42\n";
    input << "}";
 
-   hoi4_map_drawer::save_reader::StateImporter importer;
+   hoi4_map_drawer::StateImporter importer;
    auto state_data = importer.ImportState(0, input);
    auto owner = state_data.GetOwner();  // make the annoying warning go away
    owner.reset();

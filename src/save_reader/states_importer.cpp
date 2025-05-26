@@ -5,7 +5,7 @@
 
 
 
-hoi4_map_drawer::save_reader::StatesImporter::StatesImporter()
+hoi4_map_drawer::StatesImporter::StatesImporter()
 {
    parser_.registerRegex(commonItems::integerRegex, [this](const std::string& id_string, std::istream& the_stream) {
       const auto id = std::stoi(id_string);
@@ -15,8 +15,7 @@ hoi4_map_drawer::save_reader::StatesImporter::StatesImporter()
 }
 
 
-std::map<int, hoi4_map_drawer::save_reader::State> hoi4_map_drawer::save_reader::StatesImporter::ImportStates(
-    std::istream& the_stream)
+std::map<int, hoi4_map_drawer::State> hoi4_map_drawer::StatesImporter::ImportStates(std::istream& the_stream)
 {
    states_.clear();
    parser_.parseStream(the_stream);

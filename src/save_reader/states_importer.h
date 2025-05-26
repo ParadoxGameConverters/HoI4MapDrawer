@@ -11,8 +11,6 @@
 
 namespace hoi4_map_drawer
 {
-namespace save_reader
-{
 
 class StatesImporter
 {
@@ -26,7 +24,6 @@ class StatesImporter
    StateImporter state_importer_;
 };
 
-}  // namespace save_reader
 }  // namespace hoi4_map_drawer
 
 

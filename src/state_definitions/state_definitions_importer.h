@@ -16,8 +16,6 @@
 
 namespace hoi4_map_drawer
 {
-namespace state_definitions
-{
 
 class StateDefinitionsImporter
 {
@@ -31,7 +29,6 @@ class StateDefinitionsImporter
    std::map<int, std::vector<int>> state_data_;
 };
 
-}  // namespace state_definitions
 }  // namespace hoi4_map_drawer
 
 

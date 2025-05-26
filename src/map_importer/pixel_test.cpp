@@ -4,7 +4,7 @@
 
 
 
-using hoi4_map_drawer::map_importer::Pixel;
+using hoi4_map_drawer::Pixel;
 
 
 

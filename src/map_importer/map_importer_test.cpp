@@ -13,15 +13,17 @@
 
 
 
-using hoi4_map_drawer::map_importer::GetProvinceDefinitions;
-using hoi4_map_drawer::map_importer::Pixel;
+using hoi4_map_drawer::GetProvinceDefinitions;
+using hoi4_map_drawer::Pixel;
 using testing::UnorderedElementsAre;
 
 
 
 TEST(MapImporterTest, MissingDefinitionDotCsvThrowsException)
 {
-   const commonItems::ModFilesystem mod_filesystem("./test_data/map_importer_test/missing_definition.csv", {});
+   const commonItems::ModFilesystem mod_filesystem(
+       std::filesystem::path("./test_data/map_importer_test/missing_definition.csv"),
+       {});
 
    const cimg_library::CImg<uint8_t> provinces_image(
        "./test_data/map_importer_test/missing_definition.csv/map/provinces.bmp");
@@ -31,7 +33,9 @@ TEST(MapImporterTest, MissingDefinitionDotCsvThrowsException)
 
 TEST(MapImporterTest, ProvinceDefinitionsAreImported)
 {
-   const commonItems::ModFilesystem mod_filesystem("./test_data/map_importer_test/valid_map_data", {});
+   const commonItems::ModFilesystem mod_filesystem(
+       std::filesystem::path("./test_data/map_importer_test/valid_map_data"),
+       {});
 
    const cimg_library::CImg<uint8_t> provinces_image("./test_data/map_importer_test/valid_map_data/map/provinces.bmp");
    const auto province_definitions = GetProvinceDefinitions(mod_filesystem, provinces_image);
@@ -116,7 +120,9 @@ TEST(MapImporterTest, BadDefinitionLinesAreLogged)
    std::streambuf* cout_buffer = std::cout.rdbuf();
    std::cout.rdbuf(log.rdbuf());
 
-   const commonItems::ModFilesystem mod_filesystem("./test_data/map_importer_test/valid_map_data", {});
+   const commonItems::ModFilesystem mod_filesystem(
+       std::filesystem::path("./test_data/map_importer_test/valid_map_data"),
+       {});
 
    const cimg_library::CImg<uint8_t> provinces_image("./test_data/map_importer_test/valid_map_data/map/provinces.bmp");
    auto province_definitions = GetProvinceDefinitions(mod_filesystem, provinces_image);

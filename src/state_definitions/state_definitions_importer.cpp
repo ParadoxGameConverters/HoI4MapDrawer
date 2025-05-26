@@ -7,7 +7,7 @@
 
 
 
-hoi4_map_drawer::state_definitions::StateDefinitionsImporter::StateDefinitionsImporter()
+hoi4_map_drawer::StateDefinitionsImporter::StateDefinitionsImporter()
 {
    parser_.registerKeyword("state", [this](std::istream& the_stream) {
       const auto state_data = state_definition_importer_.ImportState(the_stream);
@@ -20,7 +20,7 @@ hoi4_map_drawer::state_definitions::StateDefinitionsImporter::StateDefinitionsIm
 }
 
 
-std::map<int, std::vector<int>> hoi4_map_drawer::state_definitions::StateDefinitionsImporter::ImportStateDefinitions(
+std::map<int, std::vector<int>> hoi4_map_drawer::StateDefinitionsImporter::ImportStateDefinitions(
     const commonItems::ModFilesystem& mod_filesystem)
 {
    state_data_.clear();

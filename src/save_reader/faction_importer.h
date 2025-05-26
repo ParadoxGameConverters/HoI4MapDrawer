@@ -9,8 +9,6 @@
 
 namespace hoi4_map_drawer
 {
-namespace save_reader
-{
 
 class FactionImporter
 {
@@ -25,7 +23,6 @@ class FactionImporter
    std::map<std::string, std::string> tags_to_faction_leader_map_;
 };
 
-}  // namespace save_reader
 }  // namespace hoi4_map_drawer
 
 

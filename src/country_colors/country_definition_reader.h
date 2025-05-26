@@ -12,14 +12,12 @@
 
 namespace hoi4_map_drawer
 {
-namespace country_colors
-{
 
 class CountryDefinitionReader
 {
   public:
    CountryDefinitionReader();
-   commonItems::Color ImportCountryDefinition(std::string_view filename);
+   commonItems::Color ImportCountryDefinition(const std::filesystem::path& filename);
    commonItems::Color ImportCountryDefinition(std::istream& the_stream);
 
   private:
@@ -27,7 +25,6 @@ class CountryDefinitionReader
    commonItems::Color the_color_;
 };
 
-}  // namespace country_colors
 }  // namespace hoi4_map_drawer
 
 

@@ -11,7 +11,7 @@ TEST(StatesImporterTest, ReturnsNothingIfNoStates)
 {
    std::stringstream input;
 
-   hoi4_map_drawer::save_reader::StatesImporter importer;
+   hoi4_map_drawer::StatesImporter importer;
    EXPECT_TRUE(importer.ImportStates(input).empty());
 }
 
@@ -28,10 +28,10 @@ TEST(StatesImporterTest, StatesCanBeImported)
    input << "\t}\n";
    input << "}";
 
-   hoi4_map_drawer::save_reader::StatesImporter importer;
+   hoi4_map_drawer::StatesImporter importer;
    EXPECT_THAT(importer.ImportStates(input),
-       testing::UnorderedElementsAre(testing::Pair(1, hoi4_map_drawer::save_reader::State(1, "TAG")),
-           testing::Pair(2, hoi4_map_drawer::save_reader::State(2, "TWO"))));
+       testing::UnorderedElementsAre(testing::Pair(1, hoi4_map_drawer::State(1, "TAG")),
+           testing::Pair(2, hoi4_map_drawer::State(2, "TWO"))));
 }
 
 
@@ -46,7 +46,7 @@ TEST(StatesImporterTest, ExtraInputIsIgnored)
    input << "\tunhandled_input = 42\n";
    input << "}";
 
-   hoi4_map_drawer::save_reader::StatesImporter importer;
+   hoi4_map_drawer::StatesImporter importer;
    auto states = importer.ImportStates(input);
    states.clear();  // make the annoying warning go away
 

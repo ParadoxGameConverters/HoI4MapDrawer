@@ -5,8 +5,7 @@
 
 
 
-hoi4_map_drawer::configuration::Configuration hoi4_map_drawer::configuration::ImportConfiguration(
-    std::string_view filename)
+hoi4_map_drawer::Configuration hoi4_map_drawer::ImportConfiguration(const std::filesystem::path& filename)
 {
    Configuration configuration;
 

@@ -12,9 +12,6 @@
 
 namespace hoi4_map_drawer
 {
-namespace state_definitions
-{
-
 
 class StateDefinitionImporter
 {
@@ -30,8 +27,6 @@ class StateDefinitionImporter
    commonItems::parser parser_;
 };
 
-
-}  // namespace state_definitions
 }  // namespace hoi4_map_drawer
 
 

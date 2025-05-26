@@ -2,7 +2,7 @@
 
 
 
-cimg_library::CImg<uint8_t> hoi4_map_drawer::map_drawer::CreateBaseMap(int width, int height)
+cimg_library::CImg<uint8_t> hoi4_map_drawer::CreateBaseMap(int width, int height)
 {
    cimg_library::CImg<uint8_t> map(width, height, 1, 3);
    map.fill(255);
@@ -10,8 +10,8 @@ cimg_library::CImg<uint8_t> hoi4_map_drawer::map_drawer::CreateBaseMap(int width
 }
 
 
-void hoi4_map_drawer::map_drawer::ColorProvince(int province,
-    const std::map<int, std::set<hoi4_map_drawer::map_importer::Pixel>>& map_definitions,
+void hoi4_map_drawer::ColorProvince(int province,
+    const std::map<int, std::set<hoi4_map_drawer::Pixel>>& map_definitions,
     const commonItems::Color& color,
     cimg_library::CImg<uint8_t>& map)
 {

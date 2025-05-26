@@ -4,17 +4,17 @@
 
 
 
-std::map<std::string, std::string> hoi4_map_drawer::country_colors::CountryTagsReader::ImportTags(
+std::map<std::string, std::filesystem::path> hoi4_map_drawer::CountryTagsReader::ImportTags(
     const commonItems::ModFilesystem& mod_filesystem)
 {
    tag_to_filename_map_.clear();
    for (const auto& filename: mod_filesystem.GetAllFilesInFolder("/common/country_tags/"))
    {
-      for (const auto& [tag, filename]: reader_.ImportTags(filename))
+      for (const auto& [tag, tag_filename]: reader_.ImportTags(filename))
       {
-         if (auto [iterator, success] = tag_to_filename_map_.emplace(tag, "common/" + filename); !success)
+         if (auto [iterator, success] = tag_to_filename_map_.emplace(tag, "common" / tag_filename); !success)
          {
-            iterator->second = "common/" + filename;
+            iterator->second = "common" / tag_filename;
          }
       }
    }

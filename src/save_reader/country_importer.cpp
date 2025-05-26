@@ -5,7 +5,7 @@
 
 
 
-hoi4_map_drawer::save_reader::CountryImporter::CountryImporter()
+hoi4_map_drawer::CountryImporter::CountryImporter()
 {
    parser_.registerKeyword("cosmetic_tag", [this](std::istream& the_stream) {
       cosmetic_tag_ = commonItems::getString(the_stream);
@@ -14,8 +14,7 @@ hoi4_map_drawer::save_reader::CountryImporter::CountryImporter()
 }
 
 
-hoi4_map_drawer::save_reader::Country hoi4_map_drawer::save_reader::CountryImporter::ImportCountry(
-    std::istream& the_stream)
+hoi4_map_drawer::Country hoi4_map_drawer::CountryImporter::ImportCountry(std::istream& the_stream)
 {
    cosmetic_tag_.reset();
    parser_.parseStream(the_stream);

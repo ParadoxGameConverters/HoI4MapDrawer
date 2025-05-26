@@ -5,7 +5,7 @@
 
 
 
-hoi4_map_drawer::state_definitions::StateDefinitionImporter::StateDefinitionImporter()
+hoi4_map_drawer::StateDefinitionImporter::StateDefinitionImporter()
 {
    parser_.registerKeyword("id", [this](std::istream& the_stream) {
       id_ = commonItems::getInt(the_stream);
@@ -17,8 +17,8 @@ hoi4_map_drawer::state_definitions::StateDefinitionImporter::StateDefinitionImpo
 }
 
 
-std::optional<std::pair<int, std::vector<int>>>
-hoi4_map_drawer::state_definitions::StateDefinitionImporter::ImportState(std::istream& the_stream)
+std::optional<std::pair<int, std::vector<int>>> hoi4_map_drawer::StateDefinitionImporter::ImportState(
+    std::istream& the_stream)
 {
    id_.reset();
    provinces_.clear();

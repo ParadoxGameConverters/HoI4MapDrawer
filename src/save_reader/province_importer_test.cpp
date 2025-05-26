@@ -9,7 +9,7 @@
 
 TEST(ProvinceImporterTest, NulloptReturnedWhenNoController)
 {
-   hoi4_map_drawer::save_reader::ProvinceImporter importer;
+   hoi4_map_drawer::ProvinceImporter importer;
 
    std::stringstream input;
    input << "= {\n";
@@ -22,7 +22,7 @@ TEST(ProvinceImporterTest, NulloptReturnedWhenNoController)
 
 TEST(ProvinceImporterTest, ControllerCanBeImported)
 {
-   hoi4_map_drawer::save_reader::ProvinceImporter importer;
+   hoi4_map_drawer::ProvinceImporter importer;
 
    std::stringstream input;
    input << "= {\n";
@@ -41,7 +41,7 @@ TEST(ProvinceImporterTest, ExtraDataInProvinceIsIgnored)
    std::streambuf* cout_buffer = std::cout.rdbuf();
    std::cout.rdbuf(log.rdbuf());
 
-   hoi4_map_drawer::save_reader::ProvinceImporter importer;
+   hoi4_map_drawer::ProvinceImporter importer;
 
    std::stringstream input;
    input << "= {\n";
