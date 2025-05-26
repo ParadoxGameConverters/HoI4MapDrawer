@@ -44,10 +44,10 @@ int main()
       Log(LogLevel::Progress) << "20";
 
       Log(LogLevel::Info) << "Importing HoI4 map.";
-      const auto provinces_bmp_location = mod_filesystem.GetActualFileLocation("/map/provinces.bmp");
+      const auto provinces_bmp_location = mod_filesystem.GetActualFileLocation("map/provinces.bmp");
       if (!provinces_bmp_location)
       {
-         throw std::runtime_error("/map/provinces.bmp couldn't be found!");
+         throw std::runtime_error("map/provinces.bmp couldn't be found!");
       }
       const cimg_library::CImg<uint8_t> provinces_image(provinces_bmp_location->string().c_str());
       const auto map_definitions = hoi4_map_drawer::GetProvinceDefinitions(mod_filesystem, provinces_image);
