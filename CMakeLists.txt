@@ -18,9 +18,6 @@ include_directories("./external/googletest/googletest/include")
 include_directories("./external/googletest/googlemock")
 include_directories("./external/googletest/googlemock/include")
 
-add_subdirectory(./external/commonItems/ZipLib [binary_dir])
-
-
 #### Drawer ####
 
 set(CONFIGURATION_SOURCES ${CONFIGURATION_SOURCES} "src/configuration/configuration.cpp")
@@ -105,9 +102,20 @@ set_target_properties( Hoi4MapDrawer
 )
 target_compile_definitions(Hoi4MapDrawer PRIVATE cimg_display=0)
 
-find_library(RAKALY_LIB librakaly.so PATHS "external/rakaly/" REQUIRED)
-target_link_libraries(Hoi4MapDrawer Configuration CountryColors MapDrawer MapImporter SaveReader StateDefintitions CommonItems ${RAKALY_LIB} ZIPLIB pthread)
+link_directories("./external/rakaly")
 
+if (PLATFORM STREQUAL "Windows")
+	target_compile_options(Hoi4MapDrawer PRIVATE /permissive /W4 /w14242 /w14254 /w14263 /w14265 /w14287 /we4289 /w14296 
+        /w14311 /w14545 /w14546 /w14547 /w14549 /w14555 /w14619 /w14640 /w14826 /w14905 /w14906 /w14928 
+        /external:anglebrackets /external:W0 /WX)
+	target_link_libraries(Hoi4MapDrawer LINK_PUBLIC Configuration CountryColors MapDrawer MapImporter SaveReader StateDefintitions CommonItems rakaly.dll.lib ZIPLIB pthread)
+elseif (PLATFORM STREQUAL "Linux")
+	target_link_libraries(Hoi4MapDrawer LINK_PUBLIC Configuration CountryColors MapDrawer MapImporter SaveReader StateDefintitions CommonItems rakaly ZIPLIB pthread)
+endif (PLATFORM  STREQUAL "Windows")
+
+if (PLATFORM STREQUAL "Windows")
+	configure_file("external/rakaly/rakaly.dll" "${FRONTER_OUTPUT_DIRECTORY}/Vic3toHoi4/rakaly.dll" COPYONLY)
+endif (PLATFORM STREQUAL "Windows")
 add_custom_command(TARGET Hoi4MapDrawer POST_BUILD WORKING_DIRECTORY ${CMAKE_SOURCE_DIR} COMMAND git rev-parse HEAD > ${MAP_DRAWER_OUTPUT_DIRECTORY}/../commit_id.txt)
 
 
