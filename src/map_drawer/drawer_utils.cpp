@@ -10,8 +10,8 @@ cimg_library::CImg<uint8_t> hoi4_map_drawer::CreateBaseMap(int width, int height
 }
 
 #pragma warning(push)
-#pragma warning(disable: 4242)
-#pragma warning(disable: 4244)
+#pragma warning(disable : 4242)
+#pragma warning(disable : 4244)
 // This is the way CImg wants to work, even if it makes modern compilers unhappy
 void hoi4_map_drawer::ColorProvince(int province,
     const std::map<int, std::set<hoi4_map_drawer::Pixel>>& map_definitions,
