@@ -1,5 +1,5 @@
-#ifndef SRC_CONFIGURATION_CONFIGURATION_H_
-#define SRC_CONFIGURATION_CONFIGURATION_H_
+#ifndef SRC_CONFIGURATION_CONFIGURATION_H
+#define SRC_CONFIGURATION_CONFIGURATION_H
 
 
 
@@ -25,4 +25,4 @@ Configuration ImportConfiguration(const std::filesystem::path& filename);
 
 
 
-#endif  // SRC_CONFIGURATION_CONFIGURATION_H_
+#endif  // SRC_CONFIGURATION_CONFIGURATION_H

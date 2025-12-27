@@ -1,8 +1,11 @@
-#ifndef SRC_MAP_IMPORTER_MAP_IMPORTER_H_
-#define SRC_MAP_IMPORTER_MAP_IMPORTER_H_
+#ifndef SRC_MAP_IMPORTER_MAP_IMPORTER_H
+#define SRC_MAP_IMPORTER_MAP_IMPORTER_H
 
+// NOLINTBEGIN(readability-identifier-naming)
+// These are required by cimg as-is
 #define cimg_verbosity 0
 #define cimg_display 0
+// NOLINTEND(readability-identifier-naming)
 
 
 #include <external/CImg/CImg.h>
@@ -25,4 +28,4 @@ std::map<int, std::set<Pixel>> GetProvinceDefinitions(const commonItems::ModFile
 
 
 
-#endif  // SRC_MAP_IMPORTER_MAP_IMPORTER_H_
+#endif  // SRC_MAP_IMPORTER_MAP_IMPORTER_H

@@ -1,7 +1,7 @@
 #include "src/save_reader/province_importer.h"
 
-#include <external/googletest/googlemock/include/gmock/gmock-matchers.h>
-#include <external/googletest/googletest/include/gtest/gtest.h>
+#include <external/commonItems/external/googletest/googlemock/include/gmock/gmock-matchers.h>
+#include <external/commonItems/external/googletest/googletest/include/gtest/gtest.h>
 
 #include <sstream>
 
@@ -30,8 +30,8 @@ TEST(ProvinceImporterTest, ControllerCanBeImported)
    input << "}";
 
    const auto province_controller = importer.ImportProvince(input);
-   ASSERT_TRUE(province_controller.has_value());
-   EXPECT_EQ(province_controller.value(), "TAG");
+   EXPECT_TRUE(province_controller.has_value());
+   EXPECT_EQ(province_controller.value_or(""), "TAG");
 }
 
 
@@ -49,9 +49,7 @@ TEST(ProvinceImporterTest, ExtraDataInProvinceIsIgnored)
    input << "\tjunk=whatever\n";
    input << "}";
 
-   auto province_controller = importer.ImportProvince(input);
-   auto controller = province_controller.value();  // make the annoying warning go away
-   controller.clear();                             // make the annoying warning go away
+   [[maybe_unused]] auto province_controller = importer.ImportProvince(input);
 
    EXPECT_TRUE(log.str().empty());
 

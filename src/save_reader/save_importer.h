@@ -1,5 +1,5 @@
-#ifndef SRC_SAVE_IMPORTER_H_
-#define SRC_SAVE_IMPORTER_H_
+#ifndef SRC_SAVE_IMPORTER_H
+#define SRC_SAVE_IMPORTER_H
 
 
 
@@ -42,4 +42,4 @@ class SaveImporter
 
 
 
-#endif  // SRC_SAVE_IMPORTER_H_
+#endif  // SRC_SAVE_IMPORTER_H

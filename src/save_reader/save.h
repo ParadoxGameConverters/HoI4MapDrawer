@@ -1,5 +1,5 @@
-#ifndef SRC_SAVE_READER_SAVE_H_
-#define SRC_SAVE_READER_SAVE_H_
+#ifndef SRC_SAVE_READER_SAVE_H
+#define SRC_SAVE_READER_SAVE_H
 
 
 
@@ -48,4 +48,4 @@ class Save
 
 
 
-#endif  // SRC_SAVE_READER_SAVE_H_
+#endif  // SRC_SAVE_READER_SAVE_H

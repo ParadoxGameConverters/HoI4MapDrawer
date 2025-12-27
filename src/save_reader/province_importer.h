@@ -1,5 +1,5 @@
-#ifndef SRC_SAVE_READER_PROVINCE_IMPORTER_H_
-#define SRC_SAVE_READER_PROVINCE_IMPORTER_H_
+#ifndef SRC_SAVE_READER_PROVINCE_IMPORTER_H
+#define SRC_SAVE_READER_PROVINCE_IMPORTER_H
 
 
 
@@ -19,11 +19,11 @@ class ProvinceImporter
   private:
    commonItems::parser parser_;
 
-   std::optional<std::string> controller;
+   std::optional<std::string> controller_;
 };
 
 }  // namespace hoi4_map_drawer
 
 
 
-#endif  // SRC_SAVE_READER_PROVINCE_IMPORTER_H_
+#endif  // SRC_SAVE_READER_PROVINCE_IMPORTER_H

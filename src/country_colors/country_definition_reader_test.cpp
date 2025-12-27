@@ -1,8 +1,8 @@
 #include "src/country_colors/country_definition_reader.h"
 
 #include <external/commonItems/Color.h>
-#include <external/googletest/googlemock/include/gmock/gmock-matchers.h>
-#include <external/googletest/googletest/include/gtest/gtest.h>
+#include <external/commonItems/external/googletest/googlemock/include/gmock/gmock-matchers.h>
+#include <external/commonItems/external/googletest/googletest/include/gtest/gtest.h>
 
 #include <sstream>
 

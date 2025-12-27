@@ -1,8 +1,11 @@
-#ifndef SRC_MAP_DRAWER_DRAWER_UTILS_H_
-#define SRC_MAP_DRAWER_DRAWER_UTILS_H_
+#ifndef SRC_MAP_DRAWER_DRAWER_UTILS_H
+#define SRC_MAP_DRAWER_DRAWER_UTILS_H
 
+// NOLINTBEGIN(readability-identifier-naming)
+// These are required by cimg as-is
 #define cimg_verbosity 0
 #define cimg_display 0
+// NOLINTEND(readability-identifier-naming)
 
 
 #include <external/CImg/CImg.h>
@@ -29,4 +32,4 @@ void ColorProvince(int province,
 
 
 
-#endif  // SRC_MAP_DRAWER_DRAWER_UTILS_H_
+#endif  // SRC_MAP_DRAWER_DRAWER_UTILS_H

@@ -132,9 +132,9 @@ std::map<int, int> LoadDefinitions(const std::filesystem::path& filename)
       throw std::runtime_error("Definitions file cannot be found!");
    }
 
-   std::ifstream definitionsFile(filename);
-   auto definitions = ParseStream(definitionsFile);
-   definitionsFile.close();
+   std::ifstream definitions_file(filename);
+   auto definitions = ParseStream(definitions_file);
+   definitions_file.close();
 
    return definitions;
 }
