@@ -5,9 +5,9 @@ env:
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
-    branches: [main]
+    branches: [ main ]
   schedule:
     - cron: '0 16 * * 6'
 
@@ -18,7 +18,7 @@ concurrency:
 jobs:
   analyze_main:
     name: Analyze Local
-    if: github.repository_owner == 'HoI4MapDrawer'
+    if: github.repository_owner == 'ParadoxGameConverters'
     runs-on: [self-hosted, linux]
 
     strategy:
@@ -69,11 +69,11 @@ jobs:
       
     - name: Cleanup
       uses: colpal/actions-clean@v1
-      if: ${{ true }} # To ensure this step runs even when earlier steps fail
-      
+      if: always()
+
   analyze:
     name: Analyze Foreign
-    if: github.repository_owner != 'HoI4MapDrawer'
+    if: github.repository_owner != 'ParadoxGameConverters'
     runs-on: ubuntu-latest
 
     strategy:
