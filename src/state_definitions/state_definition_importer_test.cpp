@@ -28,7 +28,7 @@ TEST(StateDefinitionImporterTest, IdCanBeImported)
    const auto state_data = importer.ImportState(input);
 
    EXPECT_TRUE(state_data.has_value());
-   EXPECT_EQ(state_data.value_or({0, {}}).first, 42);
+   EXPECT_EQ(state_data.value_or(std::pair<int, std::vector<int>>{0, {}}).first, 42);
 }
 
 
@@ -43,7 +43,7 @@ TEST(StateDefinitionImporterTest, ReturnsEmptyVectorIfMissingProvinces)
    const auto state_data = importer.ImportState(input);
 
    EXPECT_TRUE(state_data.has_value());
-   EXPECT_TRUE(state_data.value_or({0, {}}).second.empty());
+   EXPECT_TRUE(state_data.value_or(std::pair<int, std::vector<int>>{0, {}}).second.empty());
 }
 
 
@@ -61,7 +61,7 @@ TEST(StateDefinitionImporterTest, ProvincesCanBeImported)
    const auto state_data = importer.ImportState(input);
 
    EXPECT_TRUE(state_data.has_value());
-   EXPECT_THAT(state_data.value_or({0, {}}).second, testing::ElementsAre(1, 4, 9, 16));
+   EXPECT_THAT(state_data.value_or(std::pair<int, std::vector<int>>{0, {}}).second, testing::ElementsAre(1, 4, 9, 16));
 }
 
 
