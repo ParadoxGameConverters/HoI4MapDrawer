@@ -73,11 +73,11 @@ hoi4_map_drawer::Save hoi4_map_drawer::SaveImporter::ImportSave(const std::files
    {
       throw std::runtime_error("Could not open " + filename.string() + " for parsing.");
    }
-   std::stringstream inStream;
-   inStream << in_binary.rdbuf();
+   std::stringstream in_stream;
+   in_stream << in_binary.rdbuf();
    in_binary.close();
 
-   const auto unmelted_save = UnmeltSaveIfNeeded(inStream.str());
+   const auto unmelted_save = UnmeltSaveIfNeeded(in_stream.str());
    auto game_state = std::istringstream(unmelted_save);
 
    parser_.parseStream(game_state);

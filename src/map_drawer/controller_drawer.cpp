@@ -1,5 +1,8 @@
+// NOLINTBEGIN(readability-identifier-naming)
+// These are required by cimg as-is
 #define cimg_verbosity 0
 #define cimg_display 0
+// NOLINTEND(readability-identifier-naming)
 
 #include "src/map_drawer/controller_drawer.h"
 

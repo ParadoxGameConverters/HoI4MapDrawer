@@ -1,5 +1,5 @@
-#ifndef SRC_SAVE_READER_STATE_H_
-#define SRC_SAVE_READER_STATE_H_
+#ifndef SRC_SAVE_READER_STATE_H
+#define SRC_SAVE_READER_STATE_H
 
 
 
@@ -31,4 +31,4 @@ class State
 
 
 
-#endif  // SRC_SAVE_READER_STATE_H_
+#endif  // SRC_SAVE_READER_STATE_H

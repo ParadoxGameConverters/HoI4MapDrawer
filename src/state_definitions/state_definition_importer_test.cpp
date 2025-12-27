@@ -27,8 +27,8 @@ TEST(StateDefinitionImporterTest, IdCanBeImported)
    hoi4_map_drawer::StateDefinitionImporter importer;
    const auto state_data = importer.ImportState(input);
 
-   ASSERT_TRUE(state_data.has_value());
-   EXPECT_EQ(state_data->first, 42);
+   EXPECT_TRUE(state_data.has_value());
+   EXPECT_EQ(state_data.value_or({0, {}}).first, 42);
 }
 
 
@@ -42,8 +42,8 @@ TEST(StateDefinitionImporterTest, ReturnsEmptyVectorIfMissingProvinces)
    hoi4_map_drawer::StateDefinitionImporter importer;
    const auto state_data = importer.ImportState(input);
 
-   ASSERT_TRUE(state_data.has_value());
-   EXPECT_TRUE(state_data->second.empty());
+   EXPECT_TRUE(state_data.has_value());
+   EXPECT_TRUE(state_data.value_or({0, {}}).second.empty());
 }
 
 
@@ -60,8 +60,8 @@ TEST(StateDefinitionImporterTest, ProvincesCanBeImported)
    hoi4_map_drawer::StateDefinitionImporter importer;
    const auto state_data = importer.ImportState(input);
 
-   ASSERT_TRUE(state_data.has_value());
-   EXPECT_THAT(state_data->second, testing::ElementsAre(1, 4, 9, 16));
+   EXPECT_TRUE(state_data.has_value());
+   EXPECT_THAT(state_data.value_or({0, {}}).second, testing::ElementsAre(1, 4, 9, 16));
 }
 
 

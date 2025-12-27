@@ -5,40 +5,39 @@
 
 
 
-using hoi4_map_drawer::Pixel;
-
-
+namespace hoi4_map_drawer
+{
 
 TEST(PixelTest, EqualityIfBothCoordsAreSame)
 {
-   constexpr Pixel one{1, 2};
-   constexpr Pixel two{1, 2};
+   const Pixel one{.x = 1, .y = 2};
+   const Pixel two{.x = 1, .y = 2};
    EXPECT_EQ(one, two);
 }
 
 
 TEST(PixelTest, InequalityIfXIsDifferent)
 {
-   constexpr Pixel one{1, 2};
-   constexpr Pixel two{3, 2};
+   const Pixel one{.x = 1, .y = 2};
+   const Pixel two{.x = 3, .y = 2};
    EXPECT_NE(one, two);
 }
 
 
 TEST(PixelTest, InequalityIfYIsDifferent)
 {
-   constexpr Pixel one{1, 2};
-   constexpr Pixel two{1, 3};
+   const Pixel one{.x = 1, .y = 2};
+   const Pixel two{.x = 1, .y = 3};
    EXPECT_NE(one, two);
 }
 
 
 TEST(PixelTest, LessIfYIsSmaller)
 {
-   constexpr Pixel smaller_y{1, 0};
-   constexpr Pixel bigger_y_smaller_x{0, 1};
-   constexpr Pixel bigger_y_equal_x{1, 1};
-   constexpr Pixel bigger_y_larger_x{2, 1};
+   const Pixel smaller_y{.x = 1, .y = 0};
+   const Pixel bigger_y_smaller_x{.x = 0, .y = 1};
+   const Pixel bigger_y_equal_x{.x = 1, .y = 1};
+   const Pixel bigger_y_larger_x{.x = 2, .y = 1};
    EXPECT_LT(smaller_y, bigger_y_smaller_x);
    EXPECT_LT(smaller_y, bigger_y_equal_x);
    EXPECT_LT(smaller_y, bigger_y_larger_x);
@@ -47,7 +46,9 @@ TEST(PixelTest, LessIfYIsSmaller)
 
 TEST(PixelTest, LessIfYIsEqualButXIsSmaller)
 {
-   constexpr Pixel smaller_x{0, 0};
-   constexpr Pixel equal_y_larger_x{1, 0};
+   const Pixel smaller_x{.x = 0, .y = 0};
+   const Pixel equal_y_larger_x{.x = 1, .y = 0};
    EXPECT_LT(smaller_x, equal_y_larger_x);
 }
+
+}  // namespace hoi4_map_drawer

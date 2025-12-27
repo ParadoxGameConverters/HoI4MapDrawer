@@ -4,7 +4,11 @@
 
 // clang-format off
 // gtest must be before CImg, else we get compile errors
+// NOLINTBEGIN(readability-identifier-naming)
+// These are required by cimg as-is
+#define cimg_verbosity 0
 #define cimg_display 0
+// NOLINTEND(readability-identifier-naming)
 #include <external/commonItems/external/googletest/googlemock/include/gmock/gmock-matchers.h>
 #include <external/commonItems/external/googletest/googletest/include/gtest/gtest.h>
 #include <external/CImg/CImg.h>
