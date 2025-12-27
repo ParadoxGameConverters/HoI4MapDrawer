@@ -9,7 +9,10 @@ cimg_library::CImg<uint8_t> hoi4_map_drawer::CreateBaseMap(int width, int height
    return map;
 }
 
-
+#pragma warning(push)
+#pragma warning(disable: 4242)
+#pragma warning(disable: 4244)
+// This is the way CImg wants to work, even if it makes modern compilers unhappy
 void hoi4_map_drawer::ColorProvince(int province,
     const std::map<int, std::set<hoi4_map_drawer::Pixel>>& map_definitions,
     const commonItems::Color& color,
@@ -21,10 +24,14 @@ void hoi4_map_drawer::ColorProvince(int province,
       return;
    }
 
-   for (const auto& pixel: definition->second)
+   for (auto& pixel: definition->second)
    {
-      map(pixel.x, pixel.y, 0, 0) = color.r();
-      map(pixel.x, pixel.y, 0, 1) = color.g();
-      map(pixel.x, pixel.y, 0, 2) = color.b();
+      auto& r = map(pixel.x, pixel.y, 0, 0);
+      r = color.r();
+      auto& g = map(pixel.x, pixel.y, 0, 1);
+      g = color.g();
+      auto& b = map(pixel.x, pixel.y, 0, 2);
+      b = color.b();
    }
 }
+#pragma warning(pop)

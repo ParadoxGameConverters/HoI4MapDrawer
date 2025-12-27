@@ -1,99 +1,243 @@
-cmake_minimum_required(VERSION 3.16)
-#set(CMAKE_VERBOSE_MAKEFILE on)
+cmake_minimum_required(VERSION 3.25)
+set(VERBOSE true)
 
 project(Hoi4MapDrawer)
-#set(FRONTER_SOURCE_DIR ${PROJECT_SOURCE_DIR}/external/Fronter/Fronter/Source)
-#set(FRONTER_COMMONS_SOURCE_DIR ${PROJECT_SOURCE_DIR}/external/Fronter/commonItems)
-#set(FRONTER_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build/Release-Linux)
-set(MAP_DRAWER_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build/Release-Linux)
-set(TEST_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build/tests/Release-Linux)
-set(CMAKE_CXX_STANDARD 20)
+if (RUN_CLANG_TIDY)
+	set(BUILD_TYPE "Clang-tidy")
+else (RUN_CLANG_TIDY)
+	set(BUILD_TYPE ${CMAKE_BUILD_TYPE})
+endif (RUN_CLANG_TIDY)
+
+set(FRONTER_SOURCE_DIR ${PROJECT_SOURCE_DIR}/external/Fronter/Fronter/Source)
+set(FRONTER_COMMONS_SOURCE_DIR ${PROJECT_SOURCE_DIR}/external/Fronter/commonItems)
+set(FRONTER_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build/${BUILD_TYPE}-${PLATFORM})
+set(MAP_DRAWER_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build/${BUILD_TYPE}-${PLATFORM}/Hoi4MapDrawer)
+set(TEST_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build/test/${BUILD_TYPE}-${PLATFORM})
+
+set(CMAKE_CXX_STANDARD 23)
 set(UNICODE_DEFAULT OFF)
 
+if (PLATFORM STREQUAL "Windows")
+	ADD_DEFINITIONS(-DUNICODE -D_UNICODE -DWINDOWS)
+elseif (PLATFORM STREQUAL "Linux")
+	if (COVERAGE STREQUAL true)
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O0 -fprofile-arcs -ftest-coverage")
+		set(CMAKE_CXX_OUTPUT_EXTENSION_REPLACE ON)
+	else (COVERAGE STREQUAL true)
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O0 -Wall")
+	endif (COVERAGE STREQUAL true)
+endif (PLATFORM STREQUAL "Windows")
 
-include_directories(.)
-include_directories("./external/commonItems/ZipLib")
-include_directories("./external/googletest/googletest")
-include_directories("./external/googletest/googletest/include")
-include_directories("./external/googletest/googlemock")
-include_directories("./external/googletest/googlemock/include")
 
-add_subdirectory(./external/commonItems/ZipLib [binary_dir])
+#### Gtest ####
+set(GTEST_SOURCES ${GTEST_SOURCES} "external/commonItems/external/googletest/googletest/src/gtest_main.cc")
+set(GTEST_SOURCES ${GTEST_SOURCES} "external/commonItems/external/googletest/googletest/src/gtest-all.cc")
+set(GTEST_SOURCES ${GTEST_SOURCES} "external/commonItems/external/googletest/googlemock/src/gmock-all.cc")
+
+add_library(
+	GtestLib
+	${GTEST_SOURCES}
+  )
+
+
+#### Fronter ####
+
+if (PLATFORM STREQUAL "Windows")
+	link_directories("./external/Fronter/external/wxWidgets/3.2.1/lib/vc14x_x64_dll")
+	link_directories("./external/Fronter/external/curl/lib")
+	find_library(LIBCURL_LIB libcurl HINT "./external/Fronter/external/curl/lib" NO_DEFAULT_PATH)
+	find_library(LIBCURL_DLL_LIB libcurl.dll HINT "./external/Fronter/external/curl/lib" NO_DEFAULT_PATH)
+endif (PLATFORM STREQUAL "Windows")
+
+include_directories("./external/Fronter/external/SQLiteCpp/include")
+include_directories("./external/Fronter/external/SQLiteCpp/sqlite3")
+include_directories("./external/Fronter/external/commonItems/external/json/single_include")
+if (PLATFORM STREQUAL "Windows")
+	include_directories(${PROJECT_SOURCE_DIR}/external/Fronter/external/curl/include)
+	include_directories(${PROJECT_SOURCE_DIR}/external/Fronter/external/wxWidgets/3.2.1/include)
+	include_directories(${PROJECT_SOURCE_DIR}/external/Fronter/external/wxWidgets/3.2.1/include/msvc)
+	ADD_DEFINITIONS(-D_WINDOWS)
+	ADD_DEFINITIONS(-D__WXMSW__)
+	ADD_DEFINITIONS(-DwxMSVC_VERSION_AUTO)
+	ADD_DEFINITIONS(-DWXUSINGDLL)
+	ADD_DEFINITIONS(-DwxMSVC_VERSION_ABI_COMPAT)
+elseif (PLATFORM STREQUAL "Linux")
+	find_package(CURL REQUIRED)
+	find_package(wxWidgets REQUIRED COMPONENTS net core base)
+	include_directories("/usr/include/wx-3.2-unofficial")
+	include_directories("/usr/lib/x86_64-linux-gnu/wx/include/gtk3-unicode-3.2-unofficial")
+	include(${wxWidgets_USE_FILE})
+	add_compile_options(-D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXGTK__ -pthread)
+endif (PLATFORM STREQUAL "Windows")
+
+file(GLOB F_MAIN_SOURCES "${FRONTER_SOURCE_DIR}/*.cpp")
+file(GLOB F_CONFIGURATION_SOURCES "${FRONTER_SOURCE_DIR}/Configuration/*.cpp")
+file(GLOB F_CONFIGURATION_OPTIONS_SOURCES "${FRONTER_SOURCE_DIR}/Configuration/Options/*.cpp")
+file(GLOB F_FRAMES_SOURCES "${FRONTER_SOURCE_DIR}/Frames/*.cpp")
+file(GLOB F_FRAMES_TABS_SOURCES "${FRONTER_SOURCE_DIR}/Frames/Tabs/*.cpp")
+file(GLOB F_UPDATECHECKER_SOURCES "${FRONTER_SOURCE_DIR}/UpdateChecker/*.cpp")
+file(GLOB F_UTILS_SOURCES "${FRONTER_SOURCE_DIR}/Utils/*.cpp")
+file(GLOB F_UTILS_LOCALIZATION_SOURCES "${FRONTER_SOURCE_DIR}/Utils/Localization/*.cpp")
+file(GLOB F_CONVERTERLAUNCHER_SOURCES "${FRONTER_SOURCE_DIR}/WorkerThreads/ConverterLauncher/*.cpp")
+if (PLATFORM STREQUAL "Windows")
+	list(REMOVE_ITEM F_CONVERTERLAUNCHER_SOURCES "${FRONTER_SOURCE_DIR}/WorkerThreads/ConverterLauncher/LinuxConverterLauncher.cpp")
+elseif (PLATFORM STREQUAL "Linux")
+	list(REMOVE_ITEM F_CONVERTERLAUNCHER_SOURCES "${FRONTER_SOURCE_DIR}/WorkerThreads/ConverterLauncher/WinConverterLauncher.cpp")
+endif (PLATFORM STREQUAL "Windows")
+file(GLOB F_LOGWATCHER_SOURCES "${FRONTER_SOURCE_DIR}/WorkerThreads/LogWatcher/*.cpp")
+file(GLOB F_MODCOPIER_SOURCES "${FRONTER_SOURCE_DIR}/WorkerThreads/ModCopier/*.cpp")
+file(GLOB F_SQLITE_SOURCES "${FRONTER_SOURCE_DIR}/../../external/SQLiteCpp/src/*.cpp")
+file(GLOB F_SQLITE3_SOURCES "${FRONTER_SOURCE_DIR}/../../external/SQLiteCpp/sqlite3/*.c")
+
+if (PLATFORM STREQUAL "Windows")
+	add_executable(ConverterFrontend WIN32
+		${F_MAIN_SOURCES}
+		${F_CONFIGURATION_SOURCES}
+		${F_CONFIGURATION_OPTIONS_SOURCES}
+		${F_FRAMES_SOURCES}
+		${F_FRAMES_TABS_SOURCES}
+		${F_UTILS_SOURCES}
+		${F_UTILS_LOCALIZATION_SOURCES}
+		${F_CONVERTERLAUNCHER_SOURCES}
+		${F_LOGWATCHER_SOURCES}
+		${F_MODCOPIER_SOURCES}
+		${F_UPDATECHECKER_SOURCES}
+		${F_SQLITE_SOURCES}
+		${F_SQLITE3_SOURCES}
+	   )
+	 set_target_properties(ConverterFrontend
+		PROPERTIES
+		RUNTIME_OUTPUT_DIRECTORY ${FRONTER_OUTPUT_DIRECTORY}
+	 )
+elseif (PLATFORM STREQUAL "Linux")
+	add_executable(ConverterFrontend
+		${F_MAIN_SOURCES}
+		${F_CONFIGURATION_SOURCES}
+		${F_CONFIGURATION_OPTIONS_SOURCES}
+		${F_FRAMES_SOURCES}
+		${F_FRAMES_TABS_SOURCES}
+		${F_UTILS_SOURCES}
+		${F_UTILS_LOCALIZATION_SOURCES}
+		${F_CONVERTERLAUNCHER_SOURCES}
+		${F_LOGWATCHER_SOURCES}
+		${F_MODCOPIER_SOURCES}
+		${F_UPDATECHECKER_SOURCES}
+		${F_SQLITE_SOURCES}
+		${F_SQLITE3_SOURCES}
+	)
+	set_target_properties(ConverterFrontend
+		PROPERTIES
+		RUNTIME_OUTPUT_DIRECTORY ${FRONTER_OUTPUT_DIRECTORY}
+	)
+endif (PLATFORM STREQUAL "Windows")
+
+if (PLATFORM STREQUAL "Windows")
+	target_link_libraries(ConverterFrontend LINK_PUBLIC ${LIBCURL_LIB} ${LIBCURL_DLL_LIB} commonLib) 
+elseif (PLATFORM STREQUAL "Linux")
+	target_link_libraries(ConverterFrontend LINK_PUBLIC ${wxWidgets_LIBRARIES} ${CURL_LIBRARIES} commonLib)
+endif (PLATFORM STREQUAL "Windows")
+
+if (PLATFORM STREQUAL "Windows" AND NOT RUN_CLANG_TIDY)
+	configure_file("external/Fronter/Fronter/Resources/converter.ico" "${FRONTER_OUTPUT_DIRECTORY}/converter.ico" COPYONLY)
+	configure_file("external/Fronter/Fronter/Resources/GeneralFAQ-READ.ME.FIRST.txt" "${FRONTER_OUTPUT_DIRECTORY}/GeneralFAQ-READ.ME.FIRST.txt" COPYONLY)
+	configure_file("external/Fronter/Fronter/Resources/libcrypto-1_1-x64.dll" "${FRONTER_OUTPUT_DIRECTORY}/libcrypto-1_1-x64.dll" COPYONLY)
+	configure_file("external/Fronter/Fronter/Resources/libssl-1_1-x64.dll" "${FRONTER_OUTPUT_DIRECTORY}/libssl-1_1-x64.dll" COPYONLY)
+	configure_file("external/Fronter/external/curl/bin/libcurl-x64.dll" "${FRONTER_OUTPUT_DIRECTORY}/libcurl-x64.dll" COPYONLY)
+	if (CMAKE_BUILD_TYPE STREQUAL "Release")
+		configure_file("external/Fronter/external/wxWidgets/3.2.1/lib/vc14x_x64_dll/wxbase32u_vc14x_x64.dll" "${FRONTER_OUTPUT_DIRECTORY}" COPYONLY)
+		configure_file("external/Fronter/external/wxWidgets/3.2.1/lib/vc14x_x64_dll/wxmsw32u_core_vc14x_x64.dll" "${FRONTER_OUTPUT_DIRECTORY}" COPYONLY)
+	elseif (CMAKE_BUILD_TYPE STREQUAL "Debug")
+		configure_file("external/Fronter/external/wxWidgets/3.2.1/lib/vc14x_x64_dll/wxbase32ud_vc14x_x64.dll" "${FRONTER_OUTPUT_DIRECTORY}" COPYONLY)
+		configure_file("external/Fronter/external/wxWidgets/3.2.1/lib/vc14x_x64_dll/wxmsw32ud_core_vc14x_x64.dll" "${FRONTER_OUTPUT_DIRECTORY}" COPYONLY)
+	endif (CMAKE_BUILD_TYPE STREQUAL "Release")
+	file(GLOB FRONTER_CONFIG "data/fronter/*")
+	file(COPY ${FRONTER_CONFIG} DESTINATION "${FRONTER_OUTPUT_DIRECTORY}/Configuration/")
+	file(GLOB LOCALIZATIONS "external/Fronter/Fronter/Resources/*.yml")
+	file(COPY ${LOCALIZATIONS} DESTINATION "${FRONTER_OUTPUT_DIRECTORY}/Configuration/")
+elseif (PLATFORM STREQUAL "Linux" AND NOT RUN_CLANG_TIDY)
+	add_custom_command(TARGET ConverterFrontend
+		COMMAND mkdir -p "${FRONTER_OUTPUT_DIRECTORY}/Configuration/" &&
+		cp -r "data/fronter/*" "${FRONTER_OUTPUT_DIRECTORY}/Configuration/" &&
+		cp -r "external/Fronter/Fronter/Resources/*yml" "${FRONTER_OUTPUT_DIRECTORY}/Configuration/" &&
+		cp external/Fronter/Fronter/Resources/converter.ico ${FRONTER_OUTPUT_DIRECTORY} &&
+		cp external/Fronter/Fronter/Resources/GeneralFAQ-READ.ME.FIRST.txt ${FRONTER_OUTPUT_DIRECTORY}
+		WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+	)
+endif (PLATFORM STREQUAL "Windows" AND NOT RUN_CLANG_TIDY)
 
 
 #### Drawer ####
 
-set(CONFIGURATION_SOURCES ${CONFIGURATION_SOURCES} "src/configuration/configuration.cpp")
-add_library(
-	Configuration
-	${CONFIGURATION_SOURCES}
-)
+include_directories(.)
+include_directories("./external/commonItems")
 
-set(COUNTRY_COLORS_SOURCES ${COUNTRY_COLORS_SOURCES} "src/country_colors/cosmetic_tags_importer.cpp")
-set(COUNTRY_COLORS_SOURCES ${COUNTRY_COLORS_SOURCES} "src/country_colors/country_color_importer.cpp")
-set(COUNTRY_COLORS_SOURCES ${COUNTRY_COLORS_SOURCES} "src/country_colors/country_definition_reader.cpp")
-set(COUNTRY_COLORS_SOURCES ${COUNTRY_COLORS_SOURCES} "src/country_colors/country_tag_file_reader.cpp")
-set(COUNTRY_COLORS_SOURCES ${COUNTRY_COLORS_SOURCES} "src/country_colors/country_tags_reader.cpp")
-add_library(
-	CountryColors
-	${COUNTRY_COLORS_SOURCES}
-)
+set(PCH_SOURCES ${PCH_SOURCES} "${PROJECT_SOURCE_DIR}/external/bitmap/bitmap_image.hpp")
+set(PCH_SOURCES ${PCH_SOURCES} "${PROJECT_SOURCE_DIR}/external/commonItems/BulkParser.h")
+set(PCH_SOURCES ${PCH_SOURCES} "${PROJECT_SOURCE_DIR}/external/commonItems/Color.h")
+set(PCH_SOURCES ${PCH_SOURCES} "${PROJECT_SOURCE_DIR}/external/commonItems/CommonFunctions.h")
+set(PCH_SOURCES ${PCH_SOURCES} "${PROJECT_SOURCE_DIR}/external/commonItems/CommonRegexes.h")
+set(PCH_SOURCES ${PCH_SOURCES} "${PROJECT_SOURCE_DIR}/external/commonItems/ConvenientParser.h")
+set(PCH_SOURCES ${PCH_SOURCES} "${PROJECT_SOURCE_DIR}/external/commonItems/ConverterVersion.h")
+set(PCH_SOURCES ${PCH_SOURCES} "${PROJECT_SOURCE_DIR}/external/commonItems/Date.h")
+set(PCH_SOURCES ${PCH_SOURCES} "${PROJECT_SOURCE_DIR}/external/commonItems/GameVersion.h")
+set(PCH_SOURCES ${PCH_SOURCES} "${PROJECT_SOURCE_DIR}/external/commonItems/Localization/LocalizationBlock.h")
+set(PCH_SOURCES ${PCH_SOURCES} "${PROJECT_SOURCE_DIR}/external/commonItems/Localization/LocalizationDatabase.h")
+set(PCH_SOURCES ${PCH_SOURCES} "${PROJECT_SOURCE_DIR}/external/commonItems/Localization/LocalizationLambdas.h")
+set(PCH_SOURCES ${PCH_SOURCES} "${PROJECT_SOURCE_DIR}/external/commonItems/Log.h")
+set(PCH_SOURCES ${PCH_SOURCES} "${PROJECT_SOURCE_DIR}/external/commonItems/ModLoader/Mod.h")
+set(PCH_SOURCES ${PCH_SOURCES} "${PROJECT_SOURCE_DIR}/external/commonItems/ModLoader/ModFilesystem.h")
+set(PCH_SOURCES ${PCH_SOURCES} "${PROJECT_SOURCE_DIR}/external/commonItems/ModLoader/ModLoader.h")
+set(PCH_SOURCES ${PCH_SOURCES} "${PROJECT_SOURCE_DIR}/external/commonItems/ModLoader/ModParser.h")
+set(PCH_SOURCES ${PCH_SOURCES} "${PROJECT_SOURCE_DIR}/external/commonItems/OSCompatibilityLayer.h")
+set(PCH_SOURCES ${PCH_SOURCES} "${PROJECT_SOURCE_DIR}/external/commonItems/Parser.h")
+set(PCH_SOURCES ${PCH_SOURCES} "${PROJECT_SOURCE_DIR}/external/commonItems/ParserHelpers.h")
+set(PCH_SOURCES ${PCH_SOURCES} "${PROJECT_SOURCE_DIR}/external/commonItems/StringUtils.h")
+set(PCH_SOURCES ${PCH_SOURCES} "${PROJECT_SOURCE_DIR}/external/commonItems/targa.h")
 
+set(MAIN_SOURCE "src/main.cpp")
+
+set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/configuration/configuration.cpp")
+set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/country_colors/cosmetic_tags_importer.cpp")
+set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/country_colors/country_color_importer.cpp")
+set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/country_colors/country_definition_reader.cpp")
+set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/country_colors/country_tag_file_reader.cpp")
+set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/country_colors/country_tags_reader.cpp")
 set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/map_drawer/controller_drawer.cpp")
 set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/map_drawer/drawer_utils.cpp")
 set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/map_drawer/faction_controller_drawer.cpp")
 set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/map_drawer/faction_ownership_drawer.cpp")
 set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/map_drawer/ownership_drawer.cpp")
-add_library(
-	MapDrawer
+set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/map_importer/map_importer.cpp")
+set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/save_reader/countries_importer.cpp")
+set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/save_reader/country_importer.cpp")
+set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/save_reader/faction_importer.cpp")
+set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/save_reader/province_importer.cpp")
+set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/save_reader/provinces_importer.cpp")
+set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/save_reader/save_importer.cpp")
+set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/save_reader/state_importer.cpp")
+set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/save_reader/states_importer.cpp")
+set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/state_definitions/state_definition_importer.cpp")
+set(MAP_DRAWER_SOURCES ${MAP_DRAWER_SOURCES} "src/state_definitions/state_definitions_importer.cpp")
+
+link_directories("./external/rakaly")
+
+add_subdirectory(external/commonItems EXCLUDE_FROM_ALL)
+
+if (RUN_CLANG_TIDY)
+	set(CMAKE_CXX_CLANG_TIDY clang-tidy --header-filter=.*src.* --config-file=${CMAKE_SOURCE_DIR}/.clang-tidy --extra-arg=/EHsc)
+endif(RUN_CLANG_TIDY)
+add_library(Hoi4MapDrawerlib
 	${MAP_DRAWER_SOURCES}
-)
-
-set(MAP_IMPORTER_SOURCES ${MAP_IMPORTER_SOURCES} "src/map_importer/map_importer.cpp")
-add_library(
-	MapImporter
-	${MAP_IMPORTER_SOURCES}
-)
-
-set(SAVE_READER_SOURCES ${SAVE_READER_SOURCES} "src/save_reader/countries_importer.cpp")
-set(SAVE_READER_SOURCES ${SAVE_READER_SOURCES} "src/save_reader/country_importer.cpp")
-set(SAVE_READER_SOURCES ${SAVE_READER_SOURCES} "src/save_reader/faction_importer.cpp")
-set(SAVE_READER_SOURCES ${SAVE_READER_SOURCES} "src/save_reader/province_importer.cpp")
-set(SAVE_READER_SOURCES ${SAVE_READER_SOURCES} "src/save_reader/provinces_importer.cpp")
-set(SAVE_READER_SOURCES ${SAVE_READER_SOURCES} "src/save_reader/save_importer.cpp")
-set(SAVE_READER_SOURCES ${SAVE_READER_SOURCES} "src/save_reader/state_importer.cpp")
-set(SAVE_READER_SOURCES ${SAVE_READER_SOURCES} "src/save_reader/states_importer.cpp")
-add_library(
-	SaveReader
-	${SAVE_READER_SOURCES}
-)
-
-set(STATE_DEFINITIONS_SOURCES ${STATE_DEFINITIONS_SOURCES} "src/state_definitions/state_definition_importer.cpp")
-set(STATE_DEFINITIONS_SOURCES ${STATE_DEFINITIONS_SOURCES} "src/state_definitions/state_definitions_importer.cpp")
-add_library(
-	StateDefintitions
-	${STATE_DEFINITIONS_SOURCES}
-)
-
-set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/Color.cpp")
-set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/CommonFunctions.cpp")
-set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/ConvenientParser.cpp")
-set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/iconvlite.cpp")
-set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/LinuxUtils.cpp")
-set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/Log.cpp")
-set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/OSCommonLayer.cpp")
-set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/Parser.cpp")
-set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/ParserHelpers.cpp")
-set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/StringUtils.cpp")
-set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/ModLoader/ModFilesystem.cpp")
-set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/ModLoader/ModLoader.cpp")
-set(COMMON_SOURCES ${COMMON_SOURCES} "external/commonItems/ModLoader/ModParser.cpp")
-add_library(
-	CommonItems
-	${COMMON_SOURCES}
-)
-
-set(MAIN_SOURCE "src/main.cpp")
+ )
+target_precompile_headers(Hoi4MapDrawerlib PUBLIC ${PCH_SOURCES})
+if (PLATFORM STREQUAL "Windows")
+	target_compile_options(Hoi4MapDrawerlib PRIVATE /permissive /W4 /w14242 /w14254 /w14263 /w14265 /w14287 /we4289 /w14296 
+        /w14311 /w14545 /w14546 /w14547 /w14549 /w14555 /w14619 /w14640 /w14826 /w14905 /w14906 /w14928 
+        /external:anglebrackets /external:W0 /WX)
+	target_link_libraries(Hoi4MapDrawerlib LINK_PUBLIC commonLib rakaly.dll.lib)
+elseif (PLATFORM STREQUAL "Linux")
+	target_link_libraries(Hoi4MapDrawerlib LINK_PUBLIC commonLib rakaly)
+endif (PLATFORM  STREQUAL "Windows")
 
 add_executable(
 	Hoi4MapDrawer
@@ -103,57 +247,157 @@ set_target_properties( Hoi4MapDrawer
     PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${MAP_DRAWER_OUTPUT_DIRECTORY}
 )
+target_precompile_headers(Hoi4MapDrawer REUSE_FROM Hoi4MapDrawerlib)
 target_compile_definitions(Hoi4MapDrawer PRIVATE cimg_display=0)
+target_link_libraries(Hoi4MapDrawer LINK_PUBLIC Hoi4MapDrawerlib)
 
-find_library(RAKALY_LIB librakaly.so PATHS "external/rakaly/" REQUIRED)
-target_link_libraries(Hoi4MapDrawer Configuration CountryColors MapDrawer MapImporter SaveReader StateDefintitions CommonItems ${RAKALY_LIB} ZIPLIB pthread)
+if (PLATFORM STREQUAL "Windows")
+	target_compile_options(Hoi4MapDrawer PRIVATE /permissive /W4 /w14242 /w14254 /w14263 /w14265 /w14287 /we4289 /w14296 
+        /w14311 /w14545 /w14546 /w14547 /w14549 /w14555 /w14619 /w14640 /w14826 /w14905 /w14906 /w14928 
+        /external:anglebrackets /external:W0 /WX)
+	target_link_libraries(Hoi4MapDrawer LINK_PUBLIC commonLib rakaly.dll.lib)
+elseif (PLATFORM STREQUAL "Linux")
+	target_link_libraries(Hoi4MapDrawer LINK_PUBLIC commonLib rakaly)
+endif (PLATFORM  STREQUAL "Windows")
 
-add_custom_command(TARGET Hoi4MapDrawer POST_BUILD WORKING_DIRECTORY ${CMAKE_SOURCE_DIR} COMMAND git rev-parse HEAD > ${MAP_DRAWER_OUTPUT_DIRECTORY}/../commit_id.txt)
+if (NOT RUN_CLANG_TIDY)
+	if (PLATFORM STREQUAL "Windows")
+		configure_file("external/rakaly/rakaly.dll" "${FRONTER_OUTPUT_DIRECTORY}/Vic3toHoi4/rakaly.dll" COPYONLY)
+	endif (PLATFORM STREQUAL "Windows")
+	add_custom_command(TARGET Hoi4MapDrawer POST_BUILD WORKING_DIRECTORY ${CMAKE_SOURCE_DIR} COMMAND git rev-parse HEAD > ${MAP_DRAWER_OUTPUT_DIRECTORY}/../commit_id.txt)
+endif (NOT RUN_CLANG_TIDY)
 
 
 #### Tests ####
 
-set(CONFIGURATION_TEST_SOURCES ${CONFIGURATION_TEST_SOURCES} "src/configuration/configuration_test.cpp")
+include_directories("./external/commonItems/external/googletest/googletest")
+include_directories("./external/commonItems/external/googletest/googletest/include")
+include_directories("./external/commonItems/external/googletest/googlemock")
+include_directories("./external/commonItems/external/googletest/googlemock/include")
 
-set(COUNTRY_COLORS_TEST_SOURCES ${COUNTRY_COLORS_TEST_SOURCES} "src/country_colors/cosmetic_tags_importer_test.cpp")
-set(COUNTRY_COLORS_TEST_SOURCES ${COUNTRY_COLORS_TEST_SOURCES} "src/country_colors/country_color_importer_test.cpp")
-set(COUNTRY_COLORS_TEST_SOURCES ${COUNTRY_COLORS_TEST_SOURCES} "src/country_colors/country_definition_reader_test.cpp")
-set(COUNTRY_COLORS_TEST_SOURCES ${COUNTRY_COLORS_TEST_SOURCES} "src/country_colors/country_tag_file_reader_test.cpp")
-set(COUNTRY_COLORS_TEST_SOURCES ${COUNTRY_COLORS_TEST_SOURCES} "src/country_colors/country_tags_reader_test.cpp")
-
-set(MAP_IMPORTER_TEST_SOURCES ${MAP_IMPORTER_TEST_SOURCES} "src/map_importer/map_importer_test.cpp")
-set(MAP_IMPORTER_TEST_SOURCES ${MAP_IMPORTER_TEST_SOURCES} "src/map_importer/pixel_test.cpp")
-
-set(SAVE_READER_TEST_SOURCES ${SAVE_READER_TEST_SOURCES} "src/save_reader/countries_importer_test.cpp")
-set(SAVE_READER_TEST_SOURCES ${SAVE_READER_TEST_SOURCES} "src/save_reader/country_importer_test.cpp")
-set(SAVE_READER_TEST_SOURCES ${SAVE_READER_TEST_SOURCES} "src/save_reader/faction_importer_test.cpp")
-set(SAVE_READER_TEST_SOURCES ${SAVE_READER_TEST_SOURCES} "src/save_reader/province_importer_test.cpp")
-set(SAVE_READER_TEST_SOURCES ${SAVE_READER_TEST_SOURCES} "src/save_reader/provinces_importer_test.cpp")
-set(SAVE_READER_TEST_SOURCES ${SAVE_READER_TEST_SOURCES} "src/save_reader/save_importer_test.cpp")
-set(SAVE_READER_TEST_SOURCES ${SAVE_READER_TEST_SOURCES} "src/save_reader/state_importer_test.cpp")
-set(SAVE_READER_TEST_SOURCES ${SAVE_READER_TEST_SOURCES} "src/save_reader/states_importer_test.cpp")
-
-set(STATE_DEFINITIONS_TEST_SOURCES ${STATE_DEFINITIONS_TEST_SOURCES} "src/state_definitions/state_definition_importer_test.cpp")
-set(STATE_DEFINITIONS_TEST_SOURCES ${STATE_DEFINITIONS_TEST_SOURCES} "src/state_definitions/state_definitions_importer_test.cpp")
-
-set(GTEST_SOURCES ${GTEST_SOURCES} "external/googletest/googletest/src/gtest_main.cc")
-set(GTEST_SOURCES ${GTEST_SOURCES} "external/googletest/googletest/src/gtest-all.cc")
-set(GTEST_SOURCES ${GTEST_SOURCES} "external/googletest/googlemock/src/gmock-all.cc")
+set(TEST_SOURCES ${TEST_SOURCES} "src/configuration/configuration_test.cpp")
+set(TEST_SOURCES ${TEST_SOURCES} "src/country_colors/cosmetic_tags_importer_test.cpp")
+set(TEST_SOURCES ${TEST_SOURCES} "src/country_colors/country_color_importer_test.cpp")
+set(TEST_SOURCES ${TEST_SOURCES} "src/country_colors/country_definition_reader_test.cpp")
+set(TEST_SOURCES ${TEST_SOURCES} "src/country_colors/country_tag_file_reader_test.cpp")
+set(TEST_SOURCES ${TEST_SOURCES} "src/country_colors/country_tags_reader_test.cpp")
+set(TEST_SOURCES ${TEST_SOURCES} "src/map_importer/map_importer_test.cpp")
+set(TEST_SOURCES ${TEST_SOURCES} "src/map_importer/pixel_test.cpp")
+set(TEST_SOURCES ${TEST_SOURCES} "src/save_reader/countries_importer_test.cpp")
+set(TEST_SOURCES ${TEST_SOURCES} "src/save_reader/country_importer_test.cpp")
+set(TEST_SOURCES ${TEST_SOURCES} "src/save_reader/faction_importer_test.cpp")
+set(TEST_SOURCES ${TEST_SOURCES} "src/save_reader/province_importer_test.cpp")
+set(TEST_SOURCES ${TEST_SOURCES} "src/save_reader/provinces_importer_test.cpp")
+set(TEST_SOURCES ${TEST_SOURCES} "src/save_reader/save_importer_test.cpp")
+set(TEST_SOURCES ${TEST_SOURCES} "src/save_reader/state_importer_test.cpp")
+set(TEST_SOURCES ${TEST_SOURCES} "src/save_reader/states_importer_test.cpp")
+set(TEST_SOURCES ${TEST_SOURCES} "src/state_definitions/state_definition_importer_test.cpp")
+set(TEST_SOURCES ${TEST_SOURCES} "src/state_definitions/state_definitions_importer_test.cpp")
 
 add_executable(
 	Hoi4MapDrawerTests
-	${CONFIGURATION_TEST_SOURCES}
-	${COUNTRY_COLORS_TEST_SOURCES}
-	${MAP_IMPORTER_TEST_SOURCES}
-	${SAVE_READER_TEST_SOURCES}
-	${STATE_DEFINITIONS_TEST_SOURCES}
-	${GTEST_SOURCES}
+	${TEST_SOURCES}
 )
-set_target_properties( Hoi4MapDrawerTests
+set_target_properties(Hoi4MapDrawerTests
     PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${TEST_OUTPUT_DIRECTORY}
 )
+target_precompile_headers(Hoi4MapDrawerTests REUSE_FROM Hoi4MapDrawerlib)
+if (PLATFORM STREQUAL "Windows")
+	target_compile_options(Hoi4MapDrawerTests PRIVATE /permissive /W4 /w14242 /w14254 /w14263 /w14265 /w14287 /we4289 
+        /w14296 /w14311 /w14545 /w14546 /w14547 /w14549 /w14555 /w14619 /w14640 /w14826 /w14905 /w14906 /w14928 
+        /external:anglebrackets /external:W0 /WX)
+elseif (PLATFORM STREQUAL "Linux")
+endif (PLATFORM STREQUAL "Windows")
 
 file(COPY "data/test_data" DESTINATION "${TEST_OUTPUT_DIRECTORY}")
+if (PLATFORM STREQUAL "Windows")
+	configure_file("external/rakaly/rakaly.dll" "${TEST_OUTPUT_DIRECTORY}/rakaly.dll" COPYONLY)
+endif (PLATFORM STREQUAL "Windows")
 
-target_link_libraries(Hoi4MapDrawerTests Configuration CountryColors MapDrawer MapImporter SaveReader StateDefintitions CommonItems ${RAKALY_LIB} ZIPLIB pthread)
+target_link_libraries(Hoi4MapDrawerTests LINK_PUBLIC Hoi4MapDrawerlib GtestLib)
+
+enable_testing()
+
+add_test(NAME Hoi4MapDrawerTests COMMAND Hoi4MapDrawerTests WORKING_DIRECTORY ${TEST_OUTPUT_DIRECTORY})
+
+####  Coverage ####
+
+if (COVERAGE STREQUAL true)
+	add_custom_target(gcov
+		COMMAND mkdir -p gcoverage
+	)
+	add_custom_command(TARGET gcov
+		COMMAND echo "=================== GCOV ===================="
+		COMMAND echo "-- Source directories:"
+		COMMAND echo "		${CMAKE_SOURCE_DIR}/src/"
+		COMMAND echo "-- Coverage files have been output to ${CMAKE_BINARY_DIR}/gcoverage"
+	)
+
+	add_custom_target(lcov
+		COMMAND mkdir -p lcoverage
+	)
+	add_custom_command(TARGET lcov
+		COMMAND echo "=================== LCOV ===================="
+		COMMAND echo "-- Passing lcov tool under code coverage"
+		COMMAND lcov --c --d CMakeFiles/Hoi4MapDrawerTests.dir/src/ --d CMakeFiles/Hoi4MapDrawerTests.dir/src/ --o lcoverage/coverage.info --ignore-errors inconsistent,inconsistent,unused,unused
+		COMMAND lcov --remove lcoverage/coverage.info "/usr/include/c++/11/*" -o lcoverage/coverage.info --ignore-errors inconsistent,inconsistent,unused,unused
+		COMMAND lcov --remove lcoverage/coverage.info "/usr/include/c++/11/bits/*" -o lcoverage/coverage.info --ignore-errors inconsistent,inconsistent,unused,unused
+		COMMAND lcov --remove lcoverage/coverage.info "/usr/include/c++/11/ext/*" -o lcoverage/coverage.info --ignore-errors inconsistent,inconsistent,unused,unused
+		COMMAND lcov --remove lcoverage/coverage.info "/usr/include/x86_64-linux-gnu/c++/11/bits/*" -o lcoverage/coverage.info --ignore-errors inconsistent,inconsistent,unused,unused
+		COMMAND lcov --remove lcoverage/coverage.info "/usr/include/c++/12/*" -o lcoverage/coverage.info --ignore-errors inconsistent,inconsistent,unused,unused
+		COMMAND lcov --remove lcoverage/coverage.info "/usr/include/c++/12/bits/*" -o lcoverage/coverage.info --ignore-errors inconsistent,inconsistent,unused,unused
+		COMMAND lcov --remove lcoverage/coverage.info "/usr/include/c++/12/ext/*" -o lcoverage/coverage.info --ignore-errors inconsistent,inconsistent,unused,unused
+		COMMAND lcov --remove lcoverage/coverage.info "/usr/include/x86_64-linux-gnu/c++/12/bits/*" -o lcoverage/coverage.info --ignore-errors inconsistent,inconsistent,unused,unused
+		COMMAND lcov --remove lcoverage/coverage.info "/usr/include/c++/13/*" -o lcoverage/coverage.info --ignore-errors inconsistent,inconsistent,unused,unused
+		COMMAND lcov --remove lcoverage/coverage.info "/usr/include/c++/13/bits/*" -o lcoverage/coverage.info --ignore-errors inconsistent,inconsistent,unused,unused
+		COMMAND lcov --remove lcoverage/coverage.info "/usr/include/c++/13/ext/*" -o lcoverage/coverage.info --ignore-errors inconsistent,inconsistent,unused,unused
+		COMMAND lcov --remove lcoverage/coverage.info "/usr/include/x86_64-linux-gnu/c++/13/bits/*" -o lcoverage/coverage.info --ignore-errors inconsistent,inconsistent,unused,unused
+		COMMAND lcov --remove lcoverage/coverage.info "/usr/include/c++/14/*" -o lcoverage/coverage.info --ignore-errors inconsistent,inconsistent,unused,unused
+		COMMAND lcov --remove lcoverage/coverage.info "/usr/include/c++/14/bits/*" -o lcoverage/coverage.info --ignore-errors inconsistent,inconsistent,unused,unused
+		COMMAND lcov --remove lcoverage/coverage.info "/usr/include/c++/14/ext/*" -o lcoverage/coverage.info --ignore-errors inconsistent,inconsistent,unused,unused
+		COMMAND lcov --remove lcoverage/coverage.info "/usr/include/x86_64-linux-gnu/c++/14/bits/*" -o lcoverage/coverage.info --ignore-errors inconsistent,inconsistent,unused,unused
+		COMMAND lcov --remove lcoverage/coverage.info "/usr/lib/gcc/x86_64-linux-gnu/12/include/*" -o lcoverage/coverage.info --ignore-errors inconsistent,inconsistent,unused,unused
+		COMMAND lcov --remove lcoverage/coverage.info "/usr/lib/gcc/x86_64-linux-gnu/13/include/*" -o lcoverage/coverage.info --ignore-errors inconsistent,inconsistent,unused,unused
+		COMMAND lcov --remove lcoverage/coverage.info "/usr/lib/gcc/x86_64-linux-gnu/14/include/*" -o lcoverage/coverage.info --ignore-errors inconsistent,inconsistent,unused,unused
+		COMMAND lcov --remove lcoverage/coverage.info '*/external/bitmap/*' -o lcoverage/coverage.info --ignore-errors inconsistent,inconsistent,unused,unused
+		COMMAND lcov --remove lcoverage/coverage.info '*/external/commonItems/*' -o lcoverage/coverage.info --ignore-errors inconsistent,inconsistent,unused,unused
+		COMMAND lcov --remove lcoverage/coverage.info '*/external/rakaly/*' -o lcoverage/coverage.info --ignore-errors inconsistent,inconsistent,unused,unused
+		COMMAND lcov --remove lcoverage/coverage.info '*/external/stb/*' -o lcoverage/coverage.info --ignore-errors inconsistent,inconsistent,unused,unused
+		COMMAND lcov --remove lcoverage/coverage.info '*/gmock/*' -o lcoverage/coverage.info --ignore-errors inconsistent,inconsistent,unused,unused
+		COMMAND lcov --remove lcoverage/coverage.info '*/gtest/*' -o lcoverage/coverage.info --ignore-errors inconsistent,inconsistent,unused,unused
+		COMMAND lcov --remove lcoverage/coverage.info '*/gtest/internal/*' -o lcoverage/coverage.info --ignore-errors inconsistent,inconsistent,unused,unused
+		COMMAND echo "-- Generating HTML output files"
+		COMMAND genhtml lcoverage/coverage.info --output-directory lcoverage --ignore-errors inconsistent,inconsistent,unused,unused
+	)
+	add_dependencies(gcov Hoi4MapDrawerTests)
+
+	# Make sure to clean up the coverage folder
+	set_property(DIRECTORY APPEND PROPERTY ADDITIONAL_MAKE_CLEAN_FILES gcoverage)
+
+	# Create the gcov-clean target. This cleans the build as well as generated 
+	# .gcda and .gcno files.
+	add_custom_target(init
+		COMMAND ${CMAKE_MAKE_PROGRAM} clean
+		COMMAND rm -f ${TEST_OUTPUT_DIRECTORY}/*.gcno
+		COMMAND rm -f ${TEST_OUTPUT_DIRECTORY}/*.gcda
+		WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+	)
+endif (COVERAGE STREQUAL true)
+
+
+#### Clang-tidy ####
+
+#find_program(CLANG_TIDY_EXE NAMES "clang-tidy")
+#set(CLANG_TIDY_COMMAND "${CLANG_TIDY_EXE}")
+# checks to maybe add:
+#  cert-*
+#  cppcoreguidelines-*,
+
+add_library(run_clang_tidy
+	${CONVERTER_SOURCES}
+	${TEST_SOURCES}
+ )
+target_link_libraries(run_clang_tidy pthread)
+set_target_properties(run_clang_tidy PROPERTIES CXX_CLANG_TIDY "${CLANG_TIDY_COMMAND}")
+add_dependencies(run_clang_tidy Hoi4MapDrawer Hoi4MapDrawerTests)
