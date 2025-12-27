@@ -11,7 +11,7 @@ concurrency:
 
 jobs:
   build_test_and_publish:
-    name: Build, test and publish local
+    name: Run clang-tidy local
     if: github.repository_owner == 'ParadoxGameConverters'
     runs-on: [self-hosted, windows]
 
@@ -29,10 +29,7 @@ jobs:
         submodules: recursive
 
     - name: "Cloning selective submodules"
-      run: |
-       git submodule update --init --recursive external\commonItems
-       git -c submodule."external/commonItems".update=none `
-           submodule update --init --recursive external\Fronter
+      run: git submodule update --init --recursive
 
     - name: Build with cmake
       shell: cmd
@@ -47,7 +44,7 @@ jobs:
         Get-ChildItem -Path $Env:GITHUB_WORKSPACE -Recurse -Force | Remove-Item -force -recurse
 
   build_test:
-    name: Build and test foreign
+    name: Run clang-tidy foreign
     if: github.repository_owner != 'ParadoxGameConverters'
     runs-on: windows-2022
 
@@ -58,10 +55,7 @@ jobs:
         submodules: recursive
 
     - name: "Cloning selective submodules"
-      run: |
-       git submodule update --init --recursive external\commonItems
-       git -c submodule."external/commonItems".update=none `
-           submodule update --init --recursive external\Fronter
+      run: git submodule update --init --recursive
 
     - name: Install ninja
       run: |
