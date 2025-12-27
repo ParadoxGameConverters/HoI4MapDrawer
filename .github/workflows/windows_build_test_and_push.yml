@@ -6,56 +6,88 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build_test_and_publish:
     name: Build, test and publish local
     if: github.repository_owner == 'ParadoxGameConverters'
-    runs-on: windows-latest
+    runs-on: [self-hosted, windows]
 
     steps:
     - name: work around permission issue
       run: git config --global --add safe.directory /github/workspace
 
+    - name: Add Ninja build to PATH
+      run: echo "c:\program files\ninja" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+
+    - name: "Cloning repo"
     - uses: actions/checkout@v5
       with:
         fetch-depth: 0
         submodules: recursive
-        
-    - name: Setup Dotnet for use with actions
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: '6.*'
-        
-    - name: Setup fronter in Dot Net
-      run: |
-        cd "external/Fronter.Net"
-        dotnet restore
 
-    - name: "Build solution"
+    - name: "Cloning selective submodules"
       run: |
-       cd "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\"
-       .\MSBuild.exe -m -p:Configuration=Release $Env:GITHUB_WORKSPACE\Hoi4MapDrawer.sln
-       
+       git submodule update --init --recursive external\commonItems
+       git -c submodule."external/commonItems".update=none `
+           submodule update --init --recursive external\Fronter
+
+    - name: "Fetching tags"
+      run: |
+       git fetch --tags
+       git tag
+
+    - name: "Generate semantic version number"
+      uses: paulhatch/semantic-version@v5.4.0
+      id: version_number
+      with:
+        # The prefix to use to identify tags
+        tag_prefix: ""
+        # A string which, if present in a git commit, indicates that a change represents a
+        # major (breaking) change, supports regular expressions wrapped with '/'
+        major_pattern: "(MAJOR)"
+        # A string which indicates the flags used by the `major_pattern` regular expression. Supported flags: idgs
+        major_regexp_flags: ""
+        # Same as above except indicating a minor change, supports regular expressions wrapped with '/'
+        minor_pattern: "(MINOR)"
+        # A string which indicates the flags used by the `minor_pattern` regular expression. Supported flags: idgs
+        minor_regexp_flags: ""
+        # A string to determine the format of the version output
+        version_format: "v${major}.${minor}.${patch}"
+        # If this is set to true, *every* commit will be treated as a new version.
+        bump_each_commit: true
+        # If true, the body of commits will also be searched for major/minor patterns to determine the version type.
+        search_commit_body: false
+        # The output method used to generate list of users, 'csv' or 'json'.
+        user_format_type: "csv"
+
+    - name: "Echo version number"
+      run: |
+       echo ${{ steps.version_number.outputs.major }}.${{ steps.version_number.outputs.minor }}.${{ steps.version_number.outputs.patch }}
+
+
+    - name: Build with cmake
+      shell: cmd
+      run: |
+        call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
+        cmake --preset x64-release-windows
+        cmake --build --preset build-x64-release-windows --target Hoi4MapDrawer ConverterFrontend Hoi4MapDrawerTests -- -j40
+
     - name: "Run tests"
       run: |
-       cd $Env:GITHUB_WORKSPACE\build\tests\Release
+       cd $Env:GITHUB_WORKSPACE\build\test\Release-Windows
        .\Hoi4MapDrawerTests.exe
-       
-    # - name: "Build updater executable"
-      # run: |
-       # cd external/Fronter/Updater
-       # pip3 install -r requirements.txt
-       # pyinstaller --onefile --icon=updater.ico updater.py
-       # mkdir ../../../build/Release/Updater
-       # mv dist/updater.exe ../../../build/Release/Updater/updater.exe
-       
+
     - name: "Prepare release"
-      if: ${{ github.event_name == 'push' }}
       run: |
        cd "C:\Program Files\7-Zip\"
-       #.\7z.exe a $Env:GITHUB_WORKSPACE\Hoi4MapDrawer-0.0Null-win-x64.zip $Env:GITHUB_WORKSPACE\build\Release\*
-       .\7z.exe a $Env:GITHUB_WORKSPACE\Hoi4MapDrawer-latest-win-x64.zip $Env:GITHUB_WORKSPACE\build\Release\*
+       .\7z.exe a $Env:GITHUB_WORKSPACE\Hoi4MapDrawer-${{ steps.version_number.outputs.major }}.${{ steps.version_number.outputs.minor }}-win-x64.zip $Env:GITHUB_WORKSPACE\build\Release-Windows\*
+       .\7z.exe a $Env:GITHUB_WORKSPACE\Hoi4MapDrawer-latest-win-x64.zip $Env:GITHUB_WORKSPACE\build\Release-Windows\*
        
     # - name: "Upload binaries to named release"
       # if: ${{ github.event_name == 'push' }}
@@ -79,8 +111,20 @@ jobs:
         artifacts: Hoi4MapDrawer-latest-win-x64.zip
         token: ${{ secrets.API_TOKEN_GITHUB }}
 
+    - name: "Prepare pull request artifact"
+      if: ${{ github.event_name == 'pull_request' }}
+      run: |
+       cd "C:\Program Files\7-Zip\"
+       .\7z.exe a $Env:GITHUB_WORKSPACE\Hoi4MapDrawer-pull-request-win-x64.zip $Env:GITHUB_WORKSPACE\build\Release-Windows\*
+
+    - uses: actions/upload-artifact@v5
+      if: ${{ github.event_name == 'pull_request' }}
+      with:
+        name: pull-request-version
+        path: Hoi4MapDrawer-pull-request-win-x64.zip
+
     - name: "Cleanup"
-      if: ${{ true }}
+      if: always()
       run: |
         Get-ChildItem -Path $Env:GITHUB_WORKSPACE -Recurse -Force | Remove-Item -force -recurse
 
@@ -90,30 +134,34 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: work around permission issue
-      run: git config --global --add safe.directory /github/workspace
-
-    - uses: actions/checkout@v5
+    - name: "Cloning repo"
+      uses: actions/checkout@v5
       with:
-        fetch-depth: 0
         submodules: recursive
-        
-    - name: Setup Dotnet for use with actions
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: '6.*'
-        
-    - name: Setup fronter in Dot Net
-      run: |
-        cd "external/Fronter.Net"
-        dotnet restore
 
-    - name: "Build solution"
+    - name: "Cloning selective submodules"
       run: |
-       cd "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\"
-       .\MSBuild.exe -m -p:Configuration=Release $Env:GITHUB_WORKSPACE\Hoi4MapDrawer.sln
+       git submodule update --init --recursive external\commonItems
+       git -c submodule."external/commonItems".update=none `
+           submodule update --init --recursive external\Fronter
+
+    - name: Install ninja
+      run: |
+        choco install ninja
+
+    - name: Build with cmake
+      shell: cmd
+      run: |
+        call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
+        cmake --preset x64-release-windows
+        cmake --build --preset build-x64-release-windows --target Hoi4MapDrawer ConverterFrontend Hoi4MapDrawerTests -- -j40
 
     - name: "Run tests"
       run: |
-       cd $Env:GITHUB_WORKSPACE\build\tests\Release
-       .\Hoi4MapDrawer.exe
+       cd $Env:GITHUB_WORKSPACE\build\test\Release-Windows
+       .\Hoi4MapDrawerTests.exe
+
+    - name: "Cleanup"
+      if: always()
+      run: |
+        Get-ChildItem -Path $Env:GITHUB_WORKSPACE -Recurse -Force | Remove-Item -force -recurse
