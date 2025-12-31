@@ -1,5 +1,5 @@
-name = MapDrawer
-converterFolder = MapDrawer
+name = Hoi4MapDrawer
+converterFolder = Hoi4MapDrawer
 backendExePath = Hoi4MapDrawer
 enableUpdateChecker = true
 checkForUpdatesOnStartup = true

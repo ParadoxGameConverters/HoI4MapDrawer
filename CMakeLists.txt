@@ -262,7 +262,7 @@ endif (PLATFORM  STREQUAL "Windows")
 
 if (NOT RUN_CLANG_TIDY)
 	if (PLATFORM STREQUAL "Windows")
-		configure_file("external/rakaly/rakaly.dll" "${FRONTER_OUTPUT_DIRECTORY}/Vic3toHoi4/rakaly.dll" COPYONLY)
+		configure_file("external/rakaly/rakaly.dll" "${FRONTER_OUTPUT_DIRECTORY}/Hoi4MapDrawer/rakaly.dll" COPYONLY)
 	endif (PLATFORM STREQUAL "Windows")
 	add_custom_command(TARGET Hoi4MapDrawer POST_BUILD WORKING_DIRECTORY ${CMAKE_SOURCE_DIR} COMMAND git rev-parse HEAD > ${MAP_DRAWER_OUTPUT_DIRECTORY}/../commit_id.txt)
 endif (NOT RUN_CLANG_TIDY)
